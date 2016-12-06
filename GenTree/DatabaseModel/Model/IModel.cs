@@ -11,5 +11,6 @@ namespace DatabaseModel.Model
     {
         IDictionary<Int32, Person> FindPeople(Person mask);
         IDictionary<Int32, Person> BuildTree(Int32 code);
+        Int32 AddPerson(Person person);
     }
 }

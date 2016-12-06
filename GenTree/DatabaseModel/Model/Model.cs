@@ -14,10 +14,11 @@ namespace DatabaseModel.Model
     {
         protected IFindPerson findPerson;
         protected ITreeFormer treeFormer;
+        protected IDatabase dataBase;
 
         public Model()
         {
-            IDatabase dataBase = new Database.Database();
+            dataBase = new Database.Database();
             findPerson = new FindPerson.FindPerson(ref dataBase);
             treeFormer = new TreeFormer.TreeFormer(ref dataBase);
         }
@@ -30,6 +31,11 @@ namespace DatabaseModel.Model
         public IDictionary<Int32, Person> BuildTree(Int32 code)
         {
             return treeFormer.FormTree(code);
+        }
+
+        public Int32 AddPerson(Person person)
+        {
+            return dataBase.AddPerson(person);
         }
     }
 }

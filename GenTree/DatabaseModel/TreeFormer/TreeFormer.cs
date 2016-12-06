@@ -11,7 +11,7 @@ namespace DatabaseModel.TreeFormer
     class TreeFormer : ITreeFormer
     {
         protected IDatabase database;
-        public TreeFormer(IDatabase dtBase)
+        public TreeFormer(ref IDatabase dtBase)
         {
             if (null == dtBase)
                 throw new NullReferenceException();

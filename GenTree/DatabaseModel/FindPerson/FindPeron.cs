@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace DatabaseModel.FindPerson
 {
-    class FindPeron : IFindPerson
+    class FindPerson : IFindPerson
     {
         protected IDatabase database;
-        public FindPeron(IDatabase dtBase)
+        public FindPerson(ref IDatabase dtBase)
         {
             if (null == dtBase)
                 throw new NullReferenceException();

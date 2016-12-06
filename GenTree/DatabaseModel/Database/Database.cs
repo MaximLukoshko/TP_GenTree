@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseModel.Database
 {
-    class Database : IDatabase
+    internal class Database : IDatabase
     {
         protected IDictionary<Int32, Person> data;
 

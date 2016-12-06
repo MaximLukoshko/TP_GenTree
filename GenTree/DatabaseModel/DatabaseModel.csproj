@@ -39,9 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Database\IDatabase.cs" />
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="FindPerson\FindPeron.cs" />
+    <Compile Include="FindPerson\IFindPerson.cs" />
+    <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TreeFormer\ITreeFormer.cs" />
+    <Compile Include="TreeFormer\TreeFormer.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

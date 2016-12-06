@@ -11,6 +11,7 @@ namespace Data
         public String FirstName { get; set; }
         public String SecondName { get; set; }
         public String MiddleName { get; set; }
+        public Boolean Gender { get; set; } // true - мужской, false - женский
         public DateTime BirthDate { get; set; }
         public Boolean IsCorrectDate { get; set; }
         public String BirthPlace { get; set; }
@@ -26,7 +27,5 @@ namespace Data
         public ICollection<LocationFromTo> Location { get; set; }
         public String DataSource { get; set; }
         public String Note { get; set; }
-
-
     }
 }

@@ -18,8 +18,8 @@ namespace DatabaseModel.Database
 
         public Int32 AddPerson(Person person)
         {
-            data.Add(data.Count, person);
-            return data.Count - 1;
+            data.Add(data.Count + 1, person);
+            return data.Count;
         }
 
         public Person GetPersonByCode(Int32 code)

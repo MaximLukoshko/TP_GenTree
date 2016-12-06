@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    class LocationFromTo
+    public class LocationFromTo
     {
         public LocationFromTo(String place, DateTime dateFrom, DateTime dateTo)
         {

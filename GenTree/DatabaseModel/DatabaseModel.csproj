@@ -49,7 +49,12 @@
     <Compile Include="TreeFormer\ITreeFormer.cs" />
     <Compile Include="TreeFormer\TreeFormer.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{9b467cbb-0170-4f65-88dd-547b682d2c50}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

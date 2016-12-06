@@ -24,17 +24,12 @@ namespace DatabaseModel.Model
 
         public IDictionary<Int32, Person> FindPeople(Person mask)
         {
-            throw new NotImplementedException();
-        }
-
-        public IDictionary<Int32, Person> GetPeople(Person mask)
-        {
-            throw new NotImplementedException();
+            return findPerson.GetPeople(mask);
         }
 
         public IDictionary<Int32, Person> BuildTree(Int32 code)
         {
-            throw new NotImplementedException();
+            return treeFormer.FormTree(code);
         }
     }
 }

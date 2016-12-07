@@ -23,5 +23,10 @@ namespace DatabaseModel.FindPerson
         {
             return database.GetPeople(mask);
         }
+
+        public String FindRelation(Int32 first_code, Int32 second_code)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

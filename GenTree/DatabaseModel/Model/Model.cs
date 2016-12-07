@@ -37,5 +37,10 @@ namespace DatabaseModel.Model
         {
             return dataBase.AddPerson(person);
         }
+
+        public String FindRelations(Int32 first_code, Int32 second_code)
+        {
+            return findPerson.FindRelation(first_code, second_code);
+        }
     }
 }

@@ -13,7 +13,6 @@ namespace Data
         public String MiddleName { get; set; }
         public Boolean Gender { get; set; } // true - мужской, false - женский
         public DateTime BirthDate { get; set; }
-        public Boolean IsCorrectDate { get; set; }
         public String BirthPlace { get; set; }
         public Int32 Code { get; set; }
         public Int32 Mother { get; set; }
@@ -24,7 +23,7 @@ namespace Data
         public String SocialStatus { get; set; }
         public ICollection<String> Education { get; set; }
         public ICollection<String> Profession { get; set; }
-        public ICollection<LocationFromTo> Location { get; set; }
+        public ICollection<String> Location { get; set; }
         public String DataSource { get; set; }
         public String Note { get; set; }
     }

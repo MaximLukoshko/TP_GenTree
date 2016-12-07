@@ -41,7 +41,13 @@ namespace DatabaseModel.Database
                     continue;
                 if (mask.BirthPlace.Length > 0 && person.BirthPlace.IndexOf(mask.BirthPlace) < 0)
                     continue;
-                if (mask.IsCorrectDate && person.BirthDate != mask.BirthDate)
+                if (mask.BirthDate.Year > 1920 && person.BirthDate.Year != mask.BirthDate.Year)
+                    continue;
+                if (mask.BirthDate.Month> 1920 && person.BirthDate.Month!= mask.BirthDate.Month)
+                    continue;
+                if (mask.BirthDate.Day > 1920 && person.BirthDate.Day != mask.BirthDate.Day)
+                    continue;
+                if (null != mask.Gender && person.Gender != mask.Gender)
                     continue;
                 
                 //Если всё совпало с маской, то добавляем человека

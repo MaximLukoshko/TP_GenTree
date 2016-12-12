@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data;
+using DatabaseModel.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +19,9 @@ namespace GenTree
         ToolStripLabel timeLabel;
         ToolStripLabel infoLabel;
         Timer timer;
+
+        IModel model;
+
         public StartWin()
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -43,7 +48,7 @@ namespace GenTree
 
         private void новыйРодственникToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddForm form = new AddForm();
+            AddForm form = new AddForm(ref model);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();
@@ -51,7 +56,8 @@ namespace GenTree
 
         private void человекаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FindForm form = new FindForm(3);
+            Int32 per=0;
+            FindForm form = new FindForm(false,ref per, ref model);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();

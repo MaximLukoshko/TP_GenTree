@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data;
+using DatabaseModel.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,23 +14,21 @@ namespace GenTree
 {
     public partial class FindForm : Form
     {
-        public FindForm(int i)
+        Person mask;
+        IModel locmodel;
+        public FindForm(Boolean gender,ref int parent,ref IModel model)
         {
+            locmodel=model;
             InitializeComponent();
-            if (i == 1)
+            if (!gender)
             {
                 label14.Enabled = true;
                 textBox9.Enabled = true;
             }
-            if (i == 2)
+            if (gender)
             {
                 label14.Enabled = false;
                 textBox9.Enabled = false;
-            }
-            if (i == 3)
-            {
-                label14.Enabled = true;
-                textBox9.Enabled = true;
             }
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
@@ -39,13 +39,14 @@ namespace GenTree
         }
 
         private void button1_Click_1(object sender, EventArgs e)
-        {
-            List<string> _items = new List<string>(); // <-- Add this
+        { 
+            mask.FirstName = textBox1.Text;
+            mask.MiddleName = textBox2.Text;
+            mask.SecondName = textBox4.Text;
+            mask.BirthPlace = textBox8.Text;
+            mask.BirthDate = new DateTime(comboBox3.SelectedIndex + 1919, comboBox2.SelectedIndex, comboBox1.SelectedIndex);
 
-
-            _items.Add("Результат"); // <-- Add these
-            _items.Add("Еще результат");
-            _items.Add("( ͡° ͜ʖ ͡°)");
+            IDictionary<Int32, Person> _items =  locmodel.FindPeople(mask);
 
             listBox1.DataSource = _items;
         }

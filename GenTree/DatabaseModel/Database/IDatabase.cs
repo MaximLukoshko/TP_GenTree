@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseModel.Database
 {
-    internal interface IDatabase
+    public interface IDatabase
     {
         Int32 AddPerson(Person person);
         Person GetPersonByCode(Int32 code);

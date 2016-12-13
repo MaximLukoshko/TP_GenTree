@@ -41,11 +41,11 @@ namespace DatabaseModel.Database
                     continue;
                 if (mask.BirthPlace.Length > 0 && person.BirthPlace.IndexOf(mask.BirthPlace) < 0)
                     continue;
-                if (mask.BirthDate.Year > 1920 && person.BirthDate.Year != mask.BirthDate.Year)
+                if (mask.BirthDateCorrectField[0] && person.BirthDate.Year != mask.BirthDate.Year)
                     continue;
-                if (mask.BirthDate.Month> 1920 && person.BirthDate.Month!= mask.BirthDate.Month)
+                if (mask.BirthDateCorrectField[1] && person.BirthDate.Month != mask.BirthDate.Month)
                     continue;
-                if (mask.BirthDate.Day > 1920 && person.BirthDate.Day != mask.BirthDate.Day)
+                if (mask.BirthDateCorrectField[2] && person.BirthDate.Day != mask.BirthDate.Day) 
                     continue;
                 if (null != mask.Gender && person.Gender != mask.Gender)
                     continue;

@@ -38,6 +38,8 @@ namespace GenTree
             timer = new Timer() { Interval = 1000 };
             timer.Tick += timer_Tick;
             timer.Start();
+
+            model = new Model();
         }
 
         void timer_Tick(object sender, EventArgs e)

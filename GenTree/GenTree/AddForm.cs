@@ -29,11 +29,26 @@ namespace GenTree
 
         private void button1_Click(object sender, EventArgs e)
         {
-            person.BirthDate = new DateTime(comboBox3.SelectedIndex+1919, comboBox2.SelectedIndex, comboBox1.SelectedIndex);
+            person = new Person();
+            person.BirthDate = new DateTime(comboBox3.SelectedIndex == -1 ? 1 : comboBox3.SelectedIndex + 1919,
+                comboBox2.SelectedIndex == -1 ? 1 : comboBox2.SelectedIndex + 1,
+                comboBox1.SelectedIndex == -1 ? 1 : comboBox1.SelectedIndex + 1);
+            
+            person.BirthDateCorrectField[0] = comboBox3.SelectedIndex != -1;
+            person.BirthDateCorrectField[1] = comboBox2.SelectedIndex != -1;
+            person.BirthDateCorrectField[2] = comboBox1.SelectedIndex != -1;
+
             person.BirthPlace= textBox8.Text;
           //  person.Code =;
             person.DataSource = textBox14.Text;
-            person.DeathDate = new DateTime(comboBox4.SelectedIndex + 1919, comboBox5.SelectedIndex, comboBox6.SelectedIndex);
+            person.DeathDate = new DateTime(comboBox4.SelectedIndex == -1 ? 1 : comboBox4.SelectedIndex + 1919,
+                comboBox5.SelectedIndex == -1 ? 1 : comboBox5.SelectedIndex + 1,
+                comboBox6.SelectedIndex == -1 ? 1 : comboBox6.SelectedIndex + 1);
+
+            person.DeathDateCorrectField[0] = comboBox4.SelectedIndex != -1;
+            person.DeathDateCorrectField[1] = comboBox5.SelectedIndex != -1;
+            person.DeathDateCorrectField[2] = comboBox6.SelectedIndex != -1;
+
             person.DeathPlace = textBox13.Text;
             foreach (string s in textBox11.Lines)
                 person.Education.Add(s);

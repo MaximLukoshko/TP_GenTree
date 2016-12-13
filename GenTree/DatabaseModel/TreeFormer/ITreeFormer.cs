@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseModel.TreeFormer
 {
-    internal interface ITreeFormer
+    public interface ITreeFormer
     {
         IDictionary<Int32, Person> FormTree(Int32 code);
     }

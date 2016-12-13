@@ -1,7 +1,0 @@
-C:\Users\VASYAN\Desktop\GenTree\DatabaseModel\bin\Debug\DatabaseModel.dll
-C:\Users\VASYAN\Desktop\GenTree\DatabaseModel\bin\Debug\DatabaseModel.pdb
-C:\Users\VASYAN\Desktop\GenTree\DatabaseModel\bin\Debug\Data.dll
-C:\Users\VASYAN\Desktop\GenTree\DatabaseModel\bin\Debug\Data.pdb
-C:\Users\VASYAN\Desktop\GenTree\DatabaseModel\obj\Debug\DatabaseModel.csprojResolveAssemblyReference.cache
-C:\Users\VASYAN\Desktop\GenTree\DatabaseModel\obj\Debug\DatabaseModel.dll
-C:\Users\VASYAN\Desktop\GenTree\DatabaseModel\obj\Debug\DatabaseModel.pdb

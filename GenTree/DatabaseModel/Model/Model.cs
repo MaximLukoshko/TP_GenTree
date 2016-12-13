@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseModel.Model
 {
-    class Model : IModel
+    public class Model : IModel
     {
         protected IFindPerson findPerson;
         protected ITreeFormer treeFormer;

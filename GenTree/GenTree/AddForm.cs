@@ -32,14 +32,42 @@ namespace GenTree
             InitializeComponent();
             person = infoPerson;
             birthDateYearComboBox.SelectedIndex = person.BirthDateCorrectField[0] == true ? person.BirthDate.Year - 1919 : -1;
-            birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month : -1;
-            birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day : -1;
+            birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month - 1 : -1;
+            birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day - 1 : -1;
 
             middleNameTextBox.Text = person.FirstName;
             firstNameTextBox.Text = person.SecondName;
             textBox15.Text = person.MotherSecondName;
             secondNameTextBox.Text = person.MiddleName;
 
+            birthPlaceTextBox.Text = person.BirthPlace;
+
+            deathDateYearComboBox.SelectedIndex = person.DeathDateCorrectField[0] == true ? person.DeathDate.Year - 1919 : -1;
+            deathDateMonthComboBox.SelectedIndex = person.DeathDateCorrectField[1] == true ? person.DeathDate.Month - 1 : -1;
+            deathDateDayComboBox.SelectedIndex = person.DeathDateCorrectField[2] == true ? person.DeathDate.Day - 1 : -1;
+
+            deathDayTextBox.Text = person.DeathPlace;
+            foreach (String educLine in person.Education)
+                textBox18.Text += educLine + Environment.NewLine;
+            father=person.Father;
+
+            genderRadioButton.Checked = person.Gender;
+            radioButton2.Checked = !person.Gender;
+
+            foreach (String locLine in person.Location)
+                textBox16.Text += locLine + Environment.NewLine;
+
+            mother = person.Mother;
+            nationalityTextBox.Text = person.Nationality;
+
+            foreach (String profLine in person.Profession)
+                textBox17.Text += profLine + Environment.NewLine;
+
+            socialStatusTextBox.Text = person.SocialStatus;
+            textBox12.Text = person.Note;
+            dataSourceTextBox.Text = person.DataSource;
+
+            // Блокируем возможность изменять анкету
             this.Enabled = false;
         }
 
@@ -82,6 +110,8 @@ namespace GenTree
             for (int i = 0; i < textBox17.Lines.Length - 1; i++)
                 person.Profession.Add(textBox17.Lines[i]);
             person.SocialStatus = socialStatusTextBox.Text;
+            person.Note = textBox12.Text;
+            person.DataSource = dataSourceTextBox.Text;
             locmodel.AddPerson(ref person);
             MessageBox.Show("Анкета успешно добавлена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

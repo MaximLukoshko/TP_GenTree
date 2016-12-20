@@ -1,5 +1,0 @@
-C:\Users\VASYAN\Desktop\TP_GenTree-master\GenTree\Data\bin\Debug\Data.dll
-C:\Users\VASYAN\Desktop\TP_GenTree-master\GenTree\Data\bin\Debug\Data.pdb
-C:\Users\VASYAN\Desktop\TP_GenTree-master\GenTree\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
-C:\Users\VASYAN\Desktop\TP_GenTree-master\GenTree\Data\obj\Debug\Data.dll
-C:\Users\VASYAN\Desktop\TP_GenTree-master\GenTree\Data\obj\Debug\Data.pdb

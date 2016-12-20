@@ -44,6 +44,7 @@ namespace GenTree
             mask.FirstName = firstNameTextBox.Text;
             mask.MiddleName = middleNameTextBox.Text;
             mask.SecondName = secondNameTextBox.Text;
+            mask.MotherSecondName = textBox9.Text;
             mask.BirthPlace = birthPlaceTextBox.Text;
 
             mask.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,

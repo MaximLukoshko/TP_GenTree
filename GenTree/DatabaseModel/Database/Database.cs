@@ -57,9 +57,15 @@ namespace DatabaseModel.Database
                     continue;
                 if (mask.BirthDateCorrectField[2] && person.BirthDate.Day != mask.BirthDate.Day) 
                     continue;
-                if (person.Gender != mask.Gender)
+                if (person.IsGenderSet == true && person.IsGenderSet == mask.IsGenderSet &&
+                        person.Gender != mask.Gender)
                     continue;
-                
+                if (mask.IsGenderSet == true && person.IsGenderSet == false)
+                    continue;
+                if (person.IsGenderSet == true && person.Gender == false && 
+                        person.MotherSecondName.IndexOf(mask.MotherSecondName) < 0)
+                    continue;
+
                 //Если всё совпало с маской, то добавляем человека
                 ret.Add(person.Code, person);
             }

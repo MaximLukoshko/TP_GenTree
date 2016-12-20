@@ -54,7 +54,9 @@ namespace GenTree
                 person.Education.Add(educationTextBox.Lines[i]);
             person.Father =father;
             person.SecondName = firstNameTextBox.Text;
-            person.Gender =genderRadioButton.Checked;
+            person.MotherSecondName = textBox15.Text;
+            person.Gender = genderRadioButton.Checked;
+            person.IsGenderSet = genderRadioButton.Checked || radioButton2.Checked;
             for (int i = 0; i < locationTextBox.Lines.Length; i++)
                 person.Location.Add(locationTextBox.Lines[i]);
             person.FirstName = middleNameTextBox.Text;

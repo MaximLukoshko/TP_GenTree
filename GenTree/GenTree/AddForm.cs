@@ -14,8 +14,6 @@ namespace GenTree
 {
     public partial class AddForm : Form
     {
-
-        Person person;
         Int32 mother;
         Int32 father;
         IModel locmodel;
@@ -27,10 +25,10 @@ namespace GenTree
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        public AddForm(Person infoPerson)
+        private void SetData(Person infoPerson)
         {
-            InitializeComponent();
-            person = infoPerson;
+            Person person = infoPerson;
+
             birthDateYearComboBox.SelectedIndex = person.BirthDateCorrectField[0] == true ? person.BirthDate.Year - 1919 : -1;
             birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month - 1 : -1;
             birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day - 1 : -1;
@@ -49,7 +47,7 @@ namespace GenTree
             deathDayTextBox.Text = person.DeathPlace;
             foreach (String educLine in person.Education)
                 textBox18.Text += educLine + Environment.NewLine;
-            father=person.Father;
+            father = person.Father;
 
             genderRadioButton.Checked = person.Gender;
             radioButton2.Checked = !person.Gender;
@@ -66,14 +64,19 @@ namespace GenTree
             socialStatusTextBox.Text = person.SocialStatus;
             textBox12.Text = person.Note;
             dataSourceTextBox.Text = person.DataSource;
+        }
+        public AddForm(Person infoPerson)
+        {
+            InitializeComponent();
+            SetData(infoPerson);
 
             // Блокируем возможность изменять анкету
             this.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private Person GetData()
         {
-            person = new Person();
+            Person person = new Person();
             person.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
                 birthDateMonthComboBox.SelectedIndex == -1 ? 1 : birthDateMonthComboBox.SelectedIndex + 1,
                 birthDateDayComboBox.SelectedIndex == -1 ? 1 : birthDateDayComboBox.SelectedIndex + 1);
@@ -83,7 +86,6 @@ namespace GenTree
             person.BirthDateCorrectField[2] = birthDateDayComboBox.SelectedIndex != -1;
 
             person.BirthPlace= birthPlaceTextBox.Text;
-          //  person.Code =;
             person.DataSource = dataSourceTextBox.Text;
             person.DeathDate = new DateTime(deathDateYearComboBox.SelectedIndex == -1 ? 1 : deathDateYearComboBox.SelectedIndex + 1919,
                 deathDateMonthComboBox.SelectedIndex == -1 ? 1 : deathDateMonthComboBox.SelectedIndex + 1,
@@ -112,6 +114,11 @@ namespace GenTree
             person.SocialStatus = socialStatusTextBox.Text;
             person.Note = textBox12.Text;
             person.DataSource = dataSourceTextBox.Text;
+            return person;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Person person = GetData();
             locmodel.AddPerson(ref person);
             MessageBox.Show("Анкета успешно добавлена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

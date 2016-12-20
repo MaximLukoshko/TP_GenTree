@@ -66,21 +66,21 @@ namespace GenTree
             person.DeathDateCorrectField[2] = deathDateDayComboBox.SelectedIndex != -1;
 
             person.DeathPlace = deathDayTextBox.Text;
-            for(int i=0;i < educationTextBox.Lines.Length;i++)
-                person.Education.Add(educationTextBox.Lines[i]);
-            person.Father =father;
+            for (int i = 0; i < textBox18.Lines.Length - 1; i++)
+                person.Education.Add(textBox18.Lines[i]);
+            person.Father = father;
             person.FirstName = middleNameTextBox.Text;
             person.SecondName = firstNameTextBox.Text;
             person.MotherSecondName = textBox15.Text;
             person.MiddleName = secondNameTextBox.Text;
             person.Gender = genderRadioButton.Checked;
             person.IsGenderSet = genderRadioButton.Checked || radioButton2.Checked;
-            for (int i = 0; i < locationTextBox.Lines.Length; i++)
-                person.Location.Add(locationTextBox.Lines[i]);
-            person.Mother =mother;
+            for (int i = 0; i < textBox16.Lines.Length - 1; i++)
+                person.Location.Add(textBox16.Lines[i]);
+            person.Mother = mother;
             person.Nationality = nationalityTextBox.Text;
-            for (int i = 0; i < professionTextBox.Lines.Length; i++)
-                person.Profession.Add(professionTextBox.Lines[i]);
+            for (int i = 0; i < textBox17.Lines.Length - 1; i++)
+                person.Profession.Add(textBox17.Lines[i]);
             person.SocialStatus = socialStatusTextBox.Text;
             locmodel.AddPerson(ref person);
             MessageBox.Show("Анкета успешно добавлена.", "",
@@ -92,8 +92,8 @@ namespace GenTree
         static int thirdbox = 1;
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox16.Text += firstbox.ToString();
-            textBox16.Text += ") "+locationTextBox.Text+ Environment.NewLine;
+            String LineToAdd = firstbox.ToString() + ") " + locationTextBox.Text + Environment.NewLine;
+            textBox16.Text += LineToAdd;
             locationTextBox.Clear();
             textBox16.SelectionStart = textBox16.TextLength-1;
             textBox16.ScrollToCaret();
@@ -168,7 +168,7 @@ namespace GenTree
 
         private void button7_Click(object sender, EventArgs e)
         {
-            FindForm form = new FindForm(locmodel, ref mother, true, true); 
+            FindForm form = new FindForm(locmodel, ref father, true, true); 
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();

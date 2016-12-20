@@ -12,6 +12,10 @@ namespace Data
         {
             BirthDateCorrectField = new List<Boolean>();
             DeathDateCorrectField = new List<Boolean>();
+            Education = new List<String>();
+            Profession = new List<String>();
+            Location = new List<String>();
+
             for (int i = 0; i < 3; i++) 
             {
                 BirthDateCorrectField.Add(false);

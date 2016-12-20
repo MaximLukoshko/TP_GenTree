@@ -40,15 +40,15 @@ namespace GenTree
 
         private void button1_Click_1(object sender, EventArgs e)
         { 
-            mask.FirstName = textBox1.Text;
-            mask.MiddleName = textBox2.Text;
-            mask.SecondName = textBox4.Text;
-            mask.BirthPlace = textBox8.Text;
-            mask.BirthDate = new DateTime(comboBox3.SelectedIndex + 1919, comboBox2.SelectedIndex, comboBox1.SelectedIndex);
+            mask.FirstName = firstNameTextBox.Text;
+            mask.MiddleName = middleNameTextBox.Text;
+            mask.SecondName = secondNameTextBox.Text;
+            mask.BirthPlace = birthPlaceTextBox.Text;
+            mask.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex + 1919, birthDateMonthComboBox.SelectedIndex, birthDateDayComboBox.SelectedIndex);
 
             IDictionary<Int32, Person> _items =  locmodel.FindPeople(mask);
 
-            listBox1.DataSource = _items;
+            resultListBox.DataSource = _items;
         }
     }
 }

@@ -37,12 +37,12 @@
             this.темнаяТемаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.темнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.светлаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.дополнительныеВозможностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.определитьРодствоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.дополнительныеВозможностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.определитьРодствоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -122,6 +122,22 @@
             this.светлаяToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.светлаяToolStripMenuItem.Text = "Светлая.";
             // 
+            // дополнительныеВозможностиToolStripMenuItem
+            // 
+            this.дополнительныеВозможностиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.определитьРодствоToolStripMenuItem});
+            this.дополнительныеВозможностиToolStripMenuItem.Name = "дополнительныеВозможностиToolStripMenuItem";
+            this.дополнительныеВозможностиToolStripMenuItem.Size = new System.Drawing.Size(193, 20);
+            this.дополнительныеВозможностиToolStripMenuItem.Text = "Дополнительные возможности";
+            // 
+            // определитьРодствоToolStripMenuItem
+            // 
+            this.определитьРодствоToolStripMenuItem.Enabled = false;
+            this.определитьРодствоToolStripMenuItem.Name = "определитьРодствоToolStripMenuItem";
+            this.определитьРодствоToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.определитьРодствоToolStripMenuItem.Text = "Определить родство..";
+            this.определитьРодствоToolStripMenuItem.Click += new System.EventHandler(this.определитьРодствоToolStripMenuItem_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -137,6 +153,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label1);
+            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
+            this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             this.splitContainer1.Size = new System.Drawing.Size(932, 491);
             this.splitContainer1.SplitterDistance = 310;
             this.splitContainer1.TabIndex = 2;
@@ -167,22 +185,6 @@
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // дополнительныеВозможностиToolStripMenuItem
-            // 
-            this.дополнительныеВозможностиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.определитьРодствоToolStripMenuItem});
-            this.дополнительныеВозможностиToolStripMenuItem.Name = "дополнительныеВозможностиToolStripMenuItem";
-            this.дополнительныеВозможностиToolStripMenuItem.Size = new System.Drawing.Size(193, 20);
-            this.дополнительныеВозможностиToolStripMenuItem.Text = "Дополнительные возможности";
-            // 
-            // определитьРодствоToolStripMenuItem
-            // 
-            this.определитьРодствоToolStripMenuItem.Enabled = false;
-            this.определитьРодствоToolStripMenuItem.Name = "определитьРодствоToolStripMenuItem";
-            this.определитьРодствоToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.определитьРодствоToolStripMenuItem.Text = "Определить родство..";
-            this.определитьРодствоToolStripMenuItem.Click += new System.EventHandler(this.определитьРодствоToolStripMenuItem_Click);
-            // 
             // StartWin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,8 +193,11 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.MenuStrip);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "StartWin";
             this.Text = "GenTree";
+            this.Load += new System.EventHandler(this.StartWin_Load);
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);

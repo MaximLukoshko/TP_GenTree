@@ -16,10 +16,10 @@ namespace DatabaseModel.Database
             data = new Dictionary<Int32, Person>();
         }
 
-        public Int32 AddPerson(Person person)
+        public void AddPerson(Person person)
         {
             data.Add(data.Count + 1, person);
-            return data.Count;
+           // return data.Count;
         }
 
         public Person GetPersonByCode(Int32 code)

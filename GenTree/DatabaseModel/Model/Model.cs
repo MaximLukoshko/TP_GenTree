@@ -33,9 +33,9 @@ namespace DatabaseModel.Model
             return treeFormer.FormTree(code);
         }
 
-        public Int32 AddPerson(Person person)
+        public void AddPerson(Person person)
         {
-            return dataBase.AddPerson(person);
+            dataBase.AddPerson(person);
         }
 
         public String FindRelations(Int32 first_code, Int32 second_code)

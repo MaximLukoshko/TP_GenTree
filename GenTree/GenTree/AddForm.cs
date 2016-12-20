@@ -30,43 +30,42 @@ namespace GenTree
         private void button1_Click(object sender, EventArgs e)
         {
             person = new Person();
-            person.BirthDate = new DateTime(comboBox3.SelectedIndex == -1 ? 1 : comboBox3.SelectedIndex + 1919,
-                comboBox2.SelectedIndex == -1 ? 1 : comboBox2.SelectedIndex + 1,
-                comboBox1.SelectedIndex == -1 ? 1 : comboBox1.SelectedIndex + 1);
+            person.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
+                birthDateMonthComboBox.SelectedIndex == -1 ? 1 : birthDateMonthComboBox.SelectedIndex + 1,
+                birthDateDayComboBox.SelectedIndex == -1 ? 1 : birthDateDayComboBox.SelectedIndex + 1);
             
-            person.BirthDateCorrectField[0] = comboBox3.SelectedIndex != -1;
-            person.BirthDateCorrectField[1] = comboBox2.SelectedIndex != -1;
-            person.BirthDateCorrectField[2] = comboBox1.SelectedIndex != -1;
+            person.BirthDateCorrectField[0] = birthDateYearComboBox.SelectedIndex != -1;
+            person.BirthDateCorrectField[1] = birthDateMonthComboBox.SelectedIndex != -1;
+            person.BirthDateCorrectField[2] = birthDateDayComboBox.SelectedIndex != -1;
 
-            person.BirthPlace= textBox8.Text;
+            person.BirthPlace= birthPlaceTextBox.Text;
           //  person.Code =;
-            person.DataSource = textBox14.Text;
-            person.DeathDate = new DateTime(comboBox4.SelectedIndex == -1 ? 1 : comboBox4.SelectedIndex + 1919,
-                comboBox5.SelectedIndex == -1 ? 1 : comboBox5.SelectedIndex + 1,
-                comboBox6.SelectedIndex == -1 ? 1 : comboBox6.SelectedIndex + 1);
+            person.DataSource = dataSourceTextBox.Text;
+            person.DeathDate = new DateTime(deathDateYearComboBox.SelectedIndex == -1 ? 1 : deathDateYearComboBox.SelectedIndex + 1919,
+                deathDateMonthComboBox.SelectedIndex == -1 ? 1 : deathDateMonthComboBox.SelectedIndex + 1,
+                deathDateDayComboBox.SelectedIndex == -1 ? 1 : deathDateDayComboBox.SelectedIndex + 1);
 
-            person.DeathDateCorrectField[0] = comboBox4.SelectedIndex != -1;
-            person.DeathDateCorrectField[1] = comboBox5.SelectedIndex != -1;
-            person.DeathDateCorrectField[2] = comboBox6.SelectedIndex != -1;
+            person.DeathDateCorrectField[0] = deathDateYearComboBox.SelectedIndex != -1;
+            person.DeathDateCorrectField[1] = deathDateMonthComboBox.SelectedIndex != -1;
+            person.DeathDateCorrectField[2] = deathDateDayComboBox.SelectedIndex != -1;
 
-            person.DeathPlace = textBox13.Text;
-            foreach (string s in textBox11.Lines)
-                person.Education.Add(s);
+            person.DeathPlace = deathDayTextBox.Text;
+            for(int i=0;i < educationTextBox.Lines.Length;i++)
+                person.Education.Add(educationTextBox.Lines[i]);
             person.Father =father;
-            person.FirstName = textBox1.Text;
-            person.Gender =radioButton1.Checked;
-            foreach (string s in textBox5.Lines)
-                person.Location.Add(s);
-            person.MiddleName = textBox2.Text;
+            person.FirstName = firstNameTextBox.Text;
+            person.Gender =genderRadioButton.Checked;
+            for (int i = 0; i < locationTextBox.Lines.Length; i++)
+                person.Location.Add(locationTextBox.Lines[i]);
+            person.MiddleName = middleNameTextBox.Text;
             person.Mother =mother;
-            person.Nationality = textBox7.Text;
-            person.Note = textBox12.Text;
-            foreach (string s in textBox10.Lines)
-                person.Profession.Add(s);
-            person.SecondName = textBox4.Text;
-            person.SocialStatus = textBox6.Text;
+            person.Nationality = nationalityTextBox.Text;
+            for (int i = 0; i < professionTextBox.Lines.Length; i++)
+                person.Profession.Add(professionTextBox.Lines[i]);
+            person.SecondName = secondNameTextBox.Text;
+            person.SocialStatus = socialStatusTextBox.Text;
             locmodel.AddPerson(person);
-            MessageBox.Show("Анкета успешно создана.\nНикуда добавлять мы её, конечно, не будем.", "",
+            MessageBox.Show("Анкета успешно добавлена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
         static int firstbox = 1;
@@ -75,8 +74,8 @@ namespace GenTree
         private void button2_Click(object sender, EventArgs e)
         {
             textBox16.Text += firstbox.ToString();
-            textBox16.Text += ") "+textBox5.Text+ Environment.NewLine;
-            textBox5.Clear();
+            textBox16.Text += ") "+locationTextBox.Text+ Environment.NewLine;
+            locationTextBox.Clear();
             textBox16.SelectionStart = textBox16.TextLength-1;
             textBox16.ScrollToCaret();
             firstbox++;
@@ -85,8 +84,8 @@ namespace GenTree
         private void button4_Click(object sender, EventArgs e)
         {
             textBox17.Text += secbox.ToString();
-            textBox17.Text +=") "+ textBox10.Text + Environment.NewLine;
-            textBox10.Clear();
+            textBox17.Text +=") "+ professionTextBox.Text + Environment.NewLine;
+            professionTextBox.Clear();
             textBox17.SelectionStart = textBox17.TextLength - 1;
             textBox17.ScrollToCaret();
             secbox++;
@@ -94,8 +93,8 @@ namespace GenTree
         private void button5_Click(object sender, EventArgs e)
         {
             textBox18.Text += thirdbox.ToString();
-            textBox18.Text += ") "+textBox11.Text + Environment.NewLine;
-            textBox11.Clear();
+            textBox18.Text += ") "+educationTextBox.Text + Environment.NewLine;
+            educationTextBox.Clear();
             textBox18.SelectionStart = textBox18.TextLength - 1;
             textBox18.ScrollToCaret();
             thirdbox++;
@@ -103,28 +102,28 @@ namespace GenTree
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Clear();
-            textBox10.Clear();
-            textBox11.Clear();
+            firstNameTextBox.Clear();
+            professionTextBox.Clear();
+            educationTextBox.Clear();
             textBox12.Clear();
-            textBox13.Clear();
-            textBox14.Clear();
+            deathDayTextBox.Clear();
+            dataSourceTextBox.Clear();
             textBox15.Clear();
             textBox16.Clear();
             textBox17.Clear();
             textBox18.Clear();
-            textBox2.Clear();
-            textBox4.Clear();
-            textBox5.Clear();
-            textBox6.Clear();
-            textBox7.Clear();
-            textBox8.Clear();
-            comboBox1.Items.Clear();
-            comboBox2.Items.Clear();
-            comboBox3.Items.Clear();
-            comboBox4.Items.Clear();
-            comboBox5.Items.Clear();
-            comboBox6.Items.Clear();
+            middleNameTextBox.Clear();
+            secondNameTextBox.Clear();
+            locationTextBox.Clear();
+            socialStatusTextBox.Clear();
+            nationalityTextBox.Clear();
+            birthPlaceTextBox.Clear();
+            birthDateDayComboBox.Items.Clear();
+            birthDateMonthComboBox.Items.Clear();
+            birthDateYearComboBox.Items.Clear();
+            deathDateYearComboBox.Items.Clear();
+            deathDateMonthComboBox.Items.Clear();
+            deathDateDayComboBox.Items.Clear();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

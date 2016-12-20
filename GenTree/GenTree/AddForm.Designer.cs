@@ -818,6 +818,7 @@
             this.genderRadioButton.Text = "Мужской";
             this.genderRadioButton.UseVisualStyleBackColor = true;
             this.genderRadioButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.genderRadioButton.Checked = true;
             // 
             // radioButton2
             // 

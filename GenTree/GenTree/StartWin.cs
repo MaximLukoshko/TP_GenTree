@@ -53,7 +53,7 @@ namespace GenTree
 
         private void новыйРодственникToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddForm form = new AddForm(ref model);
+            AddForm form = new AddForm(model);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();
@@ -62,7 +62,7 @@ namespace GenTree
         private void человекаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Int32 per=0;
-            FindForm form = new FindForm(false,ref per, ref model);
+            FindForm form = new FindForm(model, ref per);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();

@@ -23,6 +23,8 @@ namespace DatabaseModel.Database
             person.BirthDateCorrectField[0] = true;
             person.BirthDateCorrectField[1] = false;
             person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
             AddPerson(ref person);
         }
 

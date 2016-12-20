@@ -20,7 +20,7 @@ namespace GenTree
         Int32 father;
         IModel locmodel;
 
-        public AddForm(ref IModel model)
+        public AddForm(IModel model)
         {
             locmodel = model;
             InitializeComponent();
@@ -160,7 +160,7 @@ namespace GenTree
         private void button6_Click(object sender, EventArgs e)
         {
             //2 for female, 1 fo male
-            FindForm form = new FindForm(false,ref mother,ref locmodel);
+            FindForm form = new FindForm(locmodel, ref mother, true, false);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();
@@ -168,7 +168,7 @@ namespace GenTree
 
         private void button7_Click(object sender, EventArgs e)
         {
-            FindForm form = new FindForm(true,ref father,ref locmodel);
+            FindForm form = new FindForm(locmodel, ref mother, true, true); 
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();

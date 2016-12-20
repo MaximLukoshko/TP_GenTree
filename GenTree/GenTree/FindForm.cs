@@ -16,19 +16,27 @@ namespace GenTree
     {
         Person mask;
         IModel locmodel;
-        public FindForm(Boolean gender,ref int parent,ref IModel model)
+        public FindForm(IModel model, ref int selected, Boolean isGenderSet = false, Boolean gender = false)
         {
             locmodel=model;
             InitializeComponent();
-            if (!gender)
+            checkBoxGenderMale.Checked = true;
+            checkBoxGenderFemale.Checked = true;
+            if(isGenderSet)
             {
-                label14.Enabled = true;
-                textBox9.Enabled = true;
-            }
-            if (gender)
-            {
-                label14.Enabled = false;
-                textBox9.Enabled = false;
+                checkBoxGenderFemale.Enabled = false;
+                checkBoxGenderMale.Enabled = false;
+                
+                if (!gender)    //Девичья фамилия
+                {
+                    label14.Enabled = true;
+                    textBox9.Enabled = true;
+                    checkBoxGenderMale.Checked = false;
+                }
+                else
+                {
+                    checkBoxGenderFemale.Checked = false;
+                }
             }
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
@@ -55,6 +63,11 @@ namespace GenTree
             mask.BirthDateCorrectField[1] = birthDateMonthComboBox.SelectedIndex != -1;
             mask.BirthDateCorrectField[2] = birthDateDayComboBox.SelectedIndex != -1;
 
+            mask.IsGenderSet = (checkBoxGenderMale.Checked && !checkBoxGenderFemale.Checked) ||
+                (!checkBoxGenderMale.Checked && checkBoxGenderFemale.Checked);
+            if (mask.IsGenderSet)
+                mask.Gender = checkBoxGenderMale.Checked;
+            
             IDictionary<Int32, Person> _items =  locmodel.FindPeople(mask);
             IList<Person> tableSource = new List<Person>();
 
@@ -82,6 +95,11 @@ namespace GenTree
             birthDateYearComboBox.SelectedIndex = -1;
             birthDateMonthComboBox.SelectedIndex = -1;
             birthDateDayComboBox.SelectedIndex = -1;
+        }
+
+        private void checkBoxGenderFemale_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox9.Enabled = checkBoxGenderFemale.Checked;
         }
     }
 }

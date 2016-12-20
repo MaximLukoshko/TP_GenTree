@@ -186,3 +186,5 @@ $RECYCLE.BIN/
 /TP_GenTree-master/GenTree/GenTree/bin/Debug/GenTree.vshost.exe.manifest
 /TP_GenTree-master/GenTree/GenTree/obj/Debug/GenTree.csproj.FileListAbsolute.txt
 /GenTree/Data/obj/Debug/*.cache
+/GenTree/DatabaseModel/obj/Debug/*.cache
+/GenTree/GenTree/obj/Debug/*.cache

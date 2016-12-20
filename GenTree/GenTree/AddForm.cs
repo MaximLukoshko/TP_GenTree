@@ -27,6 +27,12 @@ namespace GenTree
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
+        public AddForm(Person infoPerson)
+        {
+            InitializeComponent();
+            this.Enabled = false;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             person = new Person();

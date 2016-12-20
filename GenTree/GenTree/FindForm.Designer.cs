@@ -49,6 +49,7 @@
             this.middleNameTextBox = new System.Windows.Forms.TextBox();
             this.SecondNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.buttonPreView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // resultListBox
@@ -79,7 +80,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(423, 225);
+            this.backButton.Location = new System.Drawing.Point(12, 227);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
             this.backButton.TabIndex = 111;
@@ -190,9 +191,9 @@
             // 
             // findButton
             // 
-            this.findButton.Location = new System.Drawing.Point(203, 227);
+            this.findButton.Location = new System.Drawing.Point(15, 197);
             this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(75, 23);
+            this.findButton.Size = new System.Drawing.Size(262, 23);
             this.findButton.TabIndex = 110;
             this.findButton.Text = "Найти";
             this.findButton.UseVisualStyleBackColor = true;
@@ -369,11 +370,22 @@
             this.firstNameTextBox.Size = new System.Drawing.Size(152, 20);
             this.firstNameTextBox.TabIndex = 100;
             // 
+            // buttonPreView
+            // 
+            this.buttonPreView.Location = new System.Drawing.Point(297, 197);
+            this.buttonPreView.Name = "buttonPreView";
+            this.buttonPreView.Size = new System.Drawing.Size(299, 23);
+            this.buttonPreView.TabIndex = 120;
+            this.buttonPreView.Text = "Предварительный просмотр";
+            this.buttonPreView.UseVisualStyleBackColor = true;
+            this.buttonPreView.Click += new System.EventHandler(this.buttonPreView_Click);
+            // 
             // FindForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 262);
+            this.Controls.Add(this.buttonPreView);
             this.Controls.Add(this.resultListBox);
             this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.label1);
@@ -427,5 +439,6 @@
         private System.Windows.Forms.TextBox middleNameTextBox;
         private System.Windows.Forms.Label SecondNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.Button buttonPreView;
     }
 }

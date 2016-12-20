@@ -64,5 +64,12 @@ namespace GenTree
 
             resultListBox.DataSource = tableSource;
         }
+
+        private void buttonPreView_Click(object sender, EventArgs e)
+        {
+            Person selected = (Person)resultListBox.SelectedItem;
+            AddForm personInfo = new AddForm(selected);
+            personInfo.Show();
+        }
     }
 }

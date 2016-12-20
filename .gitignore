@@ -188,3 +188,4 @@ $RECYCLE.BIN/
 /GenTree/Data/obj/Debug/*.cache
 /GenTree/DatabaseModel/obj/Debug/*.cache
 /GenTree/GenTree/obj/Debug/*.cache
+/GenTree/GenTree/obj/Debug/*.cache

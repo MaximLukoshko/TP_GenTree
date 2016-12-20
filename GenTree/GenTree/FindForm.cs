@@ -39,16 +39,29 @@ namespace GenTree
         }
 
         private void button1_Click_1(object sender, EventArgs e)
-        { 
+        {
+            mask = new Person();
             mask.FirstName = firstNameTextBox.Text;
             mask.MiddleName = middleNameTextBox.Text;
             mask.SecondName = secondNameTextBox.Text;
             mask.BirthPlace = birthPlaceTextBox.Text;
-            mask.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex + 1919, birthDateMonthComboBox.SelectedIndex, birthDateDayComboBox.SelectedIndex);
+
+            mask.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
+                birthDateMonthComboBox.SelectedIndex == -1 ? 1 : birthDateMonthComboBox.SelectedIndex + 1,
+                birthDateDayComboBox.SelectedIndex == -1 ? 1 : birthDateDayComboBox.SelectedIndex + 1);
+
+            mask.BirthDateCorrectField[0] = birthDateYearComboBox.SelectedIndex != -1;
+            mask.BirthDateCorrectField[1] = birthDateMonthComboBox.SelectedIndex != -1;
+            mask.BirthDateCorrectField[2] = birthDateDayComboBox.SelectedIndex != -1;
 
             IDictionary<Int32, Person> _items =  locmodel.FindPeople(mask);
+            IList<Person> tableSource = new List<Person>();
 
-            resultListBox.DataSource = _items;
+            foreach (Person person in _items.Values)
+                tableSource.Add(person);
+                //tableSource.Add(person.FirstName + " " + person.SecondName);
+
+            resultListBox.DataSource = tableSource;
         }
     }
 }

@@ -18,9 +18,16 @@ namespace Data
                 DeathDateCorrectField.Add(false);
             }
         }
+
+        public override string ToString()
+        {
+            return this.FirstName + "" + this.SecondName;
+        }
         public String FirstName { get; set; }
         public String SecondName { get; set; }
+        public String MotherSecondName { get; set; }
         public String MiddleName { get; set; }
+        public Boolean IsGenderSet { get; set; } 
         public Boolean Gender { get; set; } // true - мужской, false - женский
         public DateTime BirthDate { get; set; }
         public List<Boolean> BirthDateCorrectField { get; private set; }

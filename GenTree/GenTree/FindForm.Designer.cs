@@ -190,7 +190,7 @@
             // 
             // findButton
             // 
-            this.findButton.Location = new System.Drawing.Point(12, 227);
+            this.findButton.Location = new System.Drawing.Point(203, 227);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(75, 23);
             this.findButton.TabIndex = 110;

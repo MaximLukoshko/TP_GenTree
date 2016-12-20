@@ -53,20 +53,21 @@ namespace GenTree
             for(int i=0;i < educationTextBox.Lines.Length;i++)
                 person.Education.Add(educationTextBox.Lines[i]);
             person.Father =father;
-            person.FirstName = firstNameTextBox.Text;
+            person.SecondName = firstNameTextBox.Text;
             person.Gender =genderRadioButton.Checked;
             for (int i = 0; i < locationTextBox.Lines.Length; i++)
                 person.Location.Add(locationTextBox.Lines[i]);
-            person.MiddleName = middleNameTextBox.Text;
+            person.FirstName = middleNameTextBox.Text;
             person.Mother =mother;
             person.Nationality = nationalityTextBox.Text;
             for (int i = 0; i < professionTextBox.Lines.Length; i++)
                 person.Profession.Add(professionTextBox.Lines[i]);
-            person.SecondName = secondNameTextBox.Text;
+            person.MiddleName = secondNameTextBox.Text;
             person.SocialStatus = socialStatusTextBox.Text;
-            locmodel.AddPerson(person);
+            locmodel.AddPerson(ref person);
             MessageBox.Show("Анкета успешно добавлена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            this.Close();
         }
         static int firstbox = 1;
         static int secbox = 1;

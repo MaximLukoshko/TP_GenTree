@@ -14,12 +14,22 @@ namespace DatabaseModel.Database
         public Database()
         {
             data = new Dictionary<Int32, Person>();
+            
+            Person person = new Person();
+            person.FirstName = "Maxim";
+            person.SecondName= "Lukoshko";
+            person.MiddleName= "Alexander";
+            person.BirthDate=(new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            AddPerson(ref person);
         }
 
-        public void AddPerson(Person person)
+        public void AddPerson(ref Person person)
         {
-            data.Add(data.Count + 1, person);
-           // return data.Count;
+            person.Code = data.Count + 1;
+            data.Add(person.Code, person);
         }
 
         public Person GetPersonByCode(Int32 code)
@@ -47,7 +57,7 @@ namespace DatabaseModel.Database
                     continue;
                 if (mask.BirthDateCorrectField[2] && person.BirthDate.Day != mask.BirthDate.Day) 
                     continue;
-                if (null != mask.Gender && person.Gender != mask.Gender)
+                if (person.Gender != mask.Gender)
                     continue;
                 
                 //Если всё совпало с маской, то добавляем человека

@@ -30,6 +30,16 @@ namespace GenTree
         public AddForm(Person infoPerson)
         {
             InitializeComponent();
+            person = infoPerson;
+            birthDateYearComboBox.SelectedIndex = person.BirthDateCorrectField[0] == true ? person.BirthDate.Year - 1919 : -1;
+            birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month : -1;
+            birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day : -1;
+
+            middleNameTextBox.Text = person.FirstName;
+            firstNameTextBox.Text = person.SecondName;
+            textBox15.Text = person.MotherSecondName;
+            secondNameTextBox.Text = person.MiddleName;
+
             this.Enabled = false;
         }
 
@@ -59,18 +69,18 @@ namespace GenTree
             for(int i=0;i < educationTextBox.Lines.Length;i++)
                 person.Education.Add(educationTextBox.Lines[i]);
             person.Father =father;
+            person.FirstName = middleNameTextBox.Text;
             person.SecondName = firstNameTextBox.Text;
             person.MotherSecondName = textBox15.Text;
+            person.MiddleName = secondNameTextBox.Text;
             person.Gender = genderRadioButton.Checked;
             person.IsGenderSet = genderRadioButton.Checked || radioButton2.Checked;
             for (int i = 0; i < locationTextBox.Lines.Length; i++)
                 person.Location.Add(locationTextBox.Lines[i]);
-            person.FirstName = middleNameTextBox.Text;
             person.Mother =mother;
             person.Nationality = nationalityTextBox.Text;
             for (int i = 0; i < professionTextBox.Lines.Length; i++)
                 person.Profession.Add(professionTextBox.Lines[i]);
-            person.MiddleName = secondNameTextBox.Text;
             person.SocialStatus = socialStatusTextBox.Text;
             locmodel.AddPerson(ref person);
             MessageBox.Show("Анкета успешно добавлена.", "",

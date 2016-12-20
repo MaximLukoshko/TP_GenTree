@@ -50,6 +50,7 @@
             this.SecondNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.buttonPreView = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // resultListBox
@@ -191,9 +192,9 @@
             // 
             // findButton
             // 
-            this.findButton.Location = new System.Drawing.Point(15, 197);
+            this.findButton.Location = new System.Drawing.Point(125, 197);
             this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(262, 23);
+            this.findButton.Size = new System.Drawing.Size(152, 23);
             this.findButton.TabIndex = 110;
             this.findButton.Text = "Найти";
             this.findButton.UseVisualStyleBackColor = true;
@@ -380,11 +381,22 @@
             this.buttonPreView.UseVisualStyleBackColor = true;
             this.buttonPreView.Click += new System.EventHandler(this.buttonPreView_Click);
             // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(12, 197);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(98, 23);
+            this.buttonClear.TabIndex = 121;
+            this.buttonClear.Text = "Очистить";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
             // FindForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 262);
+            this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonPreView);
             this.Controls.Add(this.resultListBox);
             this.Controls.Add(this.acceptButton);
@@ -440,5 +452,6 @@
         private System.Windows.Forms.Label SecondNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Button buttonPreView;
+        private System.Windows.Forms.Button buttonClear;
     }
 }

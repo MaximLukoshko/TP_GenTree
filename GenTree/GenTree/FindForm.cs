@@ -71,5 +71,17 @@ namespace GenTree
             AddForm personInfo = new AddForm(selected);
             personInfo.Show();
         }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            firstNameTextBox.Text = "";
+            middleNameTextBox.Text = "";
+            secondNameTextBox.Text = "";
+            textBox9.Text = "";
+            birthPlaceTextBox.Text = "";
+            birthDateYearComboBox.SelectedIndex = -1;
+            birthDateMonthComboBox.SelectedIndex = -1;
+            birthDateDayComboBox.SelectedIndex = -1;
+        }
     }
 }

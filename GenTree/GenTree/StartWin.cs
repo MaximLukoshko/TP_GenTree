@@ -24,6 +24,8 @@ namespace GenTree
         ToolStripLabel infoLabel;
         Timer timer;
 
+        int maxlvl;
+
         IModel model;
 
         public StartWin()
@@ -51,7 +53,7 @@ namespace GenTree
             dateLabel.Text = DateTime.Now.ToLongDateString();
             timeLabel.Text = DateTime.Now.ToLongTimeString();
         }
-        //Добавить родственника
+
         private void новыйРодственникToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddForm form = new AddForm(model);
@@ -60,7 +62,7 @@ namespace GenTree
                 form.Close();
             this.Refresh();
         }
-        //Найти человека
+
         private void человекаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindForm form = new FindForm(model);
@@ -72,8 +74,8 @@ namespace GenTree
             if (form.DialogResult == DialogResult.OK)
             {
                 DrawingPersonCode = form.ReturnValue.Code;
-                findRelationsToolStripMenuItem.Enabled = true;  //Включение кнопки "Определить родство"
-                root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), false));
+                findRelationsToolStripMenuItem.Enabled = true;
+                root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), true));
                 DrawTree();
                 form.Close();
             }
@@ -86,7 +88,23 @@ namespace GenTree
             relatFindForm.ShowDialog();
             Int32 codeToFind = relatFindForm.ReturnValue.Code;
 
-            MessageBox.Show(model.FindRelations(DrawingPersonCode, codeToFind), "Определение рдства", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            IDictionary<Int32, Person> cur = model.BuildTree(DrawingPersonCode);
+
+            if (cur.ContainsKey(codeToFind))
+            {
+                MessageBox.Show("Кровное родство", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            IDictionary<Int32, Person> toFind = model.BuildTree(codeToFind);
+            foreach (Int32 keyTofind in toFind.Keys)
+                if (cur.ContainsKey(keyTofind)) 
+                {
+                    MessageBox.Show("Некровное родство", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+            MessageBox.Show("Родства нет", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // The root node.
@@ -98,7 +116,7 @@ namespace GenTree
             {
                 // Arrange the tree once to see how big it is.
                 IDictionary<int, float> levw=new Dictionary<int, float>();
-                root.Arrange(gr, ref levw,0,-2);
+                root.Arrange(gr, ref levw,0, maxlvl);
             }
 
             // Redraw.
@@ -111,9 +129,18 @@ namespace GenTree
             //         new TreeNode<CircleNode>(new CircleNode("отец",false));
             // TreeNode<CircleNode> b_node =
             //     new TreeNode<CircleNode>(new CircleNode("мать",false));
-            root.Data.SetDir(false);
+            //root.Data.SetDir(false);
+            maxlvl = 0;
+            genTreelistBox.DataSource = CountNodesLevels(DrawingPersonCode, temp);
+
+            genTreelistBox.SelectedIndex = -1;
+            do
+            {
+                genTreelistBox.SelectedIndex++;
+            } while (genTreelistBox.SelectedItem.GetHashCode() != DrawingPersonCode);
+
             AddParentToTree(root, temp[DrawingPersonCode], temp);
-            root.Data.SetDir(true);
+          //  root.Data.SetDir(true);
             AddChildrenToTree(root, temp[DrawingPersonCode], temp);
 
             ArrangeTree();
@@ -123,22 +150,20 @@ namespace GenTree
 //             foreach (Person person in temp.Values)
 //                 tableSource.Add(new TreeNodeLine(person, 973)); //973 - уровень родственника
 
-            genTreelistBox.DataSource = CountNodesLevels(DrawingPersonCode, temp);
-
-            genTreelistBox.SelectedIndex = 0;
-            do
-            {
-                genTreelistBox.SelectedIndex++;
-            } while (genTreelistBox.SelectedItem.GetHashCode() != DrawingPersonCode);
+            
         }
     
         private void CountNodesLevelsUp(Int32 code, IDictionary<Int32, Person> personsCollection, IList<TreeNodeLine> ret, Int32 level = 0)
         {
             Person currentPerson = personsCollection[code];
             ret.Add(new TreeNodeLine(currentPerson, level));
+            if (level < maxlvl)
+                maxlvl = level;
             foreach (Person iter in personsCollection.Values)
-                if (iter.Code==currentPerson.Mother|| iter.Code==currentPerson.Father)
+                if (iter.Code == currentPerson.Mother || iter.Code == currentPerson.Father)
+                {
                     CountNodesLevelsUp(iter.Code, personsCollection, ret, level - 1);
+                }
         }
         private void CountNodesLevelsDown(Int32 code, IDictionary<Int32, Person> personsCollection, IList<TreeNodeLine> ret, Int32 level = 0)
         {
@@ -190,8 +215,7 @@ namespace GenTree
                 AddChildrenToTree(t,temp[p.Code],temp);
             }
         }
-   
-        //Вызывается каждый раз, когда мы что-то рисуем
+
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -205,7 +229,6 @@ namespace GenTree
 //            ArrangeTree();
         }
 
-        //Просмотр анкеты
         private void button1_Click(object sender, EventArgs e)
         {
             if (null != genTreelistBox.SelectedItem)

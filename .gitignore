@@ -232,3 +232,9 @@ $RECYCLE.BIN/
 /GenTree/GenTree/obj/Debug/GenTree.exe
 /GenTree/GenTree/obj/Debug/GenTree.pdb
 /GenTree/GenTree/obj/Debug/*.cache
+/GenTree/GenTree/obj/Debug/*.cache
+/GenTree/GenTree/obj/Debug/*.cache
+/GenTree/Data/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/GenTree/DatabaseModel/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/GenTree/GenTree/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+/GenTree/GenTree/App.config

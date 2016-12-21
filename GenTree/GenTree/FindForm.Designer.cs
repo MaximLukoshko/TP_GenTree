@@ -98,6 +98,13 @@
             this.birthDateYearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.birthDateYearComboBox.FormattingEnabled = true;
             this.birthDateYearComboBox.Items.AddRange(new object[] {
+            "1919",
+            "1920",
+            "1921",
+            "1922",
+            "1923",
+            "1924",
+            "1925",
             "1926",
             "1927",
             "1928",

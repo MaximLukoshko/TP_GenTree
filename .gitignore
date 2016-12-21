@@ -238,3 +238,5 @@ $RECYCLE.BIN/
 /GenTree/DatabaseModel/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 /GenTree/GenTree/obj/Debug/DesignTimeResolveAssemblyReferences.cache
 /GenTree/GenTree/App.config
+/GenTree/Data/obj/Debug/*.cache
+/GenTree/DatabaseModel/obj/Debug/*.cache

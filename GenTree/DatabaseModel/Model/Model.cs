@@ -42,5 +42,9 @@ namespace DatabaseModel.Model
         {
             return findPerson.FindRelation(first_code, second_code);
         }
+        public IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode)
+        {
+            return dataBase.GetPeopleByParentCode(parentCode);
+        }
     }
 }

@@ -75,7 +75,7 @@ namespace GenTree
             mask = new Person();
             mask.FirstName = firstNameTextBox.Text;
             mask.MiddleName = middleNameTextBox.Text;
-            mask.SecondName = SecondNameTextBox.Text;
+            mask.SecondName = secondNameTextBox.Text;
             mask.MotherSecondName = textBox9.Text;
             mask.BirthPlace = birthPlaceTextBox.Text;
 
@@ -114,8 +114,8 @@ namespace GenTree
         private void buttonClear_Click(object sender, EventArgs e)
         {
             firstNameTextBox.Text = "";
-            SecondNameTextBox.Text = "";
             middleNameTextBox.Text = "";
+            secondNameTextBox.Text = "";
             textBox9.Text = "";
             birthPlaceTextBox.Text = "";
             birthDateYearComboBox.SelectedIndex = -1;

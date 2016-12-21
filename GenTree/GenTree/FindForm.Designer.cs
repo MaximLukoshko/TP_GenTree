@@ -42,11 +42,11 @@
             this.birthDateDayComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.middleNameTextBox = new System.Windows.Forms.TextBox();
+            this.secondNameTextBox = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.MiddleNaneLabel = new System.Windows.Forms.Label();
             this.birthPlaceTextBox = new System.Windows.Forms.TextBox();
-            this.SecondNameTextBox = new System.Windows.Forms.TextBox();
+            this.middleNameTextBox = new System.Windows.Forms.TextBox();
             this.SecondNameLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.buttonPreView = new System.Windows.Forms.Button();
@@ -98,13 +98,6 @@
             this.birthDateYearComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.birthDateYearComboBox.FormattingEnabled = true;
             this.birthDateYearComboBox.Items.AddRange(new object[] {
-            "1919",
-            "1920",
-            "1921",
-            "1922",
-            "1923",
-            "1924",
-            "1925",
             "1926",
             "1927",
             "1928",
@@ -329,12 +322,12 @@
             this.label14.TabIndex = 108;
             this.label14.Text = "Девичья фамилия";
             // 
-            // middleNameTextBox
+            // secondNameTextBox
             // 
-            this.middleNameTextBox.Location = new System.Drawing.Point(124, 118);
-            this.middleNameTextBox.Name = "middleNameTextBox";
-            this.middleNameTextBox.Size = new System.Drawing.Size(152, 20);
-            this.middleNameTextBox.TabIndex = 104;
+            this.secondNameTextBox.Location = new System.Drawing.Point(124, 118);
+            this.secondNameTextBox.Name = "secondNameTextBox";
+            this.secondNameTextBox.Size = new System.Drawing.Size(152, 20);
+            this.secondNameTextBox.TabIndex = 104;
             // 
             // textBox9
             // 
@@ -359,12 +352,12 @@
             this.birthPlaceTextBox.Size = new System.Drawing.Size(152, 20);
             this.birthPlaceTextBox.TabIndex = 106;
             // 
-            // SecondNameTextBox
+            // middleNameTextBox
             // 
-            this.SecondNameTextBox.Location = new System.Drawing.Point(125, 63);
-            this.SecondNameTextBox.Name = "SecondNameTextBox";
-            this.SecondNameTextBox.Size = new System.Drawing.Size(152, 20);
-            this.SecondNameTextBox.TabIndex = 102;
+            this.middleNameTextBox.Location = new System.Drawing.Point(125, 63);
+            this.middleNameTextBox.Name = "middleNameTextBox";
+            this.middleNameTextBox.Size = new System.Drawing.Size(152, 20);
+            this.middleNameTextBox.TabIndex = 102;
             // 
             // SecondNameLabel
             // 
@@ -457,11 +450,11 @@
             this.Controls.Add(this.birthDateDayComboBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.middleNameTextBox);
+            this.Controls.Add(this.secondNameTextBox);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.MiddleNaneLabel);
             this.Controls.Add(this.birthPlaceTextBox);
-            this.Controls.Add(this.SecondNameTextBox);
+            this.Controls.Add(this.middleNameTextBox);
             this.Controls.Add(this.SecondNameLabel);
             this.Controls.Add(this.firstNameTextBox);
             this.MaximizeBox = false;
@@ -489,11 +482,11 @@
         private System.Windows.Forms.ComboBox birthDateDayComboBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox middleNameTextBox;
+        private System.Windows.Forms.TextBox secondNameTextBox;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label MiddleNaneLabel;
         private System.Windows.Forms.TextBox birthPlaceTextBox;
-        private System.Windows.Forms.TextBox SecondNameTextBox;
+        private System.Windows.Forms.TextBox middleNameTextBox;
         private System.Windows.Forms.Label SecondNameLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Button buttonPreView;

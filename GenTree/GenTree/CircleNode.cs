@@ -30,6 +30,10 @@ namespace howto_generic_treenode
         {
             return _down;
         }
+        public void SetDir(bool dir)
+        {
+            _down = dir;
+        }
 
         // Draw the object centered at (x, y).
         void IDrawable.Draw(float x, float y, Graphics gr, Pen pen, Brush bg_brush, Brush text_brush, Font font)

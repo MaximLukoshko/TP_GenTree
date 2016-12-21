@@ -231,3 +231,4 @@ $RECYCLE.BIN/
 /GenTree/GenTree/obj/Debug/GenTree.csprojResolveAssemblyReference.cache
 /GenTree/GenTree/obj/Debug/GenTree.exe
 /GenTree/GenTree/obj/Debug/GenTree.pdb
+/GenTree/GenTree/obj/Debug/*.cache

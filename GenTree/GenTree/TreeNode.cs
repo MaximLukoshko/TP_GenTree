@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace howto_generic_treenode
 {
@@ -51,111 +52,38 @@ namespace howto_generic_treenode
         // Set xmin to indicate the right edge of our subtree.
         // Set ymin to indicate the bottom edge of our subtree.
 
-        public void Arrange(Graphics gr, ref float xdmin, ref float xumin, ref float ydmin, ref float yumin)
+        public void Arrange(Graphics gr, ref IDictionary<int, float> levw,int level, int maxlvl)
         {
             // See how big this node is.
             SizeF my_size = Data.GetSize(gr, MyFont);
-
+            if (!levw.ContainsKey(level))
+                levw[level] = 100;
+           
             // Recursively arrange our children,
             // allowing room for this node.
-            float xd = xdmin;
-            float xu = xumin;
-            float biggest_ydmin = ydmin + my_size.Height;
-            float subtree_ydmin = ydmin + my_size.Height + Voffset;
-
-            float biggest_yumin = yumin - my_size.Height;
-            float subtree_yumin = yumin - my_size.Height - Voffset;
-            
             foreach (TreeNode<T> child in Children)
             {
-                // Arrange this child's subtree.
-                float child_ydmin = subtree_ydmin;
-                float child_yumin = subtree_yumin;
                 if (Data.GetDir())
-                    child.Arrange(gr, ref xd, ref xu, ref child_ydmin, ref child_yumin);
-                else
-                    child.Arrange(gr, ref xd, ref xu, ref child_ydmin, ref child_yumin);
-
-                // See if this increases the biggest ymin value.
-                if (Data.GetDir())
-                    if (biggest_ydmin < child_ydmin) biggest_ydmin = child_ydmin;
-                else
-                    if (biggest_yumin < child_yumin) biggest_yumin = child_yumin;
-                // Allow room before the next sibling.
-                if (Data.GetDir())
-                    xd += Hoffset;
-                else
-                    xu+= Hoffset;
-
-            }
-
-            // Remove the spacing after the last child.
-            if (Children.Count > 0)
-                if (Data.GetDir())
-                    xd-= Hoffset;
-                else
-                    xu -= Hoffset;
-
-            // See if this node is wider than the subtree under it.
-            float subtree_width;
-
-            if (Data.GetDir())
-                subtree_width = xd - xdmin;
-            else
-                subtree_width = xu - xumin;
-
-            if (my_size.Width > subtree_width)
-            {
-                // Center the subtree under this node.
-                // Make the children rearrange themselves
-                // moved to center their subtrees.
-                if (Data.GetDir())
-                    xd = xdmin + (my_size.Width - subtree_width) / 2;
-                else
-                    xu = xumin + (my_size.Width - subtree_width) / 2;
-
-                foreach (TreeNode<T> child in Children)
                 {
-                    // Arrange this child's subtree.
-                    if (Data.GetDir())
-                        child.Arrange(gr, ref xd, ref xu, ref subtree_ydmin, ref subtree_yumin);
-                    else
-                        child.Arrange(gr, ref xd, ref xu, ref subtree_ydmin, ref subtree_yumin);
-                    // Allow room before the next sibling.
-                    if (Data.GetDir())
-                        xd += Hoffset;
-                    else
-                        xu += Hoffset;
+                    child.Arrange(gr, ref levw, level + 1, maxlvl);
                 }
-
-                // The subtree's width is this node's width.
-                subtree_width = my_size.Width;
+                else
+                {
+                    child.Arrange(gr, ref levw, level - 1, maxlvl);
+                }
             }
-
-            // Set this node's center position.
-            if (Data.GetDir())
-                Center = new PointF(xdmin + subtree_width / 2, ydmin + my_size.Height / 2);
-            else
-                Center = new PointF(xumin + subtree_width / 2, yumin - my_size.Height / 2);
-
-            // Increase xmin to allow room for
-            // the subtree before returning.
-            if (Data.GetDir())
-                xdmin += subtree_width;
-            else
-                xumin += subtree_width;
-
-            // Set the return value for ymin.
-            ydmin = biggest_ydmin;
-            yumin = biggest_yumin;
+           
+            levw[level]+= my_size.Width * (level-maxlvl) / 2;
+            Center = new PointF(levw[level], (level-maxlvl+1)*50);
+            levw[level] += my_size.Width- my_size.Width * (maxlvl - level);
         }
 
         // Draw the subtree rooted at this node
         // with the given upper left corner.
-        public void DrawTree(Graphics gr, ref float xd, ref float xu, float yd, float yu)
+        public void DrawTree(Graphics gr, ref IDictionary<int, float> levw, int level, int maxlvl)
         {
             // Arrange the tree.
-            Arrange(gr, ref xd,ref xu, ref yd,ref yu);
+            Arrange(gr, ref levw, level, maxlvl);
 
             // Draw the tree.
             DrawTree(gr);

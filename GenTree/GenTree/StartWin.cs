@@ -73,7 +73,7 @@ namespace GenTree
             {
                 DrawingPersonCode = form.ReturnValue.Code;
                 findRelationsToolStripMenuItem.Enabled = true;
-                root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), true));
+                root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), false));
                 DrawTree();
                 form.Close();
             }
@@ -113,15 +113,8 @@ namespace GenTree
             using (Graphics gr = this.CreateGraphics())
             {
                 // Arrange the tree once to see how big it is.
-                float xdmin = 0,xumin=0, ydmin = 0, yumin = 0;
-                root.Arrange(gr, ref xdmin, ref xumin, ref ydmin, ref yumin);
-
-                // Arrange the tree again to center it.
-                xdmin = (this.ClientSize.Width - xdmin) / 4;
-                xumin = (this.ClientSize.Width - xumin) / 4;
-                ydmin = (this.ClientSize.Height - ydmin) / 3;
-                yumin = (this.ClientSize.Height - yumin) / 3;
-                root.Arrange(gr, ref xdmin, ref xumin, ref ydmin, ref yumin);
+                IDictionary<int, float> levw=new Dictionary<int, float>();
+                root.Arrange(gr, ref levw,0,-2);
             }
 
             // Redraw.
@@ -134,8 +127,10 @@ namespace GenTree
             //         new TreeNode<CircleNode>(new CircleNode("отец",false));
             // TreeNode<CircleNode> b_node =
             //     new TreeNode<CircleNode>(new CircleNode("мать",false));
-
+            root.Data.SetDir(false);
             AddParentToTree(root, temp[DrawingPersonCode], temp);
+            root.Data.SetDir(true);
+            AddChildrenToTree(root, temp[DrawingPersonCode], temp);
 
             ArrangeTree();
 
@@ -146,7 +141,7 @@ namespace GenTree
 
             genTreelistBox.DataSource = CountNodesLevels(DrawingPersonCode, temp);
 
-            genTreelistBox.SelectedIndex = -1;
+            genTreelistBox.SelectedIndex = 0;
             do
             {
                 genTreelistBox.SelectedIndex++;
@@ -199,6 +194,16 @@ namespace GenTree
                 TreeNode<CircleNode> t = new TreeNode<CircleNode>(new CircleNode(temp[me.Father].ToString(), false));
                 root.AddChild(t);
                 AddParentToTree(t, temp[me.Father], temp);
+            }
+        }
+        private void AddChildrenToTree(TreeNode<CircleNode> root, Person me, IDictionary<Int32, Person> temp)
+        {
+            IDictionary<Int32, Person> childs = model.GetPeopleByParentCode(me.Code);
+            foreach (Person p in childs.Values)
+            {
+                TreeNode<CircleNode> t = new TreeNode<CircleNode>(new CircleNode(temp[p.Code].ToString(), true));
+                root.AddChild(t);
+                AddChildrenToTree(t,temp[p.Code],temp);
             }
         }
 

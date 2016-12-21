@@ -80,11 +80,6 @@ namespace GenTree
             this.Refresh();
         }
 
-        private void темнаяToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void определитьРодствоToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindForm relatFindForm = new FindForm(model);

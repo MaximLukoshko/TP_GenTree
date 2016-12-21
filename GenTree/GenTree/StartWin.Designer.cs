@@ -33,10 +33,6 @@
             this.новыйРодственникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.найтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.человекаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.темнаяТемаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.темнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.светлаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.дополнительныеВозможностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findRelationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -54,7 +50,6 @@
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
             this.найтиToolStripMenuItem,
-            this.видToolStripMenuItem,
             this.дополнительныеВозможностиToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
@@ -90,36 +85,6 @@
             this.человекаToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.человекаToolStripMenuItem.Text = "Родственника..";
             this.человекаToolStripMenuItem.Click += new System.EventHandler(this.человекаToolStripMenuItem_Click);
-            // 
-            // видToolStripMenuItem
-            // 
-            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.темнаяТемаToolStripMenuItem});
-            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
-            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.видToolStripMenuItem.Text = "Вид";
-            // 
-            // темнаяТемаToolStripMenuItem
-            // 
-            this.темнаяТемаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.темнаяToolStripMenuItem,
-            this.светлаяToolStripMenuItem});
-            this.темнаяТемаToolStripMenuItem.Name = "темнаяТемаToolStripMenuItem";
-            this.темнаяТемаToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.темнаяТемаToolStripMenuItem.Text = "Темы";
-            // 
-            // темнаяToolStripMenuItem
-            // 
-            this.темнаяToolStripMenuItem.Name = "темнаяToolStripMenuItem";
-            this.темнаяToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.темнаяToolStripMenuItem.Text = "Темная.";
-            this.темнаяToolStripMenuItem.Click += new System.EventHandler(this.темнаяToolStripMenuItem_Click);
-            // 
-            // светлаяToolStripMenuItem
-            // 
-            this.светлаяToolStripMenuItem.Name = "светлаяToolStripMenuItem";
-            this.светлаяToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.светлаяToolStripMenuItem.Text = "Светлая.";
             // 
             // дополнительныеВозможностиToolStripMenuItem
             // 
@@ -216,10 +181,6 @@
         private System.Windows.Forms.ToolStripMenuItem новыйРодственникToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem найтиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem человекаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem темнаяТемаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem темнаяToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem светлаяToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem дополнительныеВозможностиToolStripMenuItem;

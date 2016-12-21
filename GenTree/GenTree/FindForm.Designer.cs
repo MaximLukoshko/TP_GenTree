@@ -420,6 +420,7 @@
             this.checkBoxGenderMale.TabIndex = 123;
             this.checkBoxGenderMale.Text = "Мужской";
             this.checkBoxGenderMale.UseVisualStyleBackColor = true;
+            this.checkBoxGenderMale.CheckedChanged += new System.EventHandler(this.checkBoxGenderMale_CheckedChanged);
             // 
             // checkBoxGenderFemale
             // 

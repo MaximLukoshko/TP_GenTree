@@ -51,7 +51,7 @@ namespace GenTree
             dateLabel.Text = DateTime.Now.ToLongDateString();
             timeLabel.Text = DateTime.Now.ToLongTimeString();
         }
-
+        //Добавить родственника
         private void новыйРодственникToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddForm form = new AddForm(model);
@@ -60,7 +60,7 @@ namespace GenTree
                 form.Close();
             this.Refresh();
         }
-
+        //Найти человека
         private void человекаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindForm form = new FindForm(model);
@@ -72,7 +72,7 @@ namespace GenTree
             if (form.DialogResult == DialogResult.OK)
             {
                 DrawingPersonCode = form.ReturnValue.Code;
-                findRelationsToolStripMenuItem.Enabled = true;
+                findRelationsToolStripMenuItem.Enabled = true;  //Включение кнопки "Определить родство"
                 root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), true));
                 DrawTree();
                 form.Close();
@@ -202,6 +202,7 @@ namespace GenTree
             }
         }
 
+        //Вызывается каждый раз, когда мы что-то рисуем
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
@@ -215,6 +216,7 @@ namespace GenTree
 //            ArrangeTree();
         }
 
+        //Просмотр анкеты
         private void button1_Click(object sender, EventArgs e)
         {
             if (null != genTreelistBox.SelectedItem)

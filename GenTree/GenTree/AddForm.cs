@@ -23,6 +23,7 @@ namespace GenTree
             locmodel = model;
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            SetData(new Person());
         }
 
         private void SetData(Person infoPerson)
@@ -116,6 +117,7 @@ namespace GenTree
             person.DataSource = dataSourceTextBox.Text;
             return person;
         }
+        //Добавление человека
         private void button1_Click(object sender, EventArgs e)
         {
             Person person = GetData();
@@ -158,30 +160,9 @@ namespace GenTree
 
         private void button3_Click(object sender, EventArgs e)
         {
-            firstNameTextBox.Clear();
-            professionTextBox.Clear();
-            educationTextBox.Clear();
-            textBox12.Clear();
-            deathDayTextBox.Clear();
-            dataSourceTextBox.Clear();
-            textBox15.Clear();
-            textBox16.Clear();
-            textBox17.Clear();
-            textBox18.Clear();
-            middleNameTextBox.Clear();
-            secondNameTextBox.Clear();
-            locationTextBox.Clear();
-            socialStatusTextBox.Clear();
-            nationalityTextBox.Clear();
-            birthPlaceTextBox.Clear();
-            birthDateDayComboBox.Items.Clear();
-            birthDateMonthComboBox.Items.Clear();
-            birthDateYearComboBox.Items.Clear();
-            deathDateYearComboBox.Items.Clear();
-            deathDateMonthComboBox.Items.Clear();
-            deathDateDayComboBox.Items.Clear();
+            SetData(new Person());
         }
-
+        //Подключение-отключение девичьей фамилии
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             textBox15.Enabled=false;
@@ -194,6 +175,7 @@ namespace GenTree
             label13.Enabled = true;
         }
 
+        //Выбор мамы
         private void button6_Click(object sender, EventArgs e)
         {
             //2 for female, 1 fo male
@@ -213,6 +195,7 @@ namespace GenTree
             
         }
 
+        //Выбор папы
         private void button7_Click(object sender, EventArgs e)
         {
             FindForm form = new FindForm(locmodel, true, true); 

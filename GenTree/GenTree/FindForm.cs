@@ -58,11 +58,13 @@ namespace GenTree
             
         }
 
+        //"Подтвердить"
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Кнопка "Найти"
         private void button1_Click_1(object sender, EventArgs e)
         {
            FillResultBoxByMask();
@@ -123,7 +125,8 @@ namespace GenTree
 
         private void checkBoxGenderFemale_CheckedChanged(object sender, EventArgs e)
         {
-            textBox9.Enabled = checkBoxGenderFemale.Checked;
+            textBox9.Enabled = checkBoxGenderFemale.Checked ||
+                (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -135,6 +138,12 @@ namespace GenTree
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
+
+        private void checkBoxGenderMale_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox9.Enabled = checkBoxGenderFemale.Checked ||
+                (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
         }
     }
 }

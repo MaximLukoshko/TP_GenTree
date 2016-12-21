@@ -217,14 +217,11 @@ namespace GenTree
 
         private void button1_Click(object sender, EventArgs e)
         {
-//             IList<Person> tableSource = new List<Person>();
-//             IDictionary<Int32, Person> temp = model.BuildTree(DrawingPersonCode);
-//             foreach (Person person in temp.Values)
-//                 tableSource.Add(person);
-//             //tableSource.Add(person.FirstName + " " + person.SecondName);
-//             genTreelistBox.DataSource = tableSource;
-            AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData);
-            preViewForm.Show();
+            if (null != genTreelistBox.SelectedItem)
+            {
+                AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData);
+                preViewForm.Show();
+            }
         }
     }
 }

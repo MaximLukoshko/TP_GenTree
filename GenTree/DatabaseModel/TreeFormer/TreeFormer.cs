@@ -23,13 +23,8 @@ namespace DatabaseModel.TreeFormer
         {
             IDictionary<Int32, Person> ret = new Dictionary<Int32, Person>();
 
-            Person rootMan = database.GetPersonByCode(code);
-            if (null != rootMan)
-            {
-                ret.Add(code, rootMan);
-                GetChildrenAll(code, ref ret);
-                GetParentsAll(code, ref ret);
-            }
+            GetChildrenAll(code, ref ret);
+            GetParentsAll(code, ref ret);
                         
             return ret;
         }
@@ -52,13 +47,11 @@ namespace DatabaseModel.TreeFormer
                     AddCollection(ref ret, GetParents(iter.Code).Values);
                     flag = true;
                 }
-   
-                if (!ret.ContainsKey(iter.Code))
-                    ret.Add(iter.Code, iter);
+
+                ret.Add(iter.Code, iter);
                 
                 //Получаем внуков и т.д.
-                if (iter.Code != code)
-                    GetChildrenAll(iter.Code, ref ret);
+                GetChildrenAll(iter.Code, ref ret);
             }
         }
 
@@ -108,8 +101,7 @@ namespace DatabaseModel.TreeFormer
         private void AddCollection(ref IDictionary<Int32, Person> ret, ICollection<Person> collection)
         {
             foreach (Person it in collection)
-                if (!ret.ContainsKey(it.Code))
-                    ret.Add(it.Code, it);
+                ret.Add(it.Code, it);
         }
     }
 }

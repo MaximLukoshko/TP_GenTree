@@ -13,7 +13,6 @@ namespace howto_generic_treenode
         // Return the object's needed size.
         SizeF GetSize(Graphics gr, Font font);
         bool GetDir();
-        void SetDir(bool dir);
 
         // Draw the object centered at (x, y).
         void Draw(float x, float y, Graphics gr, Pen pen,

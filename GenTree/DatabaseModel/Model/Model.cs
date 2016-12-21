@@ -40,11 +40,7 @@ namespace DatabaseModel.Model
 
         public String FindRelations(Int32 first_code, Int32 second_code)
         {
-            return findPerson.FindRelation(first_code, second_code, this);
-        }
-        public IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode)
-        {
-            return dataBase.GetPeopleByParentCode(parentCode);
+            return findPerson.FindRelation(first_code, second_code);
         }
     }
 }

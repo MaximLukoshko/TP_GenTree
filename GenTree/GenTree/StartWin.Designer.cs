@@ -33,12 +33,16 @@
             this.новыйРодственникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.найтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.человекаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.темнаяТемаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.темнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.светлаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.дополнительныеВозможностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.findRelationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.определитьРодствоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.preViewButton = new System.Windows.Forms.Button();
-            this.genTreelistBox = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.genTreelistBox = new System.Windows.Forms.ListBox();
+            this.refresh = new System.Windows.Forms.Button();
             this.MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -50,6 +54,7 @@
             this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.добавитьToolStripMenuItem,
             this.найтиToolStripMenuItem,
+            this.видToolStripMenuItem,
             this.дополнительныеВозможностиToolStripMenuItem});
             this.MenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MenuStrip.Name = "MenuStrip";
@@ -86,21 +91,51 @@
             this.человекаToolStripMenuItem.Text = "Родственника..";
             this.человекаToolStripMenuItem.Click += new System.EventHandler(this.человекаToolStripMenuItem_Click);
             // 
+            // видToolStripMenuItem
+            // 
+            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.темнаяТемаToolStripMenuItem});
+            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
+            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.видToolStripMenuItem.Text = "Вид";
+            // 
+            // темнаяТемаToolStripMenuItem
+            // 
+            this.темнаяТемаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.темнаяToolStripMenuItem,
+            this.светлаяToolStripMenuItem});
+            this.темнаяТемаToolStripMenuItem.Name = "темнаяТемаToolStripMenuItem";
+            this.темнаяТемаToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.темнаяТемаToolStripMenuItem.Text = "Темы";
+            // 
+            // темнаяToolStripMenuItem
+            // 
+            this.темнаяToolStripMenuItem.Name = "темнаяToolStripMenuItem";
+            this.темнаяToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.темнаяToolStripMenuItem.Text = "Темная.";
+            this.темнаяToolStripMenuItem.Click += new System.EventHandler(this.темнаяToolStripMenuItem_Click);
+            // 
+            // светлаяToolStripMenuItem
+            // 
+            this.светлаяToolStripMenuItem.Name = "светлаяToolStripMenuItem";
+            this.светлаяToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.светлаяToolStripMenuItem.Text = "Светлая.";
+            // 
             // дополнительныеВозможностиToolStripMenuItem
             // 
             this.дополнительныеВозможностиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.findRelationsToolStripMenuItem});
+            this.определитьРодствоToolStripMenuItem});
             this.дополнительныеВозможностиToolStripMenuItem.Name = "дополнительныеВозможностиToolStripMenuItem";
             this.дополнительныеВозможностиToolStripMenuItem.Size = new System.Drawing.Size(193, 20);
             this.дополнительныеВозможностиToolStripMenuItem.Text = "Дополнительные возможности";
             // 
-            // findRelationsToolStripMenuItem
+            // определитьРодствоToolStripMenuItem
             // 
-            this.findRelationsToolStripMenuItem.Enabled = false;
-            this.findRelationsToolStripMenuItem.Name = "findRelationsToolStripMenuItem";
-            this.findRelationsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.findRelationsToolStripMenuItem.Text = "Определить родство..";
-            this.findRelationsToolStripMenuItem.Click += new System.EventHandler(this.определитьРодствоToolStripMenuItem_Click);
+            this.определитьРодствоToolStripMenuItem.Enabled = false;
+            this.определитьРодствоToolStripMenuItem.Name = "определитьРодствоToolStripMenuItem";
+            this.определитьРодствоToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.определитьРодствоToolStripMenuItem.Text = "Определить родство..";
+            this.определитьРодствоToolStripMenuItem.Click += new System.EventHandler(this.определитьРодствоToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -111,8 +146,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.AutoScroll = true;
-            this.splitContainer1.Panel1.Controls.Add(this.preViewButton);
+            this.splitContainer1.Panel1.Controls.Add(this.refresh);
             this.splitContainer1.Panel1.Controls.Add(this.genTreelistBox);
             this.splitContainer1.Panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -122,18 +156,16 @@
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             this.splitContainer1.Size = new System.Drawing.Size(932, 491);
-            this.splitContainer1.SplitterDistance = 308;
+            this.splitContainer1.SplitterDistance = 310;
             this.splitContainer1.TabIndex = 2;
             // 
-            // preViewButton
+            // statusStrip1
             // 
-            this.preViewButton.Location = new System.Drawing.Point(-2, 442);
-            this.preViewButton.Name = "preViewButton";
-            this.preViewButton.Size = new System.Drawing.Size(305, 23);
-            this.preViewButton.TabIndex = 1;
-            this.preViewButton.Text = "Просмотр анкеты";
-            this.preViewButton.UseVisualStyleBackColor = true;
-            this.preViewButton.Click += new System.EventHandler(this.button1_Click);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 493);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(932, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
             // 
             // genTreelistBox
             // 
@@ -143,13 +175,15 @@
             this.genTreelistBox.Size = new System.Drawing.Size(300, 459);
             this.genTreelistBox.TabIndex = 0;
             // 
-            // statusStrip1
+            // refresh
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 493);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(932, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
+            this.refresh.Location = new System.Drawing.Point(212, 404);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(75, 23);
+            this.refresh.TabIndex = 1;
+            this.refresh.Text = "refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.button1_Click);
             // 
             // StartWin
             // 
@@ -181,12 +215,16 @@
         private System.Windows.Forms.ToolStripMenuItem новыйРодственникToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem найтиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem человекаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem темнаяТемаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem темнаяToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem светлаяToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem дополнительныеВозможностиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem findRelationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem определитьРодствоToolStripMenuItem;
         private System.Windows.Forms.ListBox genTreelistBox;
-        private System.Windows.Forms.Button preViewButton;
+        private System.Windows.Forms.Button refresh;
     }
 }
 

@@ -16,19 +16,7 @@ namespace GenTree
     {
         Person mask;
         IModel locmodel;
-        private Person retPerson;
-        public Person ReturnValue 
-        { 
-            get
-            {
-                return retPerson;
-            } 
-            
-            set
-            {
-                retPerson = value;
-            } 
-        }
+        public int ReturnValue1 { get; set; }
 
         public FindForm(IModel model, Boolean isGenderSet = false, Boolean gender = false)
         {
@@ -58,13 +46,11 @@ namespace GenTree
             
         }
 
-        //"Подтвердить"
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //Кнопка "Найти"
         private void button1_Click_1(object sender, EventArgs e)
         {
            FillResultBoxByMask();
@@ -125,8 +111,7 @@ namespace GenTree
 
         private void checkBoxGenderFemale_CheckedChanged(object sender, EventArgs e)
         {
-            textBox9.Enabled = checkBoxGenderFemale.Checked ||
-                (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
+            textBox9.Enabled = checkBoxGenderFemale.Checked;
         }
 
         private void acceptButton_Click(object sender, EventArgs e)
@@ -134,16 +119,10 @@ namespace GenTree
             Person selected = (Person)resultListBox.SelectedItem;
             if (null != selected)
             {
-                this.ReturnValue = selected;
+                this.ReturnValue1 = selected.Code;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-        }
-
-        private void checkBoxGenderMale_CheckedChanged(object sender, EventArgs e)
-        {
-            textBox9.Enabled = checkBoxGenderFemale.Checked ||
-                (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
         }
     }
 }

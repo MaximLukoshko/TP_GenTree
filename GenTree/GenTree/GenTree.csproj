@@ -68,7 +68,6 @@
       <DependentUpon>StartWin.cs</DependentUpon>
     </Compile>
     <Compile Include="TreeNode.cs" />
-    <Compile Include="TreeNodeLine.cs" />
     <EmbeddedResource Include="AddForm.resx">
       <DependentUpon>AddForm.cs</DependentUpon>
     </EmbeddedResource>

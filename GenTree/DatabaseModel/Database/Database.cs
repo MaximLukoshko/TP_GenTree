@@ -39,7 +39,7 @@ namespace DatabaseModel.Database
             person.BirthDateCorrectField[0] = true;
             person.BirthDateCorrectField[1] = false;
             person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
+            person.Gender = false;
             person.IsGenderSet = true;
             person.Father = 4;
             person.Mother = 5;
@@ -79,7 +79,7 @@ namespace DatabaseModel.Database
             person.BirthDateCorrectField[0] = true;
             person.BirthDateCorrectField[1] = false;
             person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
+            person.Gender = false;
             person.IsGenderSet = true;
             AddPerson(ref person);
 
@@ -103,7 +103,7 @@ namespace DatabaseModel.Database
             person.BirthDateCorrectField[0] = true;
             person.BirthDateCorrectField[1] = false;
             person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
+            person.Gender = false;
             person.IsGenderSet = true;
             AddPerson(ref person);
 
@@ -160,8 +160,9 @@ namespace DatabaseModel.Database
                     continue;
                 if (mask.IsGenderSet == true && person.IsGenderSet == false)
                     continue;
-                if (person.IsGenderSet == true && person.Gender == false && 
-                        person.MotherSecondName.IndexOf(mask.MotherSecondName) < 0)
+                if (person.IsGenderSet == true && person.Gender == false &&
+                        null != person.MotherSecondName &&
+                        person.MotherSecondName.IndexOf(mask.MotherSecondName) < 0) 
                     continue;
 
                 //Если всё совпало с маской, то добавляем человека

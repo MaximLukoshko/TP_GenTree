@@ -123,14 +123,48 @@ namespace GenTree
 
             ArrangeTree();
 
-            IList<Person> tableSource = new List<Person>();
+            //IList<TreeNodeLine> tableSource = new List<TreeNodeLine>();
 
-            foreach (Person person in temp.Values)
-                tableSource.Add(person);
-            //tableSource.Add(person.FirstName + " " + person.SecondName);
-            genTreelistBox.DataSource = tableSource;
+//             foreach (Person person in temp.Values)
+//                 tableSource.Add(new TreeNodeLine(person, 973)); //973 - уровень родственника
+
+            genTreelistBox.DataSource = CountNodesLevels(DrawingPersonCode, temp);
+
+            genTreelistBox.SelectedIndex = 0;
+            do
+            {
+                genTreelistBox.SelectedIndex++;
+            } while (genTreelistBox.SelectedItem.GetHashCode() != DrawingPersonCode);
         }
+    
+        private void CountNodesLevelsUp(Int32 code, IDictionary<Int32, Person> personsCollection, IList<TreeNodeLine> ret, Int32 level = 0)
+        {
+            Person currentPerson = personsCollection[code];
+            ret.Add(new TreeNodeLine(currentPerson, level));
+            foreach (Person iter in personsCollection.Values)
+                if (iter.Code==currentPerson.Mother|| iter.Code==currentPerson.Father)
+                    CountNodesLevelsUp(iter.Code, personsCollection, ret, level - 1);
+        }
+        private void CountNodesLevelsDown(Int32 code, IDictionary<Int32, Person> personsCollection, IList<TreeNodeLine> ret, Int32 level = 0)
+        {
+            Person currentPerson = personsCollection[code];
+            foreach (Person iter in personsCollection.Values)
+                if (iter.Mother == currentPerson.Code || iter.Father == currentPerson.Code)
+                {
+                    ret.Add(new TreeNodeLine(iter, level + 1));
+                    CountNodesLevelsDown(iter.Code, personsCollection, ret, level + 1);
+                }
+        }
+        private IList<TreeNodeLine> CountNodesLevels(Int32 code, IDictionary<Int32, Person> personsCollection)
+        {
+            List<TreeNodeLine> ret = new List<TreeNodeLine>();
 
+            CountNodesLevelsUp(code, personsCollection, ret);
+            CountNodesLevelsDown(code, personsCollection, ret);
+
+            ret.Sort();
+            return ret;
+        }
         private void StartWin_Load(object sender, EventArgs e)
         {
             //DrawTree();
@@ -173,7 +207,7 @@ namespace GenTree
 //                 tableSource.Add(person);
 //             //tableSource.Add(person.FirstName + " " + person.SecondName);
 //             genTreelistBox.DataSource = tableSource;
-            AddForm preViewForm = new AddForm((Person)genTreelistBox.SelectedItem);
+            AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData);
             preViewForm.Show();
         }
     }

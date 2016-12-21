@@ -127,9 +127,9 @@
             // 
             // preViewButton
             // 
-            this.preViewButton.Location = new System.Drawing.Point(-2, 442);
+            this.preViewButton.Location = new System.Drawing.Point(-2, 414);
             this.preViewButton.Name = "preViewButton";
-            this.preViewButton.Size = new System.Drawing.Size(305, 23);
+            this.preViewButton.Size = new System.Drawing.Size(305, 51);
             this.preViewButton.TabIndex = 1;
             this.preViewButton.Text = "Просмотр анкеты";
             this.preViewButton.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             this.genTreelistBox.FormattingEnabled = true;
             this.genTreelistBox.Location = new System.Drawing.Point(3, 6);
             this.genTreelistBox.Name = "genTreelistBox";
-            this.genTreelistBox.Size = new System.Drawing.Size(300, 459);
+            this.genTreelistBox.Size = new System.Drawing.Size(300, 407);
             this.genTreelistBox.TabIndex = 0;
             // 
             // statusStrip1

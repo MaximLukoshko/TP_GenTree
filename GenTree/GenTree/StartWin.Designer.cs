@@ -38,7 +38,7 @@
             this.темнаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.светлаяToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.дополнительныеВозможностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.определитьРодствоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.findRelationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.preViewButton = new System.Windows.Forms.Button();
             this.genTreelistBox = new System.Windows.Forms.ListBox();
@@ -124,18 +124,18 @@
             // дополнительныеВозможностиToolStripMenuItem
             // 
             this.дополнительныеВозможностиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.определитьРодствоToolStripMenuItem});
+            this.findRelationsToolStripMenuItem});
             this.дополнительныеВозможностиToolStripMenuItem.Name = "дополнительныеВозможностиToolStripMenuItem";
             this.дополнительныеВозможностиToolStripMenuItem.Size = new System.Drawing.Size(193, 20);
             this.дополнительныеВозможностиToolStripMenuItem.Text = "Дополнительные возможности";
             // 
-            // определитьРодствоToolStripMenuItem
+            // findRelationsToolStripMenuItem
             // 
-            this.определитьРодствоToolStripMenuItem.Enabled = false;
-            this.определитьРодствоToolStripMenuItem.Name = "определитьРодствоToolStripMenuItem";
-            this.определитьРодствоToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.определитьРодствоToolStripMenuItem.Text = "Определить родство..";
-            this.определитьРодствоToolStripMenuItem.Click += new System.EventHandler(this.определитьРодствоToolStripMenuItem_Click);
+            this.findRelationsToolStripMenuItem.Enabled = false;
+            this.findRelationsToolStripMenuItem.Name = "findRelationsToolStripMenuItem";
+            this.findRelationsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.findRelationsToolStripMenuItem.Text = "Определить родство..";
+            this.findRelationsToolStripMenuItem.Click += new System.EventHandler(this.определитьРодствоToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -146,6 +146,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.AutoScroll = true;
             this.splitContainer1.Panel1.Controls.Add(this.preViewButton);
             this.splitContainer1.Panel1.Controls.Add(this.genTreelistBox);
             this.splitContainer1.Panel1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -156,7 +157,7 @@
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             this.splitContainer1.Size = new System.Drawing.Size(932, 491);
-            this.splitContainer1.SplitterDistance = 310;
+            this.splitContainer1.SplitterDistance = 308;
             this.splitContainer1.TabIndex = 2;
             // 
             // preViewButton
@@ -222,7 +223,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem дополнительныеВозможностиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem определитьРодствоToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem findRelationsToolStripMenuItem;
         private System.Windows.Forms.ListBox genTreelistBox;
         private System.Windows.Forms.Button preViewButton;
     }

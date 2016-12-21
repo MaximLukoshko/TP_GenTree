@@ -72,6 +72,7 @@ namespace GenTree
             if (form.DialogResult == DialogResult.OK)
             {
                 DrawingPersonCode = form.ReturnValue.Code;
+                findRelationsToolStripMenuItem.Enabled = true;
                 root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), true));
                 DrawTree();
                 form.Close();
@@ -86,7 +87,27 @@ namespace GenTree
 
         private void определитьРодствоToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FindForm relatFindForm = new FindForm(model);
+            relatFindForm.ShowDialog();
+            Int32 codeToFind = relatFindForm.ReturnValue.Code;
 
+            IDictionary<Int32, Person> cur = model.BuildTree(DrawingPersonCode);
+
+            if (cur.ContainsKey(codeToFind))
+            {
+                MessageBox.Show("Кровное родство", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            IDictionary<Int32, Person> toFind = model.BuildTree(codeToFind);
+            foreach (Int32 keyTofind in toFind.Keys)
+                if (cur.ContainsKey(keyTofind)) 
+                {
+                    MessageBox.Show("Некровное родство", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+            MessageBox.Show("Родства нет", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // The root node.

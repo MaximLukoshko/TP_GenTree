@@ -80,8 +80,8 @@
             this.genderRadioButton = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.motherTextBox = new System.Windows.Forms.TextBox();
+            this.fatherTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
@@ -810,6 +810,7 @@
             // genderRadioButton
             // 
             this.genderRadioButton.AutoSize = true;
+            this.genderRadioButton.Checked = true;
             this.genderRadioButton.Location = new System.Drawing.Point(254, 7);
             this.genderRadioButton.Name = "genderRadioButton";
             this.genderRadioButton.Size = new System.Drawing.Size(71, 17);
@@ -818,7 +819,6 @@
             this.genderRadioButton.Text = "Мужской";
             this.genderRadioButton.UseVisualStyleBackColor = true;
             this.genderRadioButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            this.genderRadioButton.Checked = true;
             // 
             // radioButton2
             // 
@@ -841,25 +841,25 @@
             this.label20.TabIndex = 78;
             this.label20.Text = "Пол";
             // 
-            // textBox3
+            // motherTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(514, 326);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(199, 33);
-            this.textBox3.TabIndex = 79;
-            this.textBox3.Text = "Мать не указана.";
+            this.motherTextBox.Location = new System.Drawing.Point(514, 326);
+            this.motherTextBox.Multiline = true;
+            this.motherTextBox.Name = "motherTextBox";
+            this.motherTextBox.ReadOnly = true;
+            this.motherTextBox.Size = new System.Drawing.Size(199, 33);
+            this.motherTextBox.TabIndex = 79;
+            this.motherTextBox.Text = "Мать не указана.";
             // 
-            // textBox9
+            // fatherTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(514, 377);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(199, 33);
-            this.textBox9.TabIndex = 80;
-            this.textBox9.Text = "Отец не указан.";
+            this.fatherTextBox.Location = new System.Drawing.Point(514, 377);
+            this.fatherTextBox.Multiline = true;
+            this.fatherTextBox.Name = "fatherTextBox";
+            this.fatherTextBox.ReadOnly = true;
+            this.fatherTextBox.Size = new System.Drawing.Size(199, 33);
+            this.fatherTextBox.TabIndex = 80;
+            this.fatherTextBox.Text = "Отец не указан.";
             // 
             // label21
             // 
@@ -908,8 +908,8 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.fatherTextBox);
+            this.Controls.Add(this.motherTextBox);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.genderRadioButton);
@@ -1025,8 +1025,8 @@
         private System.Windows.Forms.RadioButton genderRadioButton;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox motherTextBox;
+        private System.Windows.Forms.TextBox fatherTextBox;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button6;

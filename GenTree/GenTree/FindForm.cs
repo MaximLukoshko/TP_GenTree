@@ -16,7 +16,9 @@ namespace GenTree
     {
         Person mask;
         IModel locmodel;
-        public FindForm(IModel model, ref int selected, Boolean isGenderSet = false, Boolean gender = false)
+        public int ReturnValue1 { get; set; }
+
+        public FindForm(IModel model, Boolean isGenderSet = false, Boolean gender = false)
         {
             locmodel=model;
             InitializeComponent();
@@ -39,6 +41,9 @@ namespace GenTree
                 }
             }
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            FillResultBoxByMask();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -47,6 +52,11 @@ namespace GenTree
         }
 
         private void button1_Click_1(object sender, EventArgs e)
+        {
+           FillResultBoxByMask();
+        }
+
+        private void FillResultBoxByMask()
         {
             mask = new Person();
             mask.FirstName = firstNameTextBox.Text;
@@ -67,22 +77,24 @@ namespace GenTree
                 (!checkBoxGenderMale.Checked && checkBoxGenderFemale.Checked);
             if (mask.IsGenderSet)
                 mask.Gender = checkBoxGenderMale.Checked;
-            
-            IDictionary<Int32, Person> _items =  locmodel.FindPeople(mask);
+
+            IDictionary<Int32, Person> _items = locmodel.FindPeople(mask);
             IList<Person> tableSource = new List<Person>();
 
             foreach (Person person in _items.Values)
                 tableSource.Add(person);
-                //tableSource.Add(person.FirstName + " " + person.SecondName);
+            //tableSource.Add(person.FirstName + " " + person.SecondName);
 
             resultListBox.DataSource = tableSource;
         }
-
         private void buttonPreView_Click(object sender, EventArgs e)
         {
             Person selected = (Person)resultListBox.SelectedItem;
-            AddForm personInfo = new AddForm(selected);
-            personInfo.Show();
+            if(null!=selected)
+            {
+                AddForm personInfo = new AddForm(selected);
+                personInfo.Show();
+            }
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -100,6 +112,17 @@ namespace GenTree
         private void checkBoxGenderFemale_CheckedChanged(object sender, EventArgs e)
         {
             textBox9.Enabled = checkBoxGenderFemale.Checked;
+        }
+
+        private void acceptButton_Click(object sender, EventArgs e)
+        {
+            Person selected = (Person)resultListBox.SelectedItem;
+            if (null != selected)
+            {
+                this.ReturnValue1 = selected.Code;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
     }
 }

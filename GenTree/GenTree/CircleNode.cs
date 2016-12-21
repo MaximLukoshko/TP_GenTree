@@ -11,18 +11,24 @@ namespace howto_generic_treenode
     {
         // The string we will draw.
         public string Name;
-        public string id;
+        public bool _down;
 
         // Constructor.
-        public CircleNode(string new_name,int id)
+        public CircleNode(string new_name,bool down)
         {
             Name = new_name;
+            _down = down;
         }
 
         // Return the size of the string plus a 10 pixel margin.
         public SizeF GetSize(Graphics gr, Font font)
         {
             return gr.MeasureString(Name, font) + new SizeF(10, 10);
+        }
+
+        public bool GetDir()
+        {
+            return _down;
         }
 
         // Draw the object centered at (x, y).

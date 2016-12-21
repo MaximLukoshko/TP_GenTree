@@ -40,13 +40,12 @@
             this.дополнительныеВозможностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.определитьРодствоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.refresh = new System.Windows.Forms.Button();
+            this.genTreelistBox = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -140,42 +139,43 @@
             // 
             // splitContainer1
             // 
+            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 24);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
+            this.splitContainer1.Panel1.Controls.Add(this.refresh);
+            this.splitContainer1.Panel1.Controls.Add(this.genTreelistBox);
             this.splitContainer1.Panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Panel2.Resize += new System.EventHandler(this.splitContainer1_Panel2_Resize);
             this.splitContainer1.Size = new System.Drawing.Size(932, 491);
             this.splitContainer1.SplitterDistance = 310;
             this.splitContainer1.TabIndex = 2;
             // 
-            // label2
+            // refresh
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 130);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Здесь будет списочное отображение";
+            this.refresh.Location = new System.Drawing.Point(212, 404);
+            this.refresh.Name = "refresh";
+            this.refresh.Size = new System.Drawing.Size(75, 23);
+            this.refresh.TabIndex = 1;
+            this.refresh.Text = "refresh";
+            this.refresh.UseVisualStyleBackColor = true;
+            this.refresh.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // genTreelistBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(185, 130);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Здесь будет графическое отображение";
+            this.genTreelistBox.FormattingEnabled = true;
+            this.genTreelistBox.Location = new System.Drawing.Point(3, 6);
+            this.genTreelistBox.Name = "genTreelistBox";
+            this.genTreelistBox.Size = new System.Drawing.Size(300, 459);
+            this.genTreelistBox.TabIndex = 0;
             // 
             // statusStrip1
             // 
@@ -201,9 +201,6 @@
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -223,11 +220,11 @@
         private System.Windows.Forms.ToolStripMenuItem темнаяToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem светлаяToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripMenuItem дополнительныеВозможностиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem определитьРодствоToolStripMenuItem;
+        private System.Windows.Forms.ListBox genTreelistBox;
+        private System.Windows.Forms.Button refresh;
     }
 }
 

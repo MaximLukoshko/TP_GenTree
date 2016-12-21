@@ -14,8 +14,6 @@ namespace GenTree
 {
     public partial class AddForm : Form
     {
-
-        Person person;
         Int32 mother;
         Int32 father;
         IModel locmodel;
@@ -27,25 +25,58 @@ namespace GenTree
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
-        public AddForm(Person infoPerson)
+        private void SetData(Person infoPerson)
         {
-            InitializeComponent();
-            person = infoPerson;
+            Person person = infoPerson;
+
             birthDateYearComboBox.SelectedIndex = person.BirthDateCorrectField[0] == true ? person.BirthDate.Year - 1919 : -1;
-            birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month : -1;
-            birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day : -1;
+            birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month - 1 : -1;
+            birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day - 1 : -1;
 
             middleNameTextBox.Text = person.FirstName;
             firstNameTextBox.Text = person.SecondName;
             textBox15.Text = person.MotherSecondName;
             secondNameTextBox.Text = person.MiddleName;
 
+            birthPlaceTextBox.Text = person.BirthPlace;
+
+            deathDateYearComboBox.SelectedIndex = person.DeathDateCorrectField[0] == true ? person.DeathDate.Year - 1919 : -1;
+            deathDateMonthComboBox.SelectedIndex = person.DeathDateCorrectField[1] == true ? person.DeathDate.Month - 1 : -1;
+            deathDateDayComboBox.SelectedIndex = person.DeathDateCorrectField[2] == true ? person.DeathDate.Day - 1 : -1;
+
+            deathDayTextBox.Text = person.DeathPlace;
+            foreach (String educLine in person.Education)
+                textBox18.Text += educLine + Environment.NewLine;
+            father = person.Father;
+
+            genderRadioButton.Checked = person.Gender;
+            radioButton2.Checked = !person.Gender;
+
+            foreach (String locLine in person.Location)
+                textBox16.Text += locLine + Environment.NewLine;
+
+            mother = person.Mother;
+            nationalityTextBox.Text = person.Nationality;
+
+            foreach (String profLine in person.Profession)
+                textBox17.Text += profLine + Environment.NewLine;
+
+            socialStatusTextBox.Text = person.SocialStatus;
+            textBox12.Text = person.Note;
+            dataSourceTextBox.Text = person.DataSource;
+        }
+        public AddForm(Person infoPerson)
+        {
+            InitializeComponent();
+            SetData(infoPerson);
+
+            // Блокируем возможность изменять анкету
             this.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private Person GetData()
         {
-            person = new Person();
+            Person person = new Person();
             person.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
                 birthDateMonthComboBox.SelectedIndex == -1 ? 1 : birthDateMonthComboBox.SelectedIndex + 1,
                 birthDateDayComboBox.SelectedIndex == -1 ? 1 : birthDateDayComboBox.SelectedIndex + 1);
@@ -55,7 +86,6 @@ namespace GenTree
             person.BirthDateCorrectField[2] = birthDateDayComboBox.SelectedIndex != -1;
 
             person.BirthPlace= birthPlaceTextBox.Text;
-          //  person.Code =;
             person.DataSource = dataSourceTextBox.Text;
             person.DeathDate = new DateTime(deathDateYearComboBox.SelectedIndex == -1 ? 1 : deathDateYearComboBox.SelectedIndex + 1919,
                 deathDateMonthComboBox.SelectedIndex == -1 ? 1 : deathDateMonthComboBox.SelectedIndex + 1,
@@ -66,22 +96,29 @@ namespace GenTree
             person.DeathDateCorrectField[2] = deathDateDayComboBox.SelectedIndex != -1;
 
             person.DeathPlace = deathDayTextBox.Text;
-            for(int i=0;i < educationTextBox.Lines.Length;i++)
-                person.Education.Add(educationTextBox.Lines[i]);
-            person.Father =father;
+            for (int i = 0; i < textBox18.Lines.Length - 1; i++)
+                person.Education.Add(textBox18.Lines[i]);
+            person.Father = father;
             person.FirstName = middleNameTextBox.Text;
             person.SecondName = firstNameTextBox.Text;
             person.MotherSecondName = textBox15.Text;
             person.MiddleName = secondNameTextBox.Text;
             person.Gender = genderRadioButton.Checked;
             person.IsGenderSet = genderRadioButton.Checked || radioButton2.Checked;
-            for (int i = 0; i < locationTextBox.Lines.Length; i++)
-                person.Location.Add(locationTextBox.Lines[i]);
-            person.Mother =mother;
+            for (int i = 0; i < textBox16.Lines.Length - 1; i++)
+                person.Location.Add(textBox16.Lines[i]);
+            person.Mother = mother;
             person.Nationality = nationalityTextBox.Text;
-            for (int i = 0; i < professionTextBox.Lines.Length; i++)
-                person.Profession.Add(professionTextBox.Lines[i]);
+            for (int i = 0; i < textBox17.Lines.Length - 1; i++)
+                person.Profession.Add(textBox17.Lines[i]);
             person.SocialStatus = socialStatusTextBox.Text;
+            person.Note = textBox12.Text;
+            person.DataSource = dataSourceTextBox.Text;
+            return person;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Person person = GetData();
             locmodel.AddPerson(ref person);
             MessageBox.Show("Анкета успешно добавлена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -92,8 +129,8 @@ namespace GenTree
         static int thirdbox = 1;
         private void button2_Click(object sender, EventArgs e)
         {
-            textBox16.Text += firstbox.ToString();
-            textBox16.Text += ") "+locationTextBox.Text+ Environment.NewLine;
+            String LineToAdd = firstbox.ToString() + ") " + locationTextBox.Text + Environment.NewLine;
+            textBox16.Text += LineToAdd;
             locationTextBox.Clear();
             textBox16.SelectionStart = textBox16.TextLength-1;
             textBox16.ScrollToCaret();
@@ -160,18 +197,35 @@ namespace GenTree
         private void button6_Click(object sender, EventArgs e)
         {
             //2 for female, 1 fo male
-            FindForm form = new FindForm(locmodel, ref mother, true, false);
+            FindForm form = new FindForm(locmodel, true, false);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
+            {
                 form.Close();
+            }
+            if (form.DialogResult == DialogResult.OK)
+            {
+                mother = form.ReturnValue1;
+               // motherTextBox = mother;
+                form.Close();
+            }
+
+            
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            FindForm form = new FindForm(locmodel, ref mother, true, true); 
+            FindForm form = new FindForm(locmodel, true, true);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
+            {
                 form.Close();
+            }
+            if (form.DialogResult == DialogResult.OK)
+            {
+                father = form.ReturnValue1;
+                form.Close();
+            }
         }
     }
 }

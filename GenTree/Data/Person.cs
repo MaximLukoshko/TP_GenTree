@@ -12,6 +12,10 @@ namespace Data
         {
             BirthDateCorrectField = new List<Boolean>();
             DeathDateCorrectField = new List<Boolean>();
+            Education = new List<String>();
+            Profession = new List<String>();
+            Location = new List<String>();
+
             for (int i = 0; i < 3; i++) 
             {
                 BirthDateCorrectField.Add(false);
@@ -21,7 +25,7 @@ namespace Data
 
         public override string ToString()
         {
-            return this.FirstName + "" + this.SecondName;
+            return this.FirstName + " " + this.SecondName;
         }
         public String FirstName { get; set; }
         public String SecondName { get; set; }

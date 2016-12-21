@@ -72,6 +72,7 @@
             this.acceptButton.TabIndex = 118;
             this.acceptButton.Text = "Подтвердить";
             this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // label1
             // 

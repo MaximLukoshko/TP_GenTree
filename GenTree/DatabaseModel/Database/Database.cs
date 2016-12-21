@@ -16,6 +16,8 @@ namespace DatabaseModel.Database
             data = new Dictionary<Int32, Person>();
             
             Person person = new Person();
+
+            person = new Person();
             person.FirstName = "Maxim";
             person.SecondName= "Lukoshko";
             person.MiddleName= "Alexander";
@@ -25,6 +27,97 @@ namespace DatabaseModel.Database
             person.BirthDateCorrectField[2] = true;
             person.Gender = true;
             person.IsGenderSet = true;
+            person.Father = 3;
+            person.Mother = 2;
+            AddPerson(ref person);
+
+            person = new Person();
+            person.FirstName = "Mum";
+            person.SecondName = "Mum";
+            person.MiddleName = "Alexander";
+            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
+            person.Father = 4;
+            person.Mother = 5;
+            AddPerson(ref person);
+
+            person = new Person();
+            person.FirstName = "Father";
+            person.SecondName = "Father";
+            person.MiddleName = "Alexander";
+            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
+            person.Father = 6;
+            person.Mother = 7;
+            AddPerson(ref person);
+
+            person = new Person();
+            person.FirstName = "Ded1";
+            person.SecondName = "Ded1";
+            person.MiddleName = "Alexander";
+            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
+            AddPerson(ref person);
+            
+            person = new Person();
+            person.FirstName = "Babulya1";
+            person.SecondName = "Babulya1";
+            person.MiddleName = "Alexander";
+            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
+            AddPerson(ref person);
+
+            person = new Person();
+            person.FirstName = "Ded2";
+            person.SecondName = "Ded2";
+            person.MiddleName = "Alexander";
+            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
+            AddPerson(ref person);
+
+            person = new Person();
+            person.FirstName = "Babulya2";
+            person.SecondName = "Babulya2";
+            person.MiddleName = "Alexander";
+            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
+            AddPerson(ref person);
+
+            person = new Person();
+            person.FirstName = "Son";
+            person.SecondName = "Son";
+            person.MiddleName = "Alexander";
+            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
+            person.BirthDateCorrectField[0] = true;
+            person.BirthDateCorrectField[1] = false;
+            person.BirthDateCorrectField[2] = true;
+            person.Gender = true;
+            person.IsGenderSet = true;
+            person.Father = 1;
             AddPerson(ref person);
         }
 
@@ -36,7 +129,10 @@ namespace DatabaseModel.Database
 
         public Person GetPersonByCode(Int32 code)
         {
-            return data[code];
+            if (data.ContainsKey(code))
+                return data[code];
+            else
+                return null;
         }
 
         public IDictionary<Int32, Person> GetPeople(Person mask)

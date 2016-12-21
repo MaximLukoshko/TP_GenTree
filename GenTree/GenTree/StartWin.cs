@@ -146,7 +146,7 @@ namespace GenTree
 
             genTreelistBox.DataSource = CountNodesLevels(DrawingPersonCode, temp);
 
-            genTreelistBox.SelectedIndex = 0;
+            genTreelistBox.SelectedIndex = -1;
             do
             {
                 genTreelistBox.SelectedIndex++;

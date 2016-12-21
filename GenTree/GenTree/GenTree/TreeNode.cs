@@ -16,11 +16,6 @@ namespace howto_generic_treenode
         // Child nodes in the tree.
         public List<TreeNode<T>> Children = new List<TreeNode<T>>();
 
-        // Space to skip horizontally between siblings
-        // and vertically between generations.
-        private const float Hoffset = 5;
-        private const float Voffset = 10;
-
         // The node's center after arranging.
         private PointF Center;
 
@@ -57,13 +52,12 @@ namespace howto_generic_treenode
             // See how big this node is.
             SizeF my_size = Data.GetSize(gr, MyFont);
             if (!levw.ContainsKey(level))
-                levw[level] = 100;
-           
+                levw[level] = 30;
             // Recursively arrange our children,
             // allowing room for this node.
             foreach (TreeNode<T> child in Children)
             {
-                if (Data.GetDir())
+                if (child.Data.GetDir())
                 {
                     child.Arrange(gr, ref levw, level + 1, maxlvl);
                 }
@@ -72,10 +66,11 @@ namespace howto_generic_treenode
                     child.Arrange(gr, ref levw, level - 1, maxlvl);
                 }
             }
-           
-            levw[level]+= my_size.Width * (level-maxlvl) / 2;
-            Center = new PointF(levw[level], (level-maxlvl+1)*50);
-            levw[level] += my_size.Width- my_size.Width * (maxlvl - level);
+            levw[level]+= my_size.Width * (level-maxlvl);
+            Center = new PointF(levw[level]+ my_size.Width/2, (level-maxlvl)*50+20);
+            levw[level] += my_size.Width +30;
+            levw[level] += my_size.Width * (level - maxlvl);
+
         }
 
         // Draw the subtree rooted at this node

@@ -17,6 +17,7 @@ namespace GenTree
 {
     public partial class StartWin : Form
     {
+        public Int32 DrawingPersonCode{get; private set;}
 
         ToolStripLabel dateLabel;
         ToolStripLabel timeLabel;
@@ -62,7 +63,6 @@ namespace GenTree
 
         private void человекаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Int32 per=0;
             FindForm form = new FindForm(model);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
@@ -71,7 +71,9 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                per = form.ReturnValue.Code;
+                DrawingPersonCode = form.ReturnValue.Code;
+                root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), true));
+                DrawTree();
                 form.Close();
             }
             this.Refresh();
@@ -88,7 +90,7 @@ namespace GenTree
         }
 
         // The root node.
-        private TreeNode<CircleNode> root = new TreeNode<CircleNode>(new CircleNode("Человек-корень",true));
+        private TreeNode<CircleNode> root = null;
 
         private void ArrangeTree()
         {
@@ -109,16 +111,15 @@ namespace GenTree
             // Redraw.
             this.Refresh();
         }
-        private void StartWin_Load(object sender, EventArgs e)
+        private void DrawTree()
         {
-
-            IDictionary<Int32, Person> temp=model.BuildTree(1);//здесь и далее 1 - код челвека для которого рисуем, потом изменить
+            IDictionary<Int32, Person> temp = model.BuildTree(DrawingPersonCode);//здесь и далее 1 - код челвека для которого рисуем, потом изменить
             // TreeNode<CircleNode> a_node =
             //         new TreeNode<CircleNode>(new CircleNode("отец",false));
             // TreeNode<CircleNode> b_node =
             //     new TreeNode<CircleNode>(new CircleNode("мать",false));
 
-            AddParentToTree(root, temp[1],temp);
+            AddParentToTree(root, temp[DrawingPersonCode], temp);
 
             ArrangeTree();
 
@@ -130,32 +131,44 @@ namespace GenTree
             genTreelistBox.DataSource = tableSource;
         }
 
+        private void StartWin_Load(object sender, EventArgs e)
+        {
+            //DrawTree();
+        }
+
         private void AddParentToTree(TreeNode<CircleNode> root, Person me, IDictionary<Int32, Person> temp)
         {
-            TreeNode<CircleNode> t = new TreeNode<CircleNode>(new CircleNode(me.ToString(), false));
-            root.AddChild(t);
             if (temp.ContainsKey(me.Mother) && null != temp[me.Mother])
-                AddParentToTree(t, temp[me.Mother],temp);
+            {
+                TreeNode<CircleNode> t = new TreeNode<CircleNode>(new CircleNode(temp[me.Mother].ToString(), false));
+                root.AddChild(t);
+                AddParentToTree(t, temp[me.Mother], temp);
+            }
             if (temp.ContainsKey(me.Father) && null != temp[me.Father])
-                AddParentToTree(t, temp[me.Father],temp);
+            {
+                TreeNode<CircleNode> t = new TreeNode<CircleNode>(new CircleNode(temp[me.Father].ToString(), false));
+                root.AddChild(t);
+                AddParentToTree(t, temp[me.Father], temp);
+            }
         }
 
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-            root.DrawTree(e.Graphics);
+            if (null != root)
+                root.DrawTree(e.Graphics);
         }
 
         private void splitContainer1_Panel2_Resize(object sender, EventArgs e)
         {
-            ArrangeTree();
+//            ArrangeTree();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             IList<Person> tableSource = new List<Person>();
-            IDictionary<Int32, Person> temp = model.BuildTree(1);
+            IDictionary<Int32, Person> temp = model.BuildTree(DrawingPersonCode);
             foreach (Person person in temp.Values)
                 tableSource.Add(person);
             //tableSource.Add(person.FirstName + " " + person.SecondName);

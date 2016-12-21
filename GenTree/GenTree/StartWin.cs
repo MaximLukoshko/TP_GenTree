@@ -190,7 +190,7 @@ namespace GenTree
                 AddChildrenToTree(t,temp[p.Code],temp);
             }
         }
-
+   
         //Вызывается каждый раз, когда мы что-то рисуем
         private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
         {

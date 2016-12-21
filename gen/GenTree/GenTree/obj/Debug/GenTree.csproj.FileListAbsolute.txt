@@ -1,0 +1,15 @@
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\bin\Debug\GenTree.exe.config
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\bin\Debug\GenTree.exe
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\bin\Debug\GenTree.pdb
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\bin\Debug\Data.dll
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\bin\Debug\DatabaseModel.dll
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\bin\Debug\DatabaseModel.pdb
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\bin\Debug\Data.pdb
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.csprojResolveAssemblyReference.cache
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.AddForm.resources
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.FindForm.resources
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.Properties.Resources.resources
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.StartWin.resources
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.csproj.GenerateResource.Cache
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.exe
+C:\Users\VASYAN\Desktop\gen\GenTree\GenTree\obj\Debug\GenTree.pdb

@@ -215,7 +215,7 @@ namespace GenTree
 
         private void button7_Click(object sender, EventArgs e)
         {
-            FindForm form = new FindForm(locmodel, ref father, true, true); 
+            FindForm form = new FindForm(locmodel, true, true);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
             {

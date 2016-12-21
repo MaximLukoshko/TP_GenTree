@@ -75,7 +75,7 @@ namespace GenTree
             {
                 DrawingPersonCode = form.ReturnValue.Code;
                 findRelationsToolStripMenuItem.Enabled = true;
-                root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), true));
+                root = new TreeNode<CircleNode>(new CircleNode(form.ReturnValue.ToString(), false));
                 DrawTree();
                 form.Close();
             }

@@ -47,7 +47,7 @@ namespace howto_generic_treenode
         // Set xmin to indicate the right edge of our subtree.
         // Set ymin to indicate the bottom edge of our subtree.
 
-        public void Arrange(Graphics gr, ref IDictionary<int, float> levw,int level, int maxlvl)
+        public void Arrange(Graphics gr, ref IDictionary<int, float> levw, int level, int maxlvl)
         {
             // See how big this node is.
             SizeF my_size = Data.GetSize(gr, MyFont);
@@ -66,11 +66,21 @@ namespace howto_generic_treenode
                     child.Arrange(gr, ref levw, level - 1, maxlvl);
                 }
             }
-            levw[level]+= my_size.Width * (level-maxlvl);
-            Center = new PointF(levw[level]+ my_size.Width/2, (level-maxlvl)*50+20);
-            levw[level] += my_size.Width +30;
-            levw[level] += my_size.Width * (level - maxlvl);
-
+            //  MessageBox.Show(level.ToString(), "",
+            // MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            if (!Data.GetDir())
+            {
+                levw[level] += my_size.Width * (level - maxlvl);
+                Center = new PointF(levw[level] + my_size.Width / 2, (level - maxlvl) * 50 + 20);
+                levw[level] += my_size.Width + 30;
+                levw[level] += my_size.Width * (level - maxlvl);
+            }
+            else
+            {
+                levw[level] += my_size.Width * (-maxlvl);
+                Center = new PointF(levw[level] + my_size.Width / 2, (level - maxlvl) * 50 + 20);
+                levw[level] += my_size.Width;
+            }
         }
 
         // Draw the subtree rooted at this node

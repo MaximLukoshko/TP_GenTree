@@ -13,5 +13,6 @@ namespace DatabaseModel.Database
         Person GetPersonByCode(Int32 code);
         IDictionary<Int32, Person> GetPeople(Person mask);
         IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode);
+        String FindRelation(Int32 first_code, Int32 second_code);
     }
 }

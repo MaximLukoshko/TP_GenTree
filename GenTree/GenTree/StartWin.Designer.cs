@@ -40,7 +40,7 @@
             this.дополнительныеВозможностиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.определитьРодствоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.refresh = new System.Windows.Forms.Button();
+            this.preViewButton = new System.Windows.Forms.Button();
             this.genTreelistBox = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.MenuStrip.SuspendLayout();
@@ -146,7 +146,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.refresh);
+            this.splitContainer1.Panel1.Controls.Add(this.preViewButton);
             this.splitContainer1.Panel1.Controls.Add(this.genTreelistBox);
             this.splitContainer1.Panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -159,15 +159,15 @@
             this.splitContainer1.SplitterDistance = 310;
             this.splitContainer1.TabIndex = 2;
             // 
-            // refresh
+            // preViewButton
             // 
-            this.refresh.Location = new System.Drawing.Point(212, 404);
-            this.refresh.Name = "refresh";
-            this.refresh.Size = new System.Drawing.Size(75, 23);
-            this.refresh.TabIndex = 1;
-            this.refresh.Text = "refresh";
-            this.refresh.UseVisualStyleBackColor = true;
-            this.refresh.Click += new System.EventHandler(this.button1_Click);
+            this.preViewButton.Location = new System.Drawing.Point(-2, 442);
+            this.preViewButton.Name = "preViewButton";
+            this.preViewButton.Size = new System.Drawing.Size(305, 23);
+            this.preViewButton.TabIndex = 1;
+            this.preViewButton.Text = "Просмотр анкеты";
+            this.preViewButton.UseVisualStyleBackColor = true;
+            this.preViewButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // genTreelistBox
             // 
@@ -224,7 +224,7 @@
         private System.Windows.Forms.ToolStripMenuItem дополнительныеВозможностиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem определитьРодствоToolStripMenuItem;
         private System.Windows.Forms.ListBox genTreelistBox;
-        private System.Windows.Forms.Button refresh;
+        private System.Windows.Forms.Button preViewButton;
     }
 }
 

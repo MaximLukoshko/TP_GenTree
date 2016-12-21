@@ -205,8 +205,8 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                mother = form.ReturnValue1;
-               // motherTextBox = mother;
+                mother = form.ReturnValue.Code;
+                motherTextBox.Text = form.ReturnValue.ToString();
                 form.Close();
             }
 
@@ -223,7 +223,8 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                father = form.ReturnValue1;
+                father = form.ReturnValue.Code;
+                fatherTextBox.Text = form.ReturnValue.ToString();
                 form.Close();
             }
         }

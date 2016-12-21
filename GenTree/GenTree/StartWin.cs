@@ -71,7 +71,7 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                per = form.ReturnValue1;
+                per = form.ReturnValue.Code;
                 form.Close();
             }
             this.Refresh();

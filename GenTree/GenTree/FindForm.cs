@@ -16,7 +16,19 @@ namespace GenTree
     {
         Person mask;
         IModel locmodel;
-        public int ReturnValue1 { get; set; }
+        private Person retPerson;
+        public Person ReturnValue 
+        { 
+            get
+            {
+                return retPerson;
+            } 
+            
+            set
+            {
+                retPerson = value;
+            } 
+        }
 
         public FindForm(IModel model, Boolean isGenderSet = false, Boolean gender = false)
         {
@@ -119,7 +131,7 @@ namespace GenTree
             Person selected = (Person)resultListBox.SelectedItem;
             if (null != selected)
             {
-                this.ReturnValue1 = selected.Code;
+                this.ReturnValue = selected;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

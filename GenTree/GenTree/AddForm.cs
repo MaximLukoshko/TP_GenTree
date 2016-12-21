@@ -23,6 +23,7 @@ namespace GenTree
             locmodel = model;
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            SetData(new Person());
         }
 
         private void SetData(Person infoPerson)
@@ -158,28 +159,7 @@ namespace GenTree
 
         private void button3_Click(object sender, EventArgs e)
         {
-            firstNameTextBox.Clear();
-            professionTextBox.Clear();
-            educationTextBox.Clear();
-            textBox12.Clear();
-            deathDayTextBox.Clear();
-            dataSourceTextBox.Clear();
-            textBox15.Clear();
-            textBox16.Clear();
-            textBox17.Clear();
-            textBox18.Clear();
-            middleNameTextBox.Clear();
-            secondNameTextBox.Clear();
-            locationTextBox.Clear();
-            socialStatusTextBox.Clear();
-            nationalityTextBox.Clear();
-            birthPlaceTextBox.Clear();
-            birthDateDayComboBox.Items.Clear();
-            birthDateMonthComboBox.Items.Clear();
-            birthDateYearComboBox.Items.Clear();
-            deathDateYearComboBox.Items.Clear();
-            deathDateMonthComboBox.Items.Clear();
-            deathDateDayComboBox.Items.Clear();
+            SetData(new Person());
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

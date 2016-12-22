@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.FirstNameLabel = new System.Windows.Forms.Label();
-            this.firstNameTextBox = new System.Windows.Forms.TextBox();
-            this.middleNameTextBox = new System.Windows.Forms.TextBox();
-            this.SecondNameLabel = new System.Windows.Forms.Label();
             this.secondNameTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.SecondNameLabel = new System.Windows.Forms.Label();
+            this.middleNameTextBox = new System.Windows.Forms.TextBox();
             this.MiddleNaneLabel = new System.Windows.Forms.Label();
             this.locationTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -43,26 +43,26 @@
             this.birthPlaceTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.addLocationButton = new System.Windows.Forms.Button();
             this.resetButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.Note = new System.Windows.Forms.TextBox();
             this.deathDayTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.addProfessionButton = new System.Windows.Forms.Button();
             this.professionTextBox = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.addEducationButton = new System.Windows.Forms.Button();
             this.educationTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.dataSourceTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.MotherSecondNameTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.locationStack = new System.Windows.Forms.TextBox();
+            this.professionStack = new System.Windows.Forms.TextBox();
+            this.educationStack = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.birthDateYearComboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -77,15 +77,15 @@
             this.deathDateMonthComboBox = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.deathDateDayComboBox = new System.Windows.Forms.ComboBox();
-            this.genderRadioButton = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.genderMaleRadioButton = new System.Windows.Forms.RadioButton();
+            this.genderFemaleRadioButton = new System.Windows.Forms.RadioButton();
             this.label20 = new System.Windows.Forms.Label();
             this.motherTextBox = new System.Windows.Forms.TextBox();
             this.fatherTextBox = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.selectMotherButton = new System.Windows.Forms.Button();
+            this.selectFatherButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FirstNameLabel
@@ -97,19 +97,19 @@
             this.FirstNameLabel.TabIndex = 0;
             this.FirstNameLabel.Text = "Имя";
             // 
+            // secondNameTextBox
+            // 
+            this.secondNameTextBox.Location = new System.Drawing.Point(124, 36);
+            this.secondNameTextBox.Name = "secondNameTextBox";
+            this.secondNameTextBox.Size = new System.Drawing.Size(201, 20);
+            this.secondNameTextBox.TabIndex = 1;
+            // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(124, 36);
+            this.firstNameTextBox.Location = new System.Drawing.Point(124, 62);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(201, 20);
-            this.firstNameTextBox.TabIndex = 1;
-            // 
-            // middleNameTextBox
-            // 
-            this.middleNameTextBox.Location = new System.Drawing.Point(124, 62);
-            this.middleNameTextBox.Name = "middleNameTextBox";
-            this.middleNameTextBox.Size = new System.Drawing.Size(201, 20);
-            this.middleNameTextBox.TabIndex = 3;
+            this.firstNameTextBox.TabIndex = 3;
             // 
             // SecondNameLabel
             // 
@@ -120,12 +120,12 @@
             this.SecondNameLabel.TabIndex = 2;
             this.SecondNameLabel.Text = "Фамилия";
             // 
-            // secondNameTextBox
+            // middleNameTextBox
             // 
-            this.secondNameTextBox.Location = new System.Drawing.Point(124, 114);
-            this.secondNameTextBox.Name = "secondNameTextBox";
-            this.secondNameTextBox.Size = new System.Drawing.Size(201, 20);
-            this.secondNameTextBox.TabIndex = 5;
+            this.middleNameTextBox.Location = new System.Drawing.Point(124, 114);
+            this.middleNameTextBox.Name = "middleNameTextBox";
+            this.middleNameTextBox.Size = new System.Drawing.Size(201, 20);
+            this.middleNameTextBox.TabIndex = 5;
             // 
             // MiddleNaneLabel
             // 
@@ -211,15 +211,15 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // addLocationButton
             // 
-            this.button2.Location = new System.Drawing.Point(729, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 23);
-            this.button2.TabIndex = 30;
-            this.button2.Text = "+";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.addLocationButton.Location = new System.Drawing.Point(729, 42);
+            this.addLocationButton.Name = "addLocationButton";
+            this.addLocationButton.Size = new System.Drawing.Size(21, 23);
+            this.addLocationButton.TabIndex = 30;
+            this.addLocationButton.Text = "+";
+            this.addLocationButton.UseVisualStyleBackColor = true;
+            this.addLocationButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // resetButton
             // 
@@ -229,7 +229,7 @@
             this.resetButton.TabIndex = 34;
             this.resetButton.Text = "Сброс";
             this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.button3_Click);
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
             // 
             // label1
             // 
@@ -249,13 +249,13 @@
             this.label2.TabIndex = 39;
             this.label2.Text = "Образование(я)";
             // 
-            // textBox12
+            // Note
             // 
-            this.textBox12.Location = new System.Drawing.Point(124, 361);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(201, 75);
-            this.textBox12.TabIndex = 43;
+            this.Note.Location = new System.Drawing.Point(124, 361);
+            this.Note.Multiline = true;
+            this.Note.Name = "Note";
+            this.Note.Size = new System.Drawing.Size(201, 75);
+            this.Note.TabIndex = 43;
             // 
             // deathDayTextBox
             // 
@@ -282,15 +282,15 @@
             this.label9.TabIndex = 46;
             this.label9.Text = "Подробности жизни";
             // 
-            // button4
+            // addProfessionButton
             // 
-            this.button4.Location = new System.Drawing.Point(729, 144);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(21, 23);
-            this.button4.TabIndex = 48;
-            this.button4.Text = "+";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.addProfessionButton.Location = new System.Drawing.Point(729, 144);
+            this.addProfessionButton.Name = "addProfessionButton";
+            this.addProfessionButton.Size = new System.Drawing.Size(21, 23);
+            this.addProfessionButton.TabIndex = 48;
+            this.addProfessionButton.Text = "+";
+            this.addProfessionButton.UseVisualStyleBackColor = true;
+            this.addProfessionButton.Click += new System.EventHandler(this.button4_Click);
             // 
             // professionTextBox
             // 
@@ -300,15 +300,15 @@
             this.professionTextBox.Size = new System.Drawing.Size(201, 20);
             this.professionTextBox.TabIndex = 47;
             // 
-            // button5
+            // addEducationButton
             // 
-            this.button5.Location = new System.Drawing.Point(727, 233);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(21, 23);
-            this.button5.TabIndex = 51;
-            this.button5.Text = "+";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.addEducationButton.Location = new System.Drawing.Point(727, 233);
+            this.addEducationButton.Name = "addEducationButton";
+            this.addEducationButton.Size = new System.Drawing.Size(21, 23);
+            this.addEducationButton.TabIndex = 51;
+            this.addEducationButton.Text = "+";
+            this.addEducationButton.UseVisualStyleBackColor = true;
+            this.addEducationButton.Click += new System.EventHandler(this.button5_Click);
             // 
             // educationTextBox
             // 
@@ -346,12 +346,12 @@
     ".\r\n Например, если вы не уверены в дне рождения, оставте соответствующее поле пу" +
     "стым.";
             // 
-            // textBox15
+            // MotherSecondNameTextBox
             // 
-            this.textBox15.Location = new System.Drawing.Point(124, 88);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(201, 20);
-            this.textBox15.TabIndex = 57;
+            this.MotherSecondNameTextBox.Location = new System.Drawing.Point(124, 88);
+            this.MotherSecondNameTextBox.Name = "MotherSecondNameTextBox";
+            this.MotherSecondNameTextBox.Size = new System.Drawing.Size(201, 20);
+            this.MotherSecondNameTextBox.TabIndex = 57;
             // 
             // label13
             // 
@@ -362,35 +362,35 @@
             this.label13.TabIndex = 56;
             this.label13.Text = "Девичья фамилия";
             // 
-            // textBox16
+            // locationStack
             // 
-            this.textBox16.Location = new System.Drawing.Point(514, 82);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox16.Size = new System.Drawing.Size(201, 44);
-            this.textBox16.TabIndex = 58;
+            this.locationStack.Location = new System.Drawing.Point(514, 82);
+            this.locationStack.Multiline = true;
+            this.locationStack.Name = "locationStack";
+            this.locationStack.ReadOnly = true;
+            this.locationStack.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.locationStack.Size = new System.Drawing.Size(201, 44);
+            this.locationStack.TabIndex = 58;
             // 
-            // textBox17
+            // professionStack
             // 
-            this.textBox17.Location = new System.Drawing.Point(514, 175);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox17.Size = new System.Drawing.Size(199, 44);
-            this.textBox17.TabIndex = 59;
+            this.professionStack.Location = new System.Drawing.Point(514, 175);
+            this.professionStack.Multiline = true;
+            this.professionStack.Name = "professionStack";
+            this.professionStack.ReadOnly = true;
+            this.professionStack.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.professionStack.Size = new System.Drawing.Size(199, 44);
+            this.professionStack.TabIndex = 59;
             // 
-            // textBox18
+            // educationStack
             // 
-            this.textBox18.Location = new System.Drawing.Point(514, 262);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.ReadOnly = true;
-            this.textBox18.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox18.Size = new System.Drawing.Size(201, 44);
-            this.textBox18.TabIndex = 60;
+            this.educationStack.Location = new System.Drawing.Point(514, 262);
+            this.educationStack.Multiline = true;
+            this.educationStack.Name = "educationStack";
+            this.educationStack.ReadOnly = true;
+            this.educationStack.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.educationStack.Size = new System.Drawing.Size(201, 44);
+            this.educationStack.TabIndex = 60;
             // 
             // label3
             // 
@@ -807,30 +807,30 @@
             this.deathDateDayComboBox.Size = new System.Drawing.Size(39, 21);
             this.deathDateDayComboBox.TabIndex = 69;
             // 
-            // genderRadioButton
+            // genderMaleRadioButton
             // 
-            this.genderRadioButton.AutoSize = true;
-            this.genderRadioButton.Checked = true;
-            this.genderRadioButton.Location = new System.Drawing.Point(254, 7);
-            this.genderRadioButton.Name = "genderRadioButton";
-            this.genderRadioButton.Size = new System.Drawing.Size(71, 17);
-            this.genderRadioButton.TabIndex = 75;
-            this.genderRadioButton.TabStop = true;
-            this.genderRadioButton.Text = "Мужской";
-            this.genderRadioButton.UseVisualStyleBackColor = true;
-            this.genderRadioButton.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.genderMaleRadioButton.AutoSize = true;
+            this.genderMaleRadioButton.Checked = true;
+            this.genderMaleRadioButton.Location = new System.Drawing.Point(254, 7);
+            this.genderMaleRadioButton.Name = "genderMaleRadioButton";
+            this.genderMaleRadioButton.Size = new System.Drawing.Size(71, 17);
+            this.genderMaleRadioButton.TabIndex = 75;
+            this.genderMaleRadioButton.TabStop = true;
+            this.genderMaleRadioButton.Text = "Мужской";
+            this.genderMaleRadioButton.UseVisualStyleBackColor = true;
+            this.genderMaleRadioButton.CheckedChanged += new System.EventHandler(this.genderMale_CheckedChange);
             // 
-            // radioButton2
+            // genderFemaleRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(176, 7);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(72, 17);
-            this.radioButton2.TabIndex = 77;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Женский";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.genderFemaleRadioButton.AutoSize = true;
+            this.genderFemaleRadioButton.Location = new System.Drawing.Point(176, 7);
+            this.genderFemaleRadioButton.Name = "genderFemaleRadioButton";
+            this.genderFemaleRadioButton.Size = new System.Drawing.Size(72, 17);
+            this.genderFemaleRadioButton.TabIndex = 77;
+            this.genderFemaleRadioButton.TabStop = true;
+            this.genderFemaleRadioButton.Text = "Женский";
+            this.genderFemaleRadioButton.UseVisualStyleBackColor = true;
+            this.genderFemaleRadioButton.CheckedChanged += new System.EventHandler(this.genderFemale_CheckedChange);
             // 
             // label20
             // 
@@ -879,40 +879,40 @@
             this.label22.TabIndex = 82;
             this.label22.Text = "Отец";
             // 
-            // button6
+            // selectMotherButton
             // 
-            this.button6.Location = new System.Drawing.Point(727, 329);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 83;
-            this.button6.Text = "Указать";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.selectMotherButton.Location = new System.Drawing.Point(727, 329);
+            this.selectMotherButton.Name = "selectMotherButton";
+            this.selectMotherButton.Size = new System.Drawing.Size(75, 23);
+            this.selectMotherButton.TabIndex = 83;
+            this.selectMotherButton.Text = "Указать";
+            this.selectMotherButton.UseVisualStyleBackColor = true;
+            this.selectMotherButton.Click += new System.EventHandler(this.addMotherButton_Click);
             // 
-            // button7
+            // selectFatherButton
             // 
-            this.button7.Location = new System.Drawing.Point(727, 380);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 84;
-            this.button7.Text = "Указать";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.selectFatherButton.Location = new System.Drawing.Point(727, 380);
+            this.selectFatherButton.Name = "selectFatherButton";
+            this.selectFatherButton.Size = new System.Drawing.Size(75, 23);
+            this.selectFatherButton.TabIndex = 84;
+            this.selectFatherButton.Text = "Указать";
+            this.selectFatherButton.UseVisualStyleBackColor = true;
+            this.selectFatherButton.Click += new System.EventHandler(this.addFatherButton_Click);
             // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 601);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.selectFatherButton);
+            this.Controls.Add(this.selectMotherButton);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.fatherTextBox);
             this.Controls.Add(this.motherTextBox);
             this.Controls.Add(this.label20);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.genderRadioButton);
+            this.Controls.Add(this.genderFemaleRadioButton);
+            this.Controls.Add(this.genderMaleRadioButton);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.deathDateYearComboBox);
             this.Controls.Add(this.label17);
@@ -927,26 +927,26 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.birthDateDayComboBox);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox15);
+            this.Controls.Add(this.educationStack);
+            this.Controls.Add(this.professionStack);
+            this.Controls.Add(this.locationStack);
+            this.Controls.Add(this.MotherSecondNameTextBox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dataSourceTextBox);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.addEducationButton);
             this.Controls.Add(this.educationTextBox);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.addProfessionButton);
             this.Controls.Add(this.professionTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.deathDayTextBox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox12);
+            this.Controls.Add(this.Note);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.addLocationButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.locationTextBox);
             this.Controls.Add(this.label5);
@@ -956,11 +956,11 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.birthPlaceTextBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.secondNameTextBox);
-            this.Controls.Add(this.MiddleNaneLabel);
             this.Controls.Add(this.middleNameTextBox);
-            this.Controls.Add(this.SecondNameLabel);
+            this.Controls.Add(this.MiddleNaneLabel);
             this.Controls.Add(this.firstNameTextBox);
+            this.Controls.Add(this.SecondNameLabel);
+            this.Controls.Add(this.secondNameTextBox);
             this.Controls.Add(this.FirstNameLabel);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -974,10 +974,10 @@
         #endregion
 
         private System.Windows.Forms.Label FirstNameLabel;
-        private System.Windows.Forms.TextBox firstNameTextBox;
-        private System.Windows.Forms.TextBox middleNameTextBox;
-        private System.Windows.Forms.Label SecondNameLabel;
         private System.Windows.Forms.TextBox secondNameTextBox;
+        private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.Label SecondNameLabel;
+        private System.Windows.Forms.TextBox middleNameTextBox;
         private System.Windows.Forms.Label MiddleNaneLabel;
         private System.Windows.Forms.TextBox locationTextBox;
         private System.Windows.Forms.Label label5;
@@ -988,26 +988,26 @@
         private System.Windows.Forms.TextBox birthPlaceTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addLocationButton;
         private System.Windows.Forms.Button resetButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox Note;
         private System.Windows.Forms.TextBox deathDayTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button addProfessionButton;
         private System.Windows.Forms.TextBox professionTextBox;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button addEducationButton;
         private System.Windows.Forms.TextBox educationTextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox dataSourceTextBox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox MotherSecondNameTextBox;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox locationStack;
+        private System.Windows.Forms.TextBox professionStack;
+        private System.Windows.Forms.TextBox educationStack;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox birthDateYearComboBox;
         private System.Windows.Forms.Label label12;
@@ -1022,14 +1022,14 @@
         private System.Windows.Forms.ComboBox deathDateMonthComboBox;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox deathDateDayComboBox;
-        private System.Windows.Forms.RadioButton genderRadioButton;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton genderMaleRadioButton;
+        private System.Windows.Forms.RadioButton genderFemaleRadioButton;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox motherTextBox;
         private System.Windows.Forms.TextBox fatherTextBox;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button selectMotherButton;
+        private System.Windows.Forms.Button selectFatherButton;
     }
 }

@@ -122,7 +122,14 @@ namespace GenTree
         private void acceptButton_Click(object sender, EventArgs e)
         {
             Person person = GetData();
-            locmodel.AddPerson(ref person);
+            String addInfo = locmodel.AddPerson(ref person);
+            if (addInfo != "")
+            {
+                MessageBox.Show(addInfo, "Ошибка добавления",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             MessageBox.Show("Анкета успешно добавлена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             this.Close();

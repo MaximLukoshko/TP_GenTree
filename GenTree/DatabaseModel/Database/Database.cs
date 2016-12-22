@@ -121,11 +121,33 @@ namespace DatabaseModel.Database
             person.Father = 1;
             AddPerson(ref person);
         }
-
+//         private String CheckCorrectness(ref Person person)
+//         {
+//             String ret = "";
+//             {
+//                 IDictionary<Int32, Person> cur = model.BuildTree(first_code);
+// 
+//                 if (cur.ContainsKey(second_code))
+//                     return "Кровное родство";
+// 
+//                 IDictionary<Int32, Person> toFind = model.BuildTree(second_code);
+//                 foreach (Int32 keyTofind in toFind.Keys)
+//                     if (cur.ContainsKey(keyTofind))
+//                         return "Некровное родство";
+// 
+//                 return "Нет родства";
+//             }
+//             return ret;
+//         }
         public void AddPerson(ref Person person)
         {
-            person.Code = data.Count + 1;
-            data.Add(person.Code, person);
+//             String ret = CheckCorrectness(ref person);
+//             if(ret=="")
+//             {
+                person.Code = data.Count + 1;
+                data.Add(person.Code, person);
+//             }
+//             return ret;
         }
 
         public Person GetPersonByCode(Int32 code)

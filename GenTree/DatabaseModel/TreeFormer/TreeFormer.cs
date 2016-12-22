@@ -111,5 +111,12 @@ namespace DatabaseModel.TreeFormer
                 if (!ret.ContainsKey(it.Code))
                     ret.Add(it.Code, it);
         }
+
+        public Int32 FindLevel(Int32 code_from, Int32 code_to)
+        {
+            Int32 ret = 0;
+            throw new NotImplementedException();
+            return ret;
+        }
     }
 }

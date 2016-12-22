@@ -33,9 +33,30 @@ namespace DatabaseModel.Model
             return treeFormer.FormTree(code);
         }
 
-        public void AddPerson(ref Person person)
+        private String CheckCorrectness(ref Person person)
         {
-            dataBase.AddPerson(ref person);
+            String ret = "";
+            if (person.Mother > 0 && person.Father > 0)
+            {
+                IDictionary<Int32, Person> motherTree = this.BuildTree(person.Mother);
+                IDictionary<Int32, Person> fatherTree = this.BuildTree(person.Father);
+
+                foreach (Int32 keyTofind in fatherTree.Keys)
+                    if (motherTree.ContainsKey(keyTofind)
+                        && this.treeFormer.FindLevel(keyTofind, person.Mother) != this.treeFormer.FindLevel(keyTofind, person.Father))
+                        return "Родители находятся в разных поколениях";
+
+                return "";
+            }
+            return ret;
+        }
+        public String AddPerson(ref Person person)
+        {
+            String ret = CheckCorrectness(ref person);
+            if (ret == "")
+                dataBase.AddPerson(ref person);
+
+            return ret;
         }
 
         public String FindRelations(Int32 first_code, Int32 second_code)

@@ -62,6 +62,7 @@
             this.resultListBox.Location = new System.Drawing.Point(297, 36);
             this.resultListBox.Name = "resultListBox";
             this.resultListBox.Size = new System.Drawing.Size(299, 186);
+            this.resultListBox.Sorted = true;
             this.resultListBox.TabIndex = 119;
             // 
             // acceptButton

@@ -16,6 +16,9 @@ namespace Data
             Profession = new List<String>();
             Location = new List<String>();
 
+            MotherName = "Мать не указана";
+            FatherName = "Отец не указан";
+
             for (int i = 0; i < 3; i++) 
             {
                 BirthDateCorrectField.Add(false);
@@ -38,6 +41,8 @@ namespace Data
         public String BirthPlace { get; set; }
         public Int32 Code { get; set; }
         public Int32 Mother { get; set; }
+        public String MotherName { get; set; }
+        public String FatherName { get; set; }
         public Int32 Father { get; set; }
         public DateTime DeathDate { get; set; }
         public List<Boolean> DeathDateCorrectField { get; private set; }

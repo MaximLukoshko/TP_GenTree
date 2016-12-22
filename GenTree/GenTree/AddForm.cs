@@ -48,8 +48,10 @@ namespace GenTree
             deathDayTextBox.Text = person.DeathPlace;
             foreach (String educLine in person.Education)
                 educationStack.Text += educLine + Environment.NewLine;
+            
             father = person.Father;
-
+            fatherTextBox.Text = person.FatherName;
+            
             genderMaleRadioButton.Checked = person.Gender;
             genderFemaleRadioButton.Checked = !person.Gender;
 
@@ -57,6 +59,7 @@ namespace GenTree
                 locationStack.Text += locLine + Environment.NewLine;
 
             mother = person.Mother;
+            motherTextBox.Text = person.MotherName;
             nationalityTextBox.Text = person.Nationality;
 
             foreach (String profLine in person.Profession)
@@ -102,6 +105,7 @@ namespace GenTree
             for (int i = 0; i < educationStack.Lines.Length - 1; i++)
                 person.Education.Add(educationStack.Lines[i]);
             person.Father = father;
+            person.FatherName = fatherTextBox.Text;
             person.FirstName = firstNameTextBox.Text;
             person.SecondName = secondNameTextBox.Text;
             person.MotherSecondName = MotherSecondNameTextBox.Text;
@@ -111,6 +115,7 @@ namespace GenTree
             for (int i = 0; i < locationStack.Lines.Length - 1; i++)
                 person.Location.Add(locationStack.Lines[i]);
             person.Mother = mother;
+            person.MotherName = motherTextBox.Text;
             person.Nationality = nationalityTextBox.Text;
             for (int i = 0; i < professionStack.Lines.Length - 1; i++)
                 person.Profession.Add(professionStack.Lines[i]);

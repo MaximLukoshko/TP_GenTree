@@ -243,6 +243,9 @@ namespace GenTree
 
         private void splitContainer1_Panel2_MouseUp(object sender, MouseEventArgs e)
         {
+            if (null == root)
+                return;
+
             using (Graphics gr = this.CreateGraphics())
             {
                 // Arrange the tree once to see how big it is.

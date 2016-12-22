@@ -88,23 +88,7 @@ namespace GenTree
             relatFindForm.ShowDialog();
             Int32 codeToFind = relatFindForm.ReturnValue.Code;
 
-            IDictionary<Int32, Person> cur = model.BuildTree(DrawingPersonCode);
-
-            if (cur.ContainsKey(codeToFind))
-            {
-                MessageBox.Show("Кровное родство", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            IDictionary<Int32, Person> toFind = model.BuildTree(codeToFind);
-            foreach (Int32 keyTofind in toFind.Keys)
-                if (cur.ContainsKey(keyTofind)) 
-                {
-                    MessageBox.Show("Некровное родство", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-            MessageBox.Show("Родства нет", "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show( model.FindRelations(DrawingPersonCode, codeToFind), "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // The root node.

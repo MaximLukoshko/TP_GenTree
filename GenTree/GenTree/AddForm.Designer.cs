@@ -103,6 +103,7 @@
             this.secondNameTextBox.Name = "secondNameTextBox";
             this.secondNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.secondNameTextBox.TabIndex = 1;
+            this.secondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secondNameTextBox_KeyPress);
             // 
             // firstNameTextBox
             // 
@@ -110,6 +111,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.firstNameTextBox.TabIndex = 3;
+            this.firstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameTextBox_KeyPress);
             // 
             // SecondNameLabel
             // 
@@ -126,6 +128,7 @@
             this.middleNameTextBox.Name = "middleNameTextBox";
             this.middleNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.middleNameTextBox.TabIndex = 5;
+            this.middleNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.middleNameTextBox_KeyPress);
             // 
             // MiddleNaneLabel
             // 
@@ -209,7 +212,7 @@
             this.addButton.TabIndex = 16;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.button1_Click);
+            this.addButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // addLocationButton
             // 
@@ -219,7 +222,7 @@
             this.addLocationButton.TabIndex = 30;
             this.addLocationButton.Text = "+";
             this.addLocationButton.UseVisualStyleBackColor = true;
-            this.addLocationButton.Click += new System.EventHandler(this.button2_Click);
+            this.addLocationButton.Click += new System.EventHandler(this.locationButton_Click);
             // 
             // resetButton
             // 
@@ -290,7 +293,7 @@
             this.addProfessionButton.TabIndex = 48;
             this.addProfessionButton.Text = "+";
             this.addProfessionButton.UseVisualStyleBackColor = true;
-            this.addProfessionButton.Click += new System.EventHandler(this.button4_Click);
+            this.addProfessionButton.Click += new System.EventHandler(this.professionAddButton_Click);
             // 
             // professionTextBox
             // 
@@ -308,7 +311,7 @@
             this.addEducationButton.TabIndex = 51;
             this.addEducationButton.Text = "+";
             this.addEducationButton.UseVisualStyleBackColor = true;
-            this.addEducationButton.Click += new System.EventHandler(this.button5_Click);
+            this.addEducationButton.Click += new System.EventHandler(this.educationAddButton_Click);
             // 
             // educationTextBox
             // 
@@ -352,6 +355,7 @@
             this.MotherSecondNameTextBox.Name = "MotherSecondNameTextBox";
             this.MotherSecondNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.MotherSecondNameTextBox.TabIndex = 57;
+            this.MotherSecondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MotherSecondNameTextBox_KeyPress);
             // 
             // label13
             // 

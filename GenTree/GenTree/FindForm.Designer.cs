@@ -209,7 +209,7 @@
             this.buttonFind.TabIndex = 110;
             this.buttonFind.Text = "Найти";
             this.buttonFind.UseVisualStyleBackColor = true;
-            this.buttonFind.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
             // 
             // label2
             // 
@@ -335,6 +335,7 @@
             this.middleNameTextBox.Name = "middleNameTextBox";
             this.middleNameTextBox.Size = new System.Drawing.Size(152, 20);
             this.middleNameTextBox.TabIndex = 104;
+            this.middleNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.middleNameTextBox_KeyPress);
             // 
             // MotherSecondNameTextBox
             // 
@@ -342,6 +343,7 @@
             this.MotherSecondNameTextBox.Name = "MotherSecondNameTextBox";
             this.MotherSecondNameTextBox.Size = new System.Drawing.Size(152, 20);
             this.MotherSecondNameTextBox.TabIndex = 109;
+            this.MotherSecondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MotherSecondNameTextBox_KeyPress);
             // 
             // MiddleNaneLabel
             // 
@@ -365,6 +367,7 @@
             this.secondNameTextBox.Name = "secondNameTextBox";
             this.secondNameTextBox.Size = new System.Drawing.Size(152, 20);
             this.secondNameTextBox.TabIndex = 102;
+            this.secondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secondNameTextBox_KeyPress);
             // 
             // SecondNameLabel
             // 
@@ -381,6 +384,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(152, 20);
             this.firstNameTextBox.TabIndex = 100;
+            this.firstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameTextBox_KeyPress);
             // 
             // buttonPreView
             // 

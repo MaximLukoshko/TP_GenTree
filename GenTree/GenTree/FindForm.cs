@@ -65,7 +65,7 @@ namespace GenTree
         }
 
         //Кнопка "Найти"
-        private void button1_Click_1(object sender, EventArgs e)
+        private void buttonFind_Click(object sender, EventArgs e)
         {
            FillResultBoxByMask();
         }
@@ -77,6 +77,8 @@ namespace GenTree
             mask.MiddleName = middleNameTextBox.Text;
             mask.SecondName = secondNameTextBox.Text;
             mask.MotherSecondName = MotherSecondNameTextBox.Text;
+
+
             mask.BirthPlace = birthPlaceTextBox.Text;
 
             mask.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
@@ -143,6 +145,30 @@ namespace GenTree
         {
             MotherSecondNameTextBox.Enabled = checkBoxGenderFemale.Checked ||
                 (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
+        }
+
+        private Boolean checkLetter(char l)
+        {
+            return !(l > 'А' && l < 'Я' || l > 'а' && l < 'я' || l > 'A' && l < 'Z' || l > 'a' && l < 'z');
+        }
+        private void firstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void secondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void MotherSecondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void middleNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
         }
     }
 }

@@ -119,7 +119,7 @@ namespace GenTree
             person.DataSource = dataSourceTextBox.Text;
             return person;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void acceptButton_Click(object sender, EventArgs e)
         {
             Person person = GetData();
             locmodel.AddPerson(ref person);
@@ -130,7 +130,7 @@ namespace GenTree
         static int firstbox = 1;
         static int secbox = 1;
         static int thirdbox = 1;
-        private void button2_Click(object sender, EventArgs e)
+        private void locationButton_Click(object sender, EventArgs e)
         {
             String LineToAdd = firstbox.ToString() + ") " + locationTextBox.Text + Environment.NewLine;
             locationStack.Text += LineToAdd;
@@ -140,7 +140,7 @@ namespace GenTree
             firstbox++;
         }
       
-        private void button4_Click(object sender, EventArgs e)
+        private void professionAddButton_Click(object sender, EventArgs e)
         {
             professionStack.Text += secbox.ToString();
             professionStack.Text +=") "+ professionTextBox.Text + Environment.NewLine;
@@ -149,7 +149,7 @@ namespace GenTree
             professionStack.ScrollToCaret();
             secbox++;
         }
-        private void button5_Click(object sender, EventArgs e)
+        private void educationAddButton_Click(object sender, EventArgs e)
         {
             educationStack.Text += thirdbox.ToString();
             educationStack.Text += ") "+educationTextBox.Text + Environment.NewLine;
@@ -209,6 +209,31 @@ namespace GenTree
                 fatherTextBox.Text = form.ReturnValue.ToString();
                 form.Close();
             }
+        }
+
+        private Boolean checkLetter(char l)
+        {
+            return !(l > 'А' && l < 'Я' || l > 'а' && l < 'я' || l > 'A' && l < 'Z' || l > 'a' && l < 'z');
+        }
+
+        private void secondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void firstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void MotherSecondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void middleNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
         }
     }
 }

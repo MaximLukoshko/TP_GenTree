@@ -34,7 +34,7 @@ namespace DatabaseModel.FindPerson
 
             IDictionary<Int32, Person> toFind = model.BuildTree(second_code);
             foreach (Int32 keyTofind in toFind.Keys)
-                if (cur.ContainsKey(second_code))
+                if (cur.ContainsKey(keyTofind))
                     return "Некровное родство";
 
             return "Нет родства";

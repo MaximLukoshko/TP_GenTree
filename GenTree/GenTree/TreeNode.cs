@@ -75,14 +75,14 @@ namespace howto_generic_treenode
             if (!Data.GetDir())
             {
                 levw[level] += my_size.Width * (level - maxlvl);
-                Center = new PointF(levw[level] + my_size.Width / 2+xshift/3, (level - maxlvl) * 50 + 20+yshift/3);
+                Center = new PointF(levw[level] + my_size.Width / 2 + xshift / 1, (level - maxlvl) * 50 + 20 + yshift / 1);
                 levw[level] += my_size.Width + 30;
                 levw[level] += my_size.Width * (level - maxlvl);
             }
             else
             {
                 levw[level] += my_size.Width * (-maxlvl);
-                Center = new PointF(levw[level] + my_size.Width / 2+xshift/3, (level - maxlvl) * 50 + 20+yshift/3);
+                Center = new PointF(levw[level] + my_size.Width / 2 + xshift / 1, (level - maxlvl) * 50 + 20 + yshift / 1);
                 levw[level] += my_size.Width;
             }
         }

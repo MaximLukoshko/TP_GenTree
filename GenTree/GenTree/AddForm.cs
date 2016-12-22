@@ -71,6 +71,8 @@ namespace GenTree
             InitializeComponent();
             SetData(infoPerson);
 
+            this.Text = GetData().ToString();
+
             // Блокируем возможность изменять анкету
             this.Enabled = false;
         }

@@ -25,6 +25,8 @@ namespace howto_generic_treenode
         public Brush FontBrush = Brushes.Black;
         public Brush BgBrush = Brushes.White;
 
+        bool isroot=false;
+
         // Constructor.
         public TreeNode(T new_data)
             : this(new_data, new Font("Times New Roman", 12))
@@ -47,8 +49,10 @@ namespace howto_generic_treenode
         // Set xmin to indicate the right edge of our subtree.
         // Set ymin to indicate the bottom edge of our subtree.
 
-        public void Arrange(Graphics gr, ref IDictionary<int, float> levw, int level, int maxlvl)
+        public void Arrange(Graphics gr, ref IDictionary<int, float> levw, int level, int maxlvl,int xshift,int yshift)
         {
+            if (level == 0)
+                isroot = true;
             // See how big this node is.
             SizeF my_size = Data.GetSize(gr, MyFont);
             if (!levw.ContainsKey(level))
@@ -59,11 +63,11 @@ namespace howto_generic_treenode
             {
                 if (child.Data.GetDir())
                 {
-                    child.Arrange(gr, ref levw, level + 1, maxlvl);
+                    child.Arrange(gr, ref levw, level + 1, maxlvl, xshift, yshift);
                 }
                 else
                 {
-                    child.Arrange(gr, ref levw, level - 1, maxlvl);
+                    child.Arrange(gr, ref levw, level - 1, maxlvl, xshift, yshift);
                 }
             }
             //  MessageBox.Show(level.ToString(), "",
@@ -71,24 +75,24 @@ namespace howto_generic_treenode
             if (!Data.GetDir())
             {
                 levw[level] += my_size.Width * (level - maxlvl);
-                Center = new PointF(levw[level] + my_size.Width / 2, (level - maxlvl) * 50 + 20);
+                Center = new PointF(levw[level] + my_size.Width / 2+xshift/3, (level - maxlvl) * 50 + 20+yshift/3);
                 levw[level] += my_size.Width + 30;
                 levw[level] += my_size.Width * (level - maxlvl);
             }
             else
             {
                 levw[level] += my_size.Width * (-maxlvl);
-                Center = new PointF(levw[level] + my_size.Width / 2, (level - maxlvl) * 50 + 20);
+                Center = new PointF(levw[level] + my_size.Width / 2+xshift/3, (level - maxlvl) * 50 + 20+yshift/3);
                 levw[level] += my_size.Width;
             }
         }
 
         // Draw the subtree rooted at this node
         // with the given upper left corner.
-        public void DrawTree(Graphics gr, ref IDictionary<int, float> levw, int level, int maxlvl)
+        public void DrawTree(Graphics gr, ref IDictionary<int, float> levw, int level, int maxlvl, int xshift, int yshift)
         {
             // Arrange the tree.
-            Arrange(gr, ref levw, level, maxlvl);
+            Arrange(gr, ref levw, level, maxlvl, xshift, yshift);
 
             // Draw the tree.
             DrawTree(gr);
@@ -121,8 +125,10 @@ namespace howto_generic_treenode
         private void DrawSubtreeNodes(Graphics gr)
         {
             // Draw this node.
-            Data.Draw(Center.X, Center.Y, gr, MyPen, BgBrush, FontBrush, MyFont);
-
+            if(isroot)
+                Data.Draw(Center.X, Center.Y, gr, MyPen, Brushes.Green, FontBrush, MyFont);
+            else
+                Data.Draw(Center.X, Center.Y, gr, MyPen, BgBrush, FontBrush, MyFont);
             // Recursively make the child draw its subtree nodes.
             foreach (TreeNode<T> child in Children)
             {

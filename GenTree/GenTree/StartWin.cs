@@ -26,6 +26,12 @@ namespace GenTree
 
         int maxlvl;
 
+        int xshift=0;
+        int yshift=0;
+
+        int xglshift = 0;
+        int yglshift = 0;
+
         IModel model;
 
         public StartWin()
@@ -96,11 +102,13 @@ namespace GenTree
 
         private void ArrangeTree()
         {
+            xshift = 0;
+            yshift = 0;
             using (Graphics gr = this.CreateGraphics())
             {
                 // Arrange the tree once to see how big it is.
                 IDictionary<int, float> levw=new Dictionary<int, float>();
-                root.Arrange(gr, ref levw,0, maxlvl);
+                root.Arrange(gr, ref levw,0, maxlvl,0,0);
             }
 
             // Redraw.
@@ -220,6 +228,32 @@ namespace GenTree
                 AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData);
                 preViewForm.Show();
             }
+        }
+
+        private void splitContainer1_Panel2_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void splitContainer1_Panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            xshift = e.X;
+            yshift = e.Y;
+        }
+
+        private void splitContainer1_Panel2_MouseUp(object sender, MouseEventArgs e)
+        {
+            using (Graphics gr = this.CreateGraphics())
+            {
+                // Arrange the tree once to see how big it is.
+                IDictionary<int, float> levw = new Dictionary<int, float>();
+                xglshift += e.X - xshift;
+                yglshift+= e.Y - yshift;
+                root.Arrange(gr, ref levw, 0, maxlvl, xglshift, yglshift);
+            }
+
+            // Redraw.
+            this.Refresh();
         }
     }
 }

@@ -69,7 +69,7 @@
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "Человека";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.новыйРодственникToolStripMenuItem_Click);
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newRelativeToolStripMenuItem_Click);
             // 
             // findToolStripMenuItem
             // 
@@ -84,7 +84,7 @@
             this.FindPersonToolStripMenuItem.Name = "FindPersonToolStripMenuItem";
             this.FindPersonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.FindPersonToolStripMenuItem.Text = "Человека...";
-            this.FindPersonToolStripMenuItem.Click += new System.EventHandler(this.человекаToolStripMenuItem_Click);
+            this.FindPersonToolStripMenuItem.Click += new System.EventHandler(this.AddPersonToolStripMenuItem_Click);
             // 
             // OtherToolStripMenuItem
             // 
@@ -100,7 +100,7 @@
             this.findRelationsToolStripMenuItem.Name = "findRelationsToolStripMenuItem";
             this.findRelationsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.findRelationsToolStripMenuItem.Text = "Определить родство..";
-            this.findRelationsToolStripMenuItem.Click += new System.EventHandler(this.определитьРодствоToolStripMenuItem_Click);
+            this.findRelationsToolStripMenuItem.Click += new System.EventHandler(this.FindRelationToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 

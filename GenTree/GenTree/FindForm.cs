@@ -107,9 +107,10 @@ namespace GenTree
                 personInfo.Show();
             }
         }
-
-        private void buttonClear_Click(object sender, EventArgs e)
+        private void ClearFields()
         {
+            checkBoxGenderFemale.Checked = false;
+            checkBoxGenderMale.Checked = false;
             firstNameTextBox.Text = "";
             secondNameTextBox.Text = "";
             middleNameTextBox.Text = "";
@@ -118,6 +119,11 @@ namespace GenTree
             birthDateYearComboBox.SelectedIndex = -1;
             birthDateMonthComboBox.SelectedIndex = -1;
             birthDateDayComboBox.SelectedIndex = -1;
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
 
         private void checkBoxGenderFemale_CheckedChanged(object sender, EventArgs e)

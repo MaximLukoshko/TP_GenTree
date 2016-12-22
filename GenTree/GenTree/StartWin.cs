@@ -63,16 +63,17 @@ namespace GenTree
             timeLabel.Text = DateTime.Now.ToLongTimeString();
         }
 
-        private void новыйРодственникToolStripMenuItem_Click(object sender, EventArgs e)
+        private void newRelativeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddForm form = new AddForm(model);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();
+            DrawTree();
             this.Refresh();
         }
 
-        private void человекаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindForm form = new FindForm(model);
             form.ShowDialog();
@@ -91,7 +92,7 @@ namespace GenTree
             this.Refresh();
         }
 
-        private void определитьРодствоToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FindRelationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindForm relatFindForm = new FindForm(model);
             relatFindForm.ShowDialog();
@@ -118,6 +119,8 @@ namespace GenTree
         }
         private void DrawTree()
         {
+            root.Children.Clear();
+
             IDictionary<Int32, Person> temp = model.BuildTree(DrawingPersonCode);//здесь и далее 1 - код челвека для которого рисуем, потом изменить
 
             maxlvl = 0;

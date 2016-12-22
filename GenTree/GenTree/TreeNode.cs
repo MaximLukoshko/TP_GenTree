@@ -25,6 +25,8 @@ namespace howto_generic_treenode
         public Brush FontBrush = Brushes.Black;
         public Brush BgBrush = Brushes.White;
 
+        bool isroot=false;
+
         // Constructor.
         public TreeNode(T new_data)
             : this(new_data, new Font("Times New Roman", 12))
@@ -49,6 +51,8 @@ namespace howto_generic_treenode
 
         public void Arrange(Graphics gr, ref IDictionary<int, float> levw, int level, int maxlvl,int xshift,int yshift)
         {
+            if (level == 0)
+                isroot = true;
             // See how big this node is.
             SizeF my_size = Data.GetSize(gr, MyFont);
             if (!levw.ContainsKey(level))
@@ -121,8 +125,10 @@ namespace howto_generic_treenode
         private void DrawSubtreeNodes(Graphics gr)
         {
             // Draw this node.
-            Data.Draw(Center.X, Center.Y, gr, MyPen, BgBrush, FontBrush, MyFont);
-
+            if(isroot)
+                Data.Draw(Center.X, Center.Y, gr, MyPen, Brushes.Green, FontBrush, MyFont);
+            else
+                Data.Draw(Center.X, Center.Y, gr, MyPen, BgBrush, FontBrush, MyFont);
             // Recursively make the child draw its subtree nodes.
             foreach (TreeNode<T> child in Children)
             {

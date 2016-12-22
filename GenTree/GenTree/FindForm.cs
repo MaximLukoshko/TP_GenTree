@@ -94,11 +94,7 @@ namespace GenTree
             if (mask.IsGenderSet)
                 mask.Gender = checkBoxGenderMale.Checked;
 
-            IDictionary<Int32, Person> _items = locmodel.FindPeople(mask);
-            IList<Person> tableSource = new List<Person>();
-
-            foreach (Person person in _items.Values)
-                tableSource.Add(person);
+            IList<Person> tableSource = locmodel.FindPeople(mask);
 
             resultListBox.DataSource = tableSource;
         }

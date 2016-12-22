@@ -121,33 +121,11 @@ namespace DatabaseModel.Database
             person.Father = 1;
             AddPerson(ref person);
         }
-//         private String CheckCorrectness(ref Person person)
-//         {
-//             String ret = "";
-//             {
-//                 IDictionary<Int32, Person> cur = model.BuildTree(first_code);
-// 
-//                 if (cur.ContainsKey(second_code))
-//                     return "Кровное родство";
-// 
-//                 IDictionary<Int32, Person> toFind = model.BuildTree(second_code);
-//                 foreach (Int32 keyTofind in toFind.Keys)
-//                     if (cur.ContainsKey(keyTofind))
-//                         return "Некровное родство";
-// 
-//                 return "Нет родства";
-//             }
-//             return ret;
-//         }
         public void AddPerson(ref Person person)
         {
-//             String ret = CheckCorrectness(ref person);
-//             if(ret=="")
-//             {
-                person.Code = data.Count + 1;
+            person.Code = data.Count + 1;
+            if (!data.ContainsKey(person.Code))
                 data.Add(person.Code, person);
-//             }
-//             return ret;
         }
 
         public Person GetPersonByCode(Int32 code)
@@ -158,9 +136,9 @@ namespace DatabaseModel.Database
                 return null;
         }
 
-        public IDictionary<Int32, Person> GetPeople(Person mask)
+        public IList<Person> GetPeople(Person mask)
         {
-            IDictionary<Int32, Person> ret = new Dictionary<Int32, Person>();
+            IList<Person> ret = new List<Person>();
 
             foreach(Person person in data.Values)
             {
@@ -193,19 +171,19 @@ namespace DatabaseModel.Database
                     continue;
 
                 //Если всё совпало с маской, то добавляем человека
-                ret.Add(person.Code, person);
+                ret.Add(person);
             }
 
             return ret;
         }
 
-        public IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode)
+        public IList<Person> GetPeopleByParentCode(Int32 parentCode)
         {
-            IDictionary<Int32, Person> ret = new Dictionary<Int32, Person>();
+            IList<Person> ret = new List<Person>();
 
-            foreach (Person it in data.Values) 
+            foreach (Person it in data.Values)
                 if (it.Mother == parentCode || it.Father == parentCode)
-                    ret.Add(it.Code, it);
+                    ret.Add(it);
 
             return ret;
         }

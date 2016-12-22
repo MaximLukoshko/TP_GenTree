@@ -11,7 +11,7 @@ namespace DatabaseModel.Database
     {
         void AddPerson(ref Person person);
         Person GetPersonByCode(Int32 code);
-        IDictionary<Int32, Person> GetPeople(Person mask);
-        IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode);
+        IList<Person> GetPeople(Person mask);
+        IList<Person> GetPeopleByParentCode(Int32 parentCode);
     }
 }

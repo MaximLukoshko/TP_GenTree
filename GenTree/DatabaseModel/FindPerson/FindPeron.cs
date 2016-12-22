@@ -20,7 +20,7 @@ namespace DatabaseModel.FindPerson
             database = dtBase;
         }
 
-        public IDictionary<Int32, Person> GetPeople(Person mask)
+        public IList<Person> GetPeople(Person mask)
         {
             return database.GetPeople(mask);
         }

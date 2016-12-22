@@ -183,8 +183,8 @@ namespace GenTree
         }
         private void AddChildrenToTree(TreeNode<CircleNode> root, Person me, IDictionary<Int32, Person> temp)
         {
-            IDictionary<Int32, Person> childs = model.GetPeopleByParentCode(me.Code);
-            foreach (Person p in childs.Values)
+            IList<Person> childs = model.GetPeopleByParentCode(me.Code);
+            foreach (Person p in childs)
             {
                 TreeNode<CircleNode> t = new TreeNode<CircleNode>(new CircleNode(temp[p.Code].ToString(), true));
                 root.AddChild(t);

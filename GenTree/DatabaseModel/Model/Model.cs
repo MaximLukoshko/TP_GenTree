@@ -23,7 +23,7 @@ namespace DatabaseModel.Model
             treeFormer = new TreeFormer.TreeFormer(ref dataBase);
         }
 
-        public IDictionary<Int32, Person> FindPeople(Person mask)
+        public IList<Person> FindPeople(Person mask)
         {
             return findPerson.GetPeople(mask);
         }
@@ -64,7 +64,7 @@ namespace DatabaseModel.Model
         {
             return findPerson.FindRelation(first_code, second_code, this);
         }
-        public IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode)
+        public IList<Person> GetPeopleByParentCode(Int32 parentCode)
         {
             return dataBase.GetPeopleByParentCode(parentCode);
         }

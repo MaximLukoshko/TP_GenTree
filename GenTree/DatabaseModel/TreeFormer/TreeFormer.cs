@@ -34,17 +34,17 @@ namespace DatabaseModel.TreeFormer
             return ret;
         }
 
-        private IDictionary<Int32, Person> GetChildren(Int32 code)
+        private IList<Person> GetChildren(Int32 code)
         {
             return database.GetPeopleByParentCode(code);
         }
 
         private void GetChildrenAll(Int32 code, ref IDictionary<Int32, Person> ret)
         {
-            IDictionary<Int32, Person> children = GetChildren(code);
+            IList<Person> children = GetChildren(code);
 
             Boolean flag = false;
-            foreach(Person iter in children.Values)
+            foreach(Person iter in children)
             {
                 if(!flag)
                 {
@@ -95,7 +95,7 @@ namespace DatabaseModel.TreeFormer
                 if (!flag)
                 {
                     //Получаем братьев и сестёр
-                    AddCollection(ref ret, GetChildren(iter.Code).Values);
+                    AddCollection(ref ret, GetChildren(iter.Code));
                     flag = true;
                 }
                 if (!ret.ContainsKey(iter.Code))
@@ -122,6 +122,8 @@ namespace DatabaseModel.TreeFormer
 
             Boolean ret = false;
             Person person = database.GetPersonByCode(code_from);
+            if (null == person)
+                return false;
             if (direction)
             {
                 level--;
@@ -140,8 +142,8 @@ namespace DatabaseModel.TreeFormer
             }
             else
             {
-                IDictionary<Int32, Person> children = database.GetPeopleByParentCode(person.Code);
-                foreach (Person child in children.Values)
+                IList<Person> children = database.GetPeopleByParentCode(person.Code);
+                foreach (Person child in children)
                 {
                     level++;
                     ret = FindLevel(child.Code, code_to, ref level, false);

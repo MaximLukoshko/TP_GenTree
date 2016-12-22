@@ -36,6 +36,9 @@ namespace DatabaseModel.Model
         private String CheckCorrectness(ref Person person)
         {
             String ret = "";
+            if (person.FirstName == "" && person.SecondName == "" && person.MotherSecondName == "")
+                return "Поля Фамилия(Девичья фамилия), Имя не могут быть пустыми одновременно";
+
             if (person.Mother > 0 && person.Father > 0)
             {
                 IDictionary<Int32, Person> motherTree = this.BuildTree(person.Mother);

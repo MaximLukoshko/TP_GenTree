@@ -210,5 +210,30 @@ namespace GenTree
                 form.Close();
             }
         }
+
+        private Boolean checkLetter(char l)
+        {
+            return !(l > 'А' && l < 'Я' || l > 'а' && l < 'я' || l > 'A' && l < 'Z' || l > 'a' && l < 'z');
+        }
+
+        private void secondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void firstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void MotherSecondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void middleNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
     }
 }

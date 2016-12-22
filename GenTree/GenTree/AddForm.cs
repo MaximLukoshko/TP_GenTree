@@ -194,8 +194,11 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                mother = form.ReturnValue.Code;
-                motherTextBox.Text = form.ReturnValue.ToString();
+                if (null != form.ReturnValue)
+                {
+                    mother = form.ReturnValue.Code;
+                    motherTextBox.Text = form.ReturnValue.ToString();
+                }
                 form.Close();
             }
 
@@ -212,15 +215,18 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                father = form.ReturnValue.Code;
-                fatherTextBox.Text = form.ReturnValue.ToString();
+                if (null != form.ReturnValue)
+                {
+                    father = form.ReturnValue.Code;
+                    fatherTextBox.Text = form.ReturnValue.ToString();
+                }
                 form.Close();
             }
         }
 
         private Boolean checkLetter(char l)
         {
-            return !(l > 'А' && l < 'Я' || l > 'а' && l < 'я' || l > 'A' && l < 'Z' || l > 'a' && l < 'z' || l == 8);
+            return !(l >= 'А' && l <= 'Я' || l >= 'а' && l <= 'я' || l >= 'A' && l <= 'Z' || l >= 'a' && l <= 'z' || l == 8);
         }
 
         private void secondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)

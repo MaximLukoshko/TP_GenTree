@@ -80,7 +80,7 @@ namespace GenTree
             {
                 form.Close();
             }
-            if (form.DialogResult == DialogResult.OK)
+            if (form.DialogResult == DialogResult.OK && null != form.ReturnValue) 
             {
                 DrawingPersonCode = form.ReturnValue.Code;
                 findRelationsToolStripMenuItem.Enabled = true;
@@ -95,6 +95,9 @@ namespace GenTree
         {
             FindForm relatFindForm = new FindForm(model);
             relatFindForm.ShowDialog();
+            if (null == relatFindForm.ReturnValue)
+                return;
+
             Int32 codeToFind = relatFindForm.ReturnValue.Code;
 
             MessageBox.Show( model.FindRelations(DrawingPersonCode, codeToFind), "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);

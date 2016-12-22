@@ -119,6 +119,9 @@ namespace GenTree
         }
         private void DrawTree()
         {
+            if (null == root)
+                return;
+
             root.Children.Clear();
 
             IDictionary<Int32, Person> temp = model.BuildTree(DrawingPersonCode);//здесь и далее 1 - код челвека для которого рисуем, потом изменить

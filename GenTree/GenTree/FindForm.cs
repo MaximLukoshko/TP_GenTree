@@ -44,7 +44,7 @@ namespace GenTree
                 if (!gender)    //Девичья фамилия
                 {
                     label14.Enabled = true;
-                    textBox9.Enabled = true;
+                    MotherSecondNameTextBox.Enabled = true;
                     checkBoxGenderMale.Checked = false;
                 }
                 else
@@ -76,7 +76,7 @@ namespace GenTree
             mask.FirstName = firstNameTextBox.Text;
             mask.MiddleName = middleNameTextBox.Text;
             mask.SecondName = secondNameTextBox.Text;
-            mask.MotherSecondName = textBox9.Text;
+            mask.MotherSecondName = MotherSecondNameTextBox.Text;
             mask.BirthPlace = birthPlaceTextBox.Text;
 
             mask.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
@@ -116,7 +116,7 @@ namespace GenTree
             firstNameTextBox.Text = "";
             secondNameTextBox.Text = "";
             middleNameTextBox.Text = "";
-            textBox9.Text = "";
+            MotherSecondNameTextBox.Text = "";
             birthPlaceTextBox.Text = "";
             birthDateYearComboBox.SelectedIndex = -1;
             birthDateMonthComboBox.SelectedIndex = -1;
@@ -125,7 +125,7 @@ namespace GenTree
 
         private void checkBoxGenderFemale_CheckedChanged(object sender, EventArgs e)
         {
-            textBox9.Enabled = checkBoxGenderFemale.Checked ||
+            MotherSecondNameTextBox.Enabled = checkBoxGenderFemale.Checked ||
                 (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
         }
 
@@ -142,7 +142,7 @@ namespace GenTree
 
         private void checkBoxGenderMale_CheckedChanged(object sender, EventArgs e)
         {
-            textBox9.Enabled = checkBoxGenderFemale.Checked ||
+            MotherSecondNameTextBox.Enabled = checkBoxGenderFemale.Checked ||
                 (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
         }
     }

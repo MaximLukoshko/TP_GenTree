@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.resultListBox = new System.Windows.Forms.ListBox();
-            this.acceptButton = new System.Windows.Forms.Button();
+            this.buttonAccept = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.backButton = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
             this.birthDateYearComboBox = new System.Windows.Forms.ComboBox();
-            this.findButton = new System.Windows.Forms.Button();
+            this.buttonFind = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.birthDateMonthComboBox = new System.Windows.Forms.ComboBox();
             this.FirstNameLabel = new System.Windows.Forms.Label();
@@ -43,7 +43,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.middleNameTextBox = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.MotherSecondNameTextBox = new System.Windows.Forms.TextBox();
             this.MiddleNaneLabel = new System.Windows.Forms.Label();
             this.birthPlaceTextBox = new System.Windows.Forms.TextBox();
             this.secondNameTextBox = new System.Windows.Forms.TextBox();
@@ -64,15 +64,15 @@
             this.resultListBox.Size = new System.Drawing.Size(299, 186);
             this.resultListBox.TabIndex = 119;
             // 
-            // acceptButton
+            // buttonAccept
             // 
-            this.acceptButton.Location = new System.Drawing.Point(504, 256);
-            this.acceptButton.Name = "acceptButton";
-            this.acceptButton.Size = new System.Drawing.Size(92, 23);
-            this.acceptButton.TabIndex = 118;
-            this.acceptButton.Text = "Подтвердить";
-            this.acceptButton.UseVisualStyleBackColor = true;
-            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
+            this.buttonAccept.Location = new System.Drawing.Point(504, 256);
+            this.buttonAccept.Name = "buttonAccept";
+            this.buttonAccept.Size = new System.Drawing.Size(92, 23);
+            this.buttonAccept.TabIndex = 118;
+            this.buttonAccept.Text = "Подтвердить";
+            this.buttonAccept.UseVisualStyleBackColor = true;
+            this.buttonAccept.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // label1
             // 
@@ -83,15 +83,15 @@
             this.label1.TabIndex = 117;
             this.label1.Text = "Месяц";
             // 
-            // backButton
+            // buttonBack
             // 
-            this.backButton.Location = new System.Drawing.Point(12, 258);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 111;
-            this.backButton.Text = "Назад";
-            this.backButton.UseVisualStyleBackColor = true;
-            this.backButton.Click += new System.EventHandler(this.button2_Click);
+            this.buttonBack.Location = new System.Drawing.Point(12, 258);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(75, 23);
+            this.buttonBack.TabIndex = 111;
+            this.buttonBack.Text = "Назад";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Click += new System.EventHandler(this.button2_Click);
             // 
             // birthDateYearComboBox
             // 
@@ -201,15 +201,15 @@
             this.birthDateYearComboBox.Size = new System.Drawing.Size(60, 21);
             this.birthDateYearComboBox.TabIndex = 116;
             // 
-            // findButton
+            // buttonFind
             // 
-            this.findButton.Location = new System.Drawing.Point(125, 228);
-            this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(152, 23);
-            this.findButton.TabIndex = 110;
-            this.findButton.Text = "Найти";
-            this.findButton.UseVisualStyleBackColor = true;
-            this.findButton.Click += new System.EventHandler(this.button1_Click_1);
+            this.buttonFind.Location = new System.Drawing.Point(125, 228);
+            this.buttonFind.Name = "buttonFind";
+            this.buttonFind.Size = new System.Drawing.Size(152, 23);
+            this.buttonFind.TabIndex = 110;
+            this.buttonFind.Text = "Найти";
+            this.buttonFind.UseVisualStyleBackColor = true;
+            this.buttonFind.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label2
             // 
@@ -336,12 +336,12 @@
             this.middleNameTextBox.Size = new System.Drawing.Size(152, 20);
             this.middleNameTextBox.TabIndex = 104;
             // 
-            // textBox9
+            // MotherSecondNameTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(124, 92);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(152, 20);
-            this.textBox9.TabIndex = 109;
+            this.MotherSecondNameTextBox.Location = new System.Drawing.Point(124, 92);
+            this.MotherSecondNameTextBox.Name = "MotherSecondNameTextBox";
+            this.MotherSecondNameTextBox.Size = new System.Drawing.Size(152, 20);
+            this.MotherSecondNameTextBox.TabIndex = 109;
             // 
             // MiddleNaneLabel
             // 
@@ -444,11 +444,11 @@
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonPreView);
             this.Controls.Add(this.resultListBox);
-            this.Controls.Add(this.acceptButton);
+            this.Controls.Add(this.buttonAccept);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.backButton);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.birthDateYearComboBox);
-            this.Controls.Add(this.findButton);
+            this.Controls.Add(this.buttonFind);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.birthDateMonthComboBox);
             this.Controls.Add(this.FirstNameLabel);
@@ -458,7 +458,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.middleNameTextBox);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.MotherSecondNameTextBox);
             this.Controls.Add(this.MiddleNaneLabel);
             this.Controls.Add(this.birthPlaceTextBox);
             this.Controls.Add(this.secondNameTextBox);
@@ -476,11 +476,11 @@
         #endregion
 
         private System.Windows.Forms.ListBox resultListBox;
-        private System.Windows.Forms.Button acceptButton;
+        private System.Windows.Forms.Button buttonAccept;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.ComboBox birthDateYearComboBox;
-        private System.Windows.Forms.Button findButton;
+        private System.Windows.Forms.Button buttonFind;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox birthDateMonthComboBox;
         private System.Windows.Forms.Label FirstNameLabel;
@@ -490,7 +490,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox middleNameTextBox;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox MotherSecondNameTextBox;
         private System.Windows.Forms.Label MiddleNaneLabel;
         private System.Windows.Forms.TextBox birthPlaceTextBox;
         private System.Windows.Forms.TextBox secondNameTextBox;

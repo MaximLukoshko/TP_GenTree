@@ -58,8 +58,8 @@ namespace GenTree
             
         }
 
-        //"Подтвердить"
-        private void button2_Click(object sender, EventArgs e)
+        //"Назад"
+        private void backButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }

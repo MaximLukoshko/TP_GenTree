@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.resultListBox = new System.Windows.Forms.ListBox();
-            this.buttonAccept = new System.Windows.Forms.Button();
+            this.acceptButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonBack = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.birthDateYearComboBox = new System.Windows.Forms.ComboBox();
             this.buttonFind = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,15 +64,15 @@
             this.resultListBox.Size = new System.Drawing.Size(299, 186);
             this.resultListBox.TabIndex = 119;
             // 
-            // buttonAccept
+            // acceptButton
             // 
-            this.buttonAccept.Location = new System.Drawing.Point(504, 256);
-            this.buttonAccept.Name = "buttonAccept";
-            this.buttonAccept.Size = new System.Drawing.Size(92, 23);
-            this.buttonAccept.TabIndex = 118;
-            this.buttonAccept.Text = "Подтвердить";
-            this.buttonAccept.UseVisualStyleBackColor = true;
-            this.buttonAccept.Click += new System.EventHandler(this.acceptButton_Click);
+            this.acceptButton.Location = new System.Drawing.Point(504, 256);
+            this.acceptButton.Name = "acceptButton";
+            this.acceptButton.Size = new System.Drawing.Size(92, 23);
+            this.acceptButton.TabIndex = 118;
+            this.acceptButton.Text = "Подтвердить";
+            this.acceptButton.UseVisualStyleBackColor = true;
+            this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // label1
             // 
@@ -83,15 +83,15 @@
             this.label1.TabIndex = 117;
             this.label1.Text = "Месяц";
             // 
-            // buttonBack
+            // backButton
             // 
-            this.buttonBack.Location = new System.Drawing.Point(12, 258);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(75, 23);
-            this.buttonBack.TabIndex = 111;
-            this.buttonBack.Text = "Назад";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Click += new System.EventHandler(this.button2_Click);
+            this.backButton.Location = new System.Drawing.Point(12, 258);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(75, 23);
+            this.backButton.TabIndex = 111;
+            this.backButton.Text = "Назад";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // birthDateYearComboBox
             // 
@@ -444,9 +444,9 @@
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.buttonPreView);
             this.Controls.Add(this.resultListBox);
-            this.Controls.Add(this.buttonAccept);
+            this.Controls.Add(this.acceptButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.birthDateYearComboBox);
             this.Controls.Add(this.buttonFind);
             this.Controls.Add(this.label2);
@@ -476,9 +476,9 @@
         #endregion
 
         private System.Windows.Forms.ListBox resultListBox;
-        private System.Windows.Forms.Button buttonAccept;
+        private System.Windows.Forms.Button acceptButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.ComboBox birthDateYearComboBox;
         private System.Windows.Forms.Button buttonFind;
         private System.Windows.Forms.Label label2;

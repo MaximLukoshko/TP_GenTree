@@ -98,8 +98,8 @@ namespace DatabaseModel.TreeFormer
                     AddCollection(ref ret, GetChildren(iter.Code).Values);
                     flag = true;
                 }
-
-                ret.Add(iter.Code, iter);
+                if (!ret.ContainsKey(iter.Code))
+                    ret.Add(iter.Code, iter);
                 
                 //Получаем бабушек и дедушек
                 GetParentsAll(iter.Code, ref ret);

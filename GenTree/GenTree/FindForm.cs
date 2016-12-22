@@ -149,7 +149,7 @@ namespace GenTree
 
         private Boolean checkLetter(char l)
         {
-            return !(l > 'А' && l < 'Я' || l > 'а' && l < 'я' || l > 'A' && l < 'Z' || l > 'a' && l < 'z');
+            return !(l > 'А' && l < 'Я' || l > 'а' && l < 'я' || l > 'A' && l < 'Z' || l > 'a' && l < 'z' || l == 8);
         }
         private void firstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {

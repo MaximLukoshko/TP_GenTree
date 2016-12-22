@@ -45,14 +45,7 @@ namespace DatabaseModel.TreeFormer
 
             Boolean flag = false;
             foreach(Person iter in children)
-            {
-//                 if(!flag)
-//                 {
-//                     //Получаем второго родителя     
-//                     AddCollection(ref ret, GetParents(iter.Code).Values);
-//                     flag = true;
-//                 }
-   
+            {   
                 if (!ret.ContainsKey(iter.Code))
                     ret.Add(iter.Code, iter);
                 
@@ -92,12 +85,6 @@ namespace DatabaseModel.TreeFormer
             Boolean flag = false;
             foreach (Person iter in parents.Values)
             {
-//                 if (!flag)
-//                 {
-//                     //Получаем братьев и сестёр
-//                     AddCollection(ref ret, GetChildren(iter.Code));
-//                     flag = true;
-//                 }
                 if (!ret.ContainsKey(iter.Code))
                     ret.Add(iter.Code, iter);
                 

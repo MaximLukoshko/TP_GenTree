@@ -240,3 +240,6 @@ $RECYCLE.BIN/
 /GenTree/GenTree/App.config
 /GenTree/Data/obj/Debug/*.cache
 /GenTree/DatabaseModel/obj/Debug/*.cache
+/GenTree/GenTree/*.1w3
+/GenTree/GenTree/*.5rm
+/GenTree/GenTree/*.e05

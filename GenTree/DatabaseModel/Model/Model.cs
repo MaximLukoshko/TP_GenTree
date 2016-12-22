@@ -42,8 +42,9 @@ namespace DatabaseModel.Model
                 IDictionary<Int32, Person> fatherTree = this.BuildTree(person.Father);
 
                 foreach (Int32 keyTofind in fatherTree.Keys)
-                    if (motherTree.ContainsKey(keyTofind)
-                        && this.treeFormer.FindLevel(keyTofind, person.Mother) != this.treeFormer.FindLevel(keyTofind, person.Father))
+                    if (motherTree.ContainsKey(keyTofind) &&
+                        this.treeFormer.FindLevel(keyTofind, person.Mother) != this.treeFormer.FindLevel(keyTofind, person.Father) &&
+                        this.treeFormer.FindLevel(person.Father, person.Mother) != 0)
                         return "Родители находятся в разных поколениях";
 
                 return "";

@@ -112,38 +112,44 @@ namespace DatabaseModel.TreeFormer
                     ret.Add(it.Code, it);
         }
 
-        public Boolean FindLevel(Int32 code_from, Int32 code_to, ref Int32 level)
+        public Boolean FindLevel(Int32 code_from, Int32 code_to, ref Int32 level, Boolean direction)
         {
-            if (code_to == 0)
+            if (code_to == 0 || code_from == 0)
                 return false;
 
             if (code_from == code_to)
                 return true;
-            
+
+            Boolean ret = false;
             Person person = database.GetPersonByCode(code_from);
-            level--;
-            Boolean ret = FindLevel(person.Mother, code_to, ref level);
-            if (!ret)
-                level++;
-            else
-                return ret;
-
-            level--;
-            ret = FindLevel(person.Father, code_to, ref level);
-            if (!ret)
-                level++;
-            else
-                return ret;
-
-            IDictionary<Int32, Person> children = database.GetPeopleByParentCode(person.Code);
-            foreach(Person child in children.Values)
+            if (direction)
             {
-                level++;
-                ret = FindLevel(person.Father, code_to, ref level);
+                level--;
+                ret = FindLevel(person.Mother, code_to, ref level, true);
                 if (!ret)
-                    level--;
+                    level++;
                 else
                     return ret;
+
+                level--;
+                ret = FindLevel(person.Father, code_to, ref level, true);
+                if (!ret)
+                    level++;
+                else
+                    return ret;
+            }
+            else
+            {
+                IDictionary<Int32, Person> children = database.GetPeopleByParentCode(person.Code);
+                foreach (Person child in children.Values)
+                {
+                    level++;
+                    ret = FindLevel(child.Code, code_to, ref level, false);
+                    if (!ret)
+                        level--;
+                    else
+                        return ret;
+                }
             }
 
 
@@ -153,7 +159,8 @@ namespace DatabaseModel.TreeFormer
         public Int32 FindLevel(Int32 code_from, Int32 code_to)
         {
             Int32 ret = 0;
-            FindLevel(code_from, code_to, ref ret);
+            FindLevel(code_from, code_to, ref ret, true);
+            FindLevel(code_from, code_to, ref ret, false);
             return ret;
         }
     }

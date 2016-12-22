@@ -243,3 +243,4 @@ $RECYCLE.BIN/
 /GenTree/GenTree/*.1w3
 /GenTree/GenTree/*.5rm
 /GenTree/GenTree/*.e05
+/GenTree/GenTree/obj/Debug/*.cache

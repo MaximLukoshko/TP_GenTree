@@ -74,8 +74,8 @@ namespace GenTree
         {
             mask = new Person();
             mask.FirstName = firstNameTextBox.Text;
-            mask.MiddleName = secondNameTextBox.Text;
-            mask.SecondName = middleNameTextBox.Text;
+            mask.MiddleName = middleNameTextBox.Text;
+            mask.SecondName = secondNameTextBox.Text;
             mask.MotherSecondName = textBox9.Text;
             mask.BirthPlace = birthPlaceTextBox.Text;
 

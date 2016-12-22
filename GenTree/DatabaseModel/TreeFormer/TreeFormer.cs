@@ -112,10 +112,48 @@ namespace DatabaseModel.TreeFormer
                     ret.Add(it.Code, it);
         }
 
+        public Boolean FindLevel(Int32 code_from, Int32 code_to, ref Int32 level)
+        {
+            if (code_to == 0)
+                return false;
+
+            if (code_from == code_to)
+                return true;
+            
+            Person person = database.GetPersonByCode(code_from);
+            level--;
+            Boolean ret = FindLevel(person.Mother, code_to, ref level);
+            if (!ret)
+                level++;
+            else
+                return ret;
+
+            level--;
+            ret = FindLevel(person.Father, code_to, ref level);
+            if (!ret)
+                level++;
+            else
+                return ret;
+
+            IDictionary<Int32, Person> children = database.GetPeopleByParentCode(person.Code);
+            foreach(Person child in children.Values)
+            {
+                level++;
+                ret = FindLevel(person.Father, code_to, ref level);
+                if (!ret)
+                    level--;
+                else
+                    return ret;
+            }
+
+
+            return ret;
+        }
+
         public Int32 FindLevel(Int32 code_from, Int32 code_to)
         {
             Int32 ret = 0;
-            throw new NotImplementedException();
+            FindLevel(code_from, code_to, ref ret);
             return ret;
         }
     }

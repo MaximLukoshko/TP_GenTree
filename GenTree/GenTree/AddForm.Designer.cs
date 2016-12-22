@@ -965,7 +965,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddForm";
-            this.Text = "AddForm";
+            this.Text = "Анкета";
             this.ResumeLayout(false);
             this.PerformLayout();
 

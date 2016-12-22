@@ -162,7 +162,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StartWin";
-            this.Text = "GenTree";
+            this.Text = "Генеалогическое дерево";
             this.Load += new System.EventHandler(this.StartWin_Load);
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();

@@ -467,7 +467,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FindForm";
-            this.Text = "FindForm";
+            this.Text = "Поиск...";
             this.ResumeLayout(false);
             this.PerformLayout();
 

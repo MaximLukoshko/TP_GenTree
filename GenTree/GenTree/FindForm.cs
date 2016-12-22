@@ -97,7 +97,6 @@ namespace GenTree
 
             foreach (Person person in _items.Values)
                 tableSource.Add(person);
-            //tableSource.Add(person.FirstName + " " + person.SecondName);
 
             resultListBox.DataSource = tableSource;
         }

@@ -117,11 +117,7 @@ namespace GenTree
         private void DrawTree()
         {
             IDictionary<Int32, Person> temp = model.BuildTree(DrawingPersonCode);//здесь и далее 1 - код челвека для которого рисуем, потом изменить
-            // TreeNode<CircleNode> a_node =
-            //         new TreeNode<CircleNode>(new CircleNode("отец",false));
-            // TreeNode<CircleNode> b_node =
-            //     new TreeNode<CircleNode>(new CircleNode("мать",false));
-            //root.Data.SetDir(false);
+
             maxlvl = 0;
             genTreelistBox.DataSource = CountNodesLevels(DrawingPersonCode, temp);
 
@@ -132,17 +128,10 @@ namespace GenTree
             } while (genTreelistBox.SelectedItem.GetHashCode() != DrawingPersonCode);
 
             AddParentToTree(root, temp[DrawingPersonCode], temp);
-          //  root.Data.SetDir(true);
+
             AddChildrenToTree(root, temp[DrawingPersonCode], temp);
 
             ArrangeTree();
-
-            //IList<TreeNodeLine> tableSource = new List<TreeNodeLine>();
-
-//             foreach (Person person in temp.Values)
-//                 tableSource.Add(new TreeNodeLine(person, 973)); //973 - уровень родственника
-
-            
         }
     
         private void CountNodesLevelsUp(Int32 code, IDictionary<Int32, Person> personsCollection, IList<TreeNodeLine> ret, Int32 level = 0)
@@ -176,10 +165,6 @@ namespace GenTree
 
             ret.Sort();
             return ret;
-        }
-        private void StartWin_Load(object sender, EventArgs e)
-        {
-            //DrawTree();
         }
 
         private void AddParentToTree(TreeNode<CircleNode> root, Person me, IDictionary<Int32, Person> temp)
@@ -216,11 +201,6 @@ namespace GenTree
                 root.DrawTree(e.Graphics);
         }
 
-        private void splitContainer1_Panel2_Resize(object sender, EventArgs e)
-        {
-//            ArrangeTree();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (null != genTreelistBox.SelectedItem)
@@ -228,11 +208,6 @@ namespace GenTree
                 AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData);
                 preViewForm.Show();
             }
-        }
-
-        private void splitContainer1_Panel2_MouseClick(object sender, MouseEventArgs e)
-        {
-            
         }
 
         private void splitContainer1_Panel2_MouseDown(object sender, MouseEventArgs e)

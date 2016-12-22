@@ -99,6 +99,7 @@ namespace DatabaseModel.Database
             person.FirstName = "Babulya2";
             person.SecondName = "Babulya2";
             person.MiddleName = "Alexander";
+            person.MotherSecondName = "test";
             person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
             person.BirthDateCorrectField[0] = true;
             person.BirthDateCorrectField[1] = false;
@@ -163,9 +164,10 @@ namespace DatabaseModel.Database
                     continue;
                 if (mask.IsGenderSet == true && person.IsGenderSet == false)
                     continue;
-                if (person.IsGenderSet == true && person.Gender == false &&
+                if (mask.MotherSecondName != "" && person.IsGenderSet == true && (null == person.MotherSecondName ||
+                    person.Gender == true || person.Gender == false &&
                         null != person.MotherSecondName &&
-                        person.MotherSecondName.IndexOf(mask.MotherSecondName) < 0) 
+                        person.MotherSecondName.IndexOf(mask.MotherSecondName) < 0))
                     continue;
 
                 //Если всё совпало с маской, то добавляем человека

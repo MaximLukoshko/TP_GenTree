@@ -24,6 +24,9 @@ namespace GenTree
         ToolStripLabel infoLabel;
         Timer timer;
 
+        // The root node.
+        private TreeNode<CircleNode> root = null;
+
         int maxlvl;
 
         int xshift=0;
@@ -96,10 +99,6 @@ namespace GenTree
 
             MessageBox.Show( model.FindRelations(DrawingPersonCode, codeToFind), "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        // The root node.
-        private TreeNode<CircleNode> root = null;
-
         private void ArrangeTree()
         {
             xshift = 0;
@@ -193,7 +192,7 @@ namespace GenTree
             }
         }
 
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        private void canvas_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
@@ -201,7 +200,7 @@ namespace GenTree
                 root.DrawTree(e.Graphics);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void preViewButton_Click(object sender, EventArgs e)
         {
             if (null != genTreelistBox.SelectedItem)
             {
@@ -210,13 +209,13 @@ namespace GenTree
             }
         }
 
-        private void splitContainer1_Panel2_MouseDown(object sender, MouseEventArgs e)
+        private void canvas_MouseDown(object sender, MouseEventArgs e)
         {
             xshift = e.X;
             yshift = e.Y;
         }
 
-        private void splitContainer1_Panel2_MouseUp(object sender, MouseEventArgs e)
+        private void canvas_MouseUp(object sender, MouseEventArgs e)
         {
             if (null == root)
                 return;

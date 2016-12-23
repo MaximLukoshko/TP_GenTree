@@ -244,5 +244,16 @@ namespace GenTree
             // Redraw.
             this.Refresh();
         }
+
+        private void goToButton_Click(object sender, EventArgs e)
+        {
+            if (null != genTreelistBox.SelectedItem)
+            {
+                Person drawingPerson=((TreeNodeLine)genTreelistBox.SelectedItem).PersonData;
+                DrawingPersonCode = drawingPerson.Code;
+                root = new TreeNode<CircleNode>(new CircleNode(drawingPerson.ToString(), false));
+                DrawTree();
+            }
+        }
     }
 }

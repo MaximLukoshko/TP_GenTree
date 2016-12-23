@@ -39,6 +39,7 @@
             this.preViewButton = new System.Windows.Forms.Button();
             this.genTreelistBox = new System.Windows.Forms.ListBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.goToButton = new System.Windows.Forms.Button();
             this.MenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,6 +113,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.AutoScroll = true;
+            this.splitContainer1.Panel1.Controls.Add(this.goToButton);
             this.splitContainer1.Panel1.Controls.Add(this.preViewButton);
             this.splitContainer1.Panel1.Controls.Add(this.genTreelistBox);
             this.splitContainer1.Panel1.Cursor = System.Windows.Forms.Cursors.Default;
@@ -128,7 +130,7 @@
             // 
             // preViewButton
             // 
-            this.preViewButton.Location = new System.Drawing.Point(-2, 419);
+            this.preViewButton.Location = new System.Drawing.Point(-2, 371);
             this.preViewButton.Name = "preViewButton";
             this.preViewButton.Size = new System.Drawing.Size(305, 46);
             this.preViewButton.TabIndex = 1;
@@ -141,7 +143,7 @@
             this.genTreelistBox.FormattingEnabled = true;
             this.genTreelistBox.Location = new System.Drawing.Point(3, 6);
             this.genTreelistBox.Name = "genTreelistBox";
-            this.genTreelistBox.Size = new System.Drawing.Size(300, 407);
+            this.genTreelistBox.Size = new System.Drawing.Size(300, 355);
             this.genTreelistBox.TabIndex = 0;
             // 
             // statusStrip1
@@ -151,6 +153,16 @@
             this.statusStrip1.Size = new System.Drawing.Size(932, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // goToButton
+            // 
+            this.goToButton.Location = new System.Drawing.Point(-2, 423);
+            this.goToButton.Name = "goToButton";
+            this.goToButton.Size = new System.Drawing.Size(303, 41);
+            this.goToButton.TabIndex = 2;
+            this.goToButton.Text = "Перейти к родственнику";
+            this.goToButton.UseVisualStyleBackColor = true;
+            this.goToButton.Click += new System.EventHandler(this.goToButton_Click);
             // 
             // StartWin
             // 
@@ -187,6 +199,7 @@
         private System.Windows.Forms.ToolStripMenuItem findRelationsToolStripMenuItem;
         private System.Windows.Forms.ListBox genTreelistBox;
         private System.Windows.Forms.Button preViewButton;
+        private System.Windows.Forms.Button goToButton;
     }
 }
 

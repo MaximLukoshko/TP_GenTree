@@ -48,6 +48,9 @@ namespace GenTree
             deathDateDayComboBox.SelectedIndex = person.DeathDateCorrectField[2] == true ? person.DeathDate.Day - 1 : -1;
 
             deathDayTextBox.Text = person.DeathPlace;
+
+            educationTextBox.Text = "";
+            educationStack.Text = "";
             foreach (String educLine in person.Education)
                 educationStack.Text += educLine + Environment.NewLine;
             
@@ -57,6 +60,8 @@ namespace GenTree
             genderMaleRadioButton.Checked = person.Gender;
             genderFemaleRadioButton.Checked = !person.Gender;
 
+            locationTextBox.Text = "";
+            locationStack.Text = "";
             foreach (String locLine in person.Location)
                 locationStack.Text += locLine + Environment.NewLine;
 
@@ -64,6 +69,8 @@ namespace GenTree
             motherTextBox.Text = person.MotherName;
             nationalityTextBox.Text = person.Nationality;
 
+            professionTextBox.Text = "";
+            professionStack.Text = "";
             foreach (String profLine in person.Profession)
                 professionStack.Text += profLine + Environment.NewLine;
 
@@ -162,6 +169,9 @@ namespace GenTree
         static int thirdbox = 1;
         private void locationButton_Click(object sender, EventArgs e)
         {
+            if (locationTextBox.Text == "")
+                return;
+
             String LineToAdd = firstbox.ToString() + ") " + locationTextBox.Text + Environment.NewLine;
             locationStack.Text += LineToAdd;
             locationTextBox.Clear();
@@ -172,6 +182,9 @@ namespace GenTree
       
         private void professionAddButton_Click(object sender, EventArgs e)
         {
+            if (professionTextBox.Text == "")
+                return;
+
             professionStack.Text += secbox.ToString();
             professionStack.Text +=") "+ professionTextBox.Text + Environment.NewLine;
             professionTextBox.Clear();
@@ -181,6 +194,9 @@ namespace GenTree
         }
         private void educationAddButton_Click(object sender, EventArgs e)
         {
+            if (educationTextBox.Text == "")
+                return;
+
             educationStack.Text += thirdbox.ToString();
             educationStack.Text += ") "+educationTextBox.Text + Environment.NewLine;
             educationTextBox.Clear();

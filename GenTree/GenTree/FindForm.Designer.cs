@@ -63,14 +63,14 @@
             this.resultListBox.Name = "resultListBox";
             this.resultListBox.Size = new System.Drawing.Size(299, 186);
             this.resultListBox.Sorted = true;
-            this.resultListBox.TabIndex = 11;
+            this.resultListBox.TabIndex = 12;
             // 
             // acceptButton
             // 
             this.acceptButton.Location = new System.Drawing.Point(504, 256);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(92, 23);
-            this.acceptButton.TabIndex = 13;
+            this.acceptButton.TabIndex = 14;
             this.acceptButton.Text = "Подтвердить";
             this.acceptButton.UseVisualStyleBackColor = true;
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
@@ -207,7 +207,7 @@
             this.buttonFind.Location = new System.Drawing.Point(125, 228);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(152, 23);
-            this.buttonFind.TabIndex = 10;
+            this.buttonFind.TabIndex = 11;
             this.buttonFind.Text = "Найти";
             this.buttonFind.UseVisualStyleBackColor = true;
             this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
@@ -392,7 +392,7 @@
             this.buttonPreView.Location = new System.Drawing.Point(297, 228);
             this.buttonPreView.Name = "buttonPreView";
             this.buttonPreView.Size = new System.Drawing.Size(299, 23);
-            this.buttonPreView.TabIndex = 12;
+            this.buttonPreView.TabIndex = 13;
             this.buttonPreView.Text = "Предварительный просмотр";
             this.buttonPreView.UseVisualStyleBackColor = true;
             this.buttonPreView.Click += new System.EventHandler(this.buttonPreView_Click);
@@ -402,7 +402,7 @@
             this.buttonClear.Location = new System.Drawing.Point(12, 228);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(98, 23);
-            this.buttonClear.TabIndex = 14;
+            this.buttonClear.TabIndex = 10;
             this.buttonClear.Text = "Очистить";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);

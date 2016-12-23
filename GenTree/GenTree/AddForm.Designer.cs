@@ -211,7 +211,7 @@
             this.addButton.Location = new System.Drawing.Point(730, 566);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
-            this.addButton.TabIndex = 25;
+            this.addButton.TabIndex = 33;
             this.addButton.Text = "Ок";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.acceptButton_Click);
@@ -221,7 +221,7 @@
             this.addLocationButton.Location = new System.Drawing.Point(729, 42);
             this.addLocationButton.Name = "addLocationButton";
             this.addLocationButton.Size = new System.Drawing.Size(21, 23);
-            this.addLocationButton.TabIndex = 43;
+            this.addLocationButton.TabIndex = 19;
             this.addLocationButton.Text = "+";
             this.addLocationButton.UseVisualStyleBackColor = true;
             this.addLocationButton.Click += new System.EventHandler(this.locationButton_Click);
@@ -231,7 +231,7 @@
             this.resetButton.Location = new System.Drawing.Point(12, 566);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 23);
-            this.resetButton.TabIndex = 26;
+            this.resetButton.TabIndex = 34;
             this.resetButton.Text = "Сброс";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
@@ -292,7 +292,7 @@
             this.addProfessionButton.Location = new System.Drawing.Point(729, 144);
             this.addProfessionButton.Name = "addProfessionButton";
             this.addProfessionButton.Size = new System.Drawing.Size(21, 23);
-            this.addProfessionButton.TabIndex = 44;
+            this.addProfessionButton.TabIndex = 22;
             this.addProfessionButton.Text = "+";
             this.addProfessionButton.UseVisualStyleBackColor = true;
             this.addProfessionButton.Click += new System.EventHandler(this.professionAddButton_Click);
@@ -303,14 +303,14 @@
             this.professionTextBox.Multiline = true;
             this.professionTextBox.Name = "professionTextBox";
             this.professionTextBox.Size = new System.Drawing.Size(201, 20);
-            this.professionTextBox.TabIndex = 19;
+            this.professionTextBox.TabIndex = 21;
             // 
             // addEducationButton
             // 
             this.addEducationButton.Location = new System.Drawing.Point(727, 233);
             this.addEducationButton.Name = "addEducationButton";
             this.addEducationButton.Size = new System.Drawing.Size(21, 23);
-            this.addEducationButton.TabIndex = 45;
+            this.addEducationButton.TabIndex = 25;
             this.addEducationButton.Text = "+";
             this.addEducationButton.UseVisualStyleBackColor = true;
             this.addEducationButton.Click += new System.EventHandler(this.educationAddButton_Click);
@@ -321,7 +321,7 @@
             this.educationTextBox.Multiline = true;
             this.educationTextBox.Name = "educationTextBox";
             this.educationTextBox.Size = new System.Drawing.Size(201, 20);
-            this.educationTextBox.TabIndex = 20;
+            this.educationTextBox.TabIndex = 24;
             // 
             // label10
             // 
@@ -376,7 +376,7 @@
             this.locationStack.ReadOnly = true;
             this.locationStack.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.locationStack.Size = new System.Drawing.Size(201, 44);
-            this.locationStack.TabIndex = 42;
+            this.locationStack.TabIndex = 20;
             // 
             // professionStack
             // 
@@ -386,7 +386,7 @@
             this.professionStack.ReadOnly = true;
             this.professionStack.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.professionStack.Size = new System.Drawing.Size(199, 44);
-            this.professionStack.TabIndex = 59;
+            this.professionStack.TabIndex = 23;
             // 
             // educationStack
             // 
@@ -396,7 +396,7 @@
             this.educationStack.ReadOnly = true;
             this.educationStack.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.educationStack.Size = new System.Drawing.Size(201, 44);
-            this.educationStack.TabIndex = 47;
+            this.educationStack.TabIndex = 26;
             // 
             // label3
             // 
@@ -854,7 +854,7 @@
             this.motherTextBox.Name = "motherTextBox";
             this.motherTextBox.ReadOnly = true;
             this.motherTextBox.Size = new System.Drawing.Size(199, 33);
-            this.motherTextBox.TabIndex = 49;
+            this.motherTextBox.TabIndex = 27;
             this.motherTextBox.Text = "Мать не указана.";
             // 
             // fatherTextBox
@@ -864,7 +864,7 @@
             this.fatherTextBox.Name = "fatherTextBox";
             this.fatherTextBox.ReadOnly = true;
             this.fatherTextBox.Size = new System.Drawing.Size(199, 33);
-            this.fatherTextBox.TabIndex = 51;
+            this.fatherTextBox.TabIndex = 30;
             this.fatherTextBox.Text = "Отец не указан.";
             // 
             // label21
@@ -890,7 +890,7 @@
             this.selectMotherButton.Location = new System.Drawing.Point(721, 317);
             this.selectMotherButton.Name = "selectMotherButton";
             this.selectMotherButton.Size = new System.Drawing.Size(75, 21);
-            this.selectMotherButton.TabIndex = 21;
+            this.selectMotherButton.TabIndex = 28;
             this.selectMotherButton.Text = "Указать";
             this.selectMotherButton.UseVisualStyleBackColor = true;
             this.selectMotherButton.Click += new System.EventHandler(this.addMotherButton_Click);
@@ -900,7 +900,7 @@
             this.selectFatherButton.Location = new System.Drawing.Point(721, 375);
             this.selectFatherButton.Name = "selectFatherButton";
             this.selectFatherButton.Size = new System.Drawing.Size(75, 23);
-            this.selectFatherButton.TabIndex = 23;
+            this.selectFatherButton.TabIndex = 31;
             this.selectFatherButton.Text = "Указать";
             this.selectFatherButton.UseVisualStyleBackColor = true;
             this.selectFatherButton.Click += new System.EventHandler(this.addFatherButton_Click);
@@ -910,7 +910,7 @@
             this.resetMumButton.Location = new System.Drawing.Point(721, 336);
             this.resetMumButton.Name = "resetMumButton";
             this.resetMumButton.Size = new System.Drawing.Size(75, 23);
-            this.resetMumButton.TabIndex = 22;
+            this.resetMumButton.TabIndex = 29;
             this.resetMumButton.Text = "Сбросить";
             this.resetMumButton.UseVisualStyleBackColor = true;
             this.resetMumButton.Click += new System.EventHandler(this.resetMumButton_Click);
@@ -920,7 +920,7 @@
             this.resetDadButton.Location = new System.Drawing.Point(721, 395);
             this.resetDadButton.Name = "resetDadButton";
             this.resetDadButton.Size = new System.Drawing.Size(75, 23);
-            this.resetDadButton.TabIndex = 24;
+            this.resetDadButton.TabIndex = 32;
             this.resetDadButton.Text = "Сбросить";
             this.resetDadButton.UseVisualStyleBackColor = true;
             this.resetDadButton.Click += new System.EventHandler(this.resetDadButton_Click);

@@ -100,7 +100,7 @@ namespace DatabaseModel.Database
                     if (p.SecondName != null)
                        writer.WriteLine("SecondName: " + p.SecondName);
                     if (p.MotherSecondName != null)
-                       writer.WriteLine("MotherSecondName: " + p.MotherSecondName);
+                       writer.WriteLine("MotherSecondNameA: " + p.MotherSecondName);
                     if (p.MiddleName != null)
                         writer.WriteLine("MiddleName: " + p.MiddleName);
                     writer.WriteLine("IsGenderSet: " + p.IsGenderSet);
@@ -165,9 +165,9 @@ namespace DatabaseModel.Database
                         p.FirstName = line.Replace("FirstName: ", "");
                         continue;
                     }
-                    if (line.Contains("MotherSecondName: "))
+                    if (line.Contains("MotherSecondNameA: "))
                     {
-                        p.MotherSecondName = line.Replace("MotherSecondName: ", "");
+                        p.MotherSecondName = line.Replace("MotherSecondNameA: ", "");
                         continue;
                     }
                     if (line.Contains("SecondName: "))

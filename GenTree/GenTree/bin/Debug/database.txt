@@ -7,7 +7,7 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 1950
 Mother: 2
 Father: 3
 DeathDateCorrectField[0]: False
@@ -23,7 +23,7 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 1950
 Mother: 5
 Father: 4
 DeathDateCorrectField[0]: False
@@ -39,7 +39,7 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 1960
 Mother: 7
 Father: 6
 DeathDateCorrectField[0]: False
@@ -55,7 +55,7 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 1985
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -69,7 +69,7 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 2015
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -83,14 +83,14 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 2012
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
 
 FirstName: Babulya2
 SecondName: Babulya2
-MotherSecondName: test
+MotherSecondNameA: test
 MiddleName: Alexander
 IsGenderSet: True
 Gender: False
@@ -98,7 +98,7 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 2000
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -112,7 +112,7 @@ BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
-BirthDateYear: 1
+BirthDateYear: 1980
 Father: 1
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False

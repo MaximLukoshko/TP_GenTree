@@ -271,5 +271,17 @@ namespace GenTree
         {
             e.Handled = checkLetter(e.KeyChar);
         }
+
+        private void resetMumButton_Click(object sender, EventArgs e)
+        {
+            mother = 0;
+            motherTextBox.Text = "Мать не задана";
+        }
+
+        private void resetDadButton_Click(object sender, EventArgs e)
+        {
+            father = 0;
+            fatherTextBox.Text = "Отец не задан";
+        }
     }
 }

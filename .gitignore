@@ -244,3 +244,4 @@ $RECYCLE.BIN/
 /GenTree/GenTree/*.5rm
 /GenTree/GenTree/*.e05
 /GenTree/GenTree/obj/Debug/*.cache
+/GenTree/GenTree/ClassDiagram1.cd

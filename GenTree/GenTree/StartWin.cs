@@ -55,6 +55,8 @@ namespace GenTree
             timer.Start();
 
             model = new Model();
+
+            FindPersonAndDrawTree();
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -72,8 +74,7 @@ namespace GenTree
             DrawTree();
             this.Refresh();
         }
-
-        private void AddPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FindPersonAndDrawTree()
         {
             FindForm form = new FindForm(model);
             form.ShowDialog();
@@ -81,7 +82,7 @@ namespace GenTree
             {
                 form.Close();
             }
-            if (form.DialogResult == DialogResult.OK && null != form.ReturnValue) 
+            if (form.DialogResult == DialogResult.OK && null != form.ReturnValue)
             {
                 DrawingPersonCode = form.ReturnValue.Code;
                 findRelationsToolStripMenuItem.Enabled = true;
@@ -90,6 +91,10 @@ namespace GenTree
                 form.Close();
             }
             this.Refresh();
+        }
+        private void AddPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindPersonAndDrawTree();
         }
 
         private void FindRelationToolStripMenuItem_Click(object sender, EventArgs e)

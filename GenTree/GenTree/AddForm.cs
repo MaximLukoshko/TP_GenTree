@@ -17,6 +17,7 @@ namespace GenTree
         Int32 mother;
         Int32 father;
         IModel locmodel;
+        Int32 Code = 0;
 
         public AddForm(IModel model)
         {
@@ -30,6 +31,7 @@ namespace GenTree
         {
             Person person = infoPerson;
 
+            Code = infoPerson.Code;
             birthDateYearComboBox.SelectedIndex = person.BirthDateCorrectField[0] == true ? person.BirthDate.Year - 1919 : -1;
             birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month - 1 : -1;
             birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day - 1 : -1;
@@ -69,9 +71,10 @@ namespace GenTree
             Note.Text = person.Note;
             dataSourceTextBox.Text = person.DataSource;
         }
-        public AddForm(Person infoPerson)
+        public AddForm(Person infoPerson, IModel model=null)
         {
             InitializeComponent();
+            locmodel = model;
             SetData(infoPerson);
 
             this.Text = GetData().ToString();
@@ -83,6 +86,7 @@ namespace GenTree
         private Person GetData()
         {
             Person person = new Person();
+            person.Code = Code;
             person.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
                 birthDateMonthComboBox.SelectedIndex == -1 ? 1 : birthDateMonthComboBox.SelectedIndex + 1,
                 birthDateDayComboBox.SelectedIndex == -1 ? 1 : birthDateDayComboBox.SelectedIndex + 1);
@@ -127,16 +131,30 @@ namespace GenTree
         private void acceptButton_Click(object sender, EventArgs e)
         {
             Person person = GetData();
-            String addInfo = locmodel.AddPerson(ref person);
+
+            String addInfo = "";
+            String inf = "";
+            if (person.Code > 0)
+            {
+                addInfo = locmodel.UpdatePerson(ref person);
+                inf = "обновл";
+            }
+            else
+            {
+                addInfo = locmodel.AddPerson(ref person);
+                inf = "добавл";
+            }
+
             if (addInfo != "")
             {
-                MessageBox.Show(addInfo, "Ошибка добавления",
+                MessageBox.Show(addInfo, "Ошибка " + inf + "ения",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Анкета успешно добавлена.", "",
+            MessageBox.Show("Анкета успешно " + inf + "ена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
         static int firstbox = 1;

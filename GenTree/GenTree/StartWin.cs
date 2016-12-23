@@ -213,8 +213,11 @@ namespace GenTree
         {
             if (null != genTreelistBox.SelectedItem)
             {
-                AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData);
-                preViewForm.Show();
+                AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData, model);
+                preViewForm.Enabled = true;
+                preViewForm.ShowDialog();
+                if (preViewForm.DialogResult == DialogResult.OK)
+                    DrawTree();
             }
         }
 

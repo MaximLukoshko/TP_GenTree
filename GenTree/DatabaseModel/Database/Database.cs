@@ -187,5 +187,11 @@ namespace DatabaseModel.Database
 
             return ret;
         }
+
+        public void UpdatePerson(ref Person person)
+        {
+            if (data.ContainsKey(person.Code))
+                data[person.Code] = person;
+        }
     }
 }

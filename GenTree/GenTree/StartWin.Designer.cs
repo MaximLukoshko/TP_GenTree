@@ -67,7 +67,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.newToolStripMenuItem.Text = "Человека";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newRelativeToolStripMenuItem_Click);
             // 
@@ -82,7 +82,7 @@
             // FindPersonToolStripMenuItem
             // 
             this.FindPersonToolStripMenuItem.Name = "FindPersonToolStripMenuItem";
-            this.FindPersonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.FindPersonToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.FindPersonToolStripMenuItem.Text = "Человека...";
             this.FindPersonToolStripMenuItem.Click += new System.EventHandler(this.AddPersonToolStripMenuItem_Click);
             // 
@@ -132,7 +132,7 @@
             this.preViewButton.Name = "preViewButton";
             this.preViewButton.Size = new System.Drawing.Size(305, 46);
             this.preViewButton.TabIndex = 1;
-            this.preViewButton.Text = "Просмотр анкеты";
+            this.preViewButton.Text = "Просмотр/редактирование анкеты";
             this.preViewButton.UseVisualStyleBackColor = true;
             this.preViewButton.Click += new System.EventHandler(this.preViewButton_Click);
             // 

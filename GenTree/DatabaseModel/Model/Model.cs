@@ -39,6 +39,14 @@ namespace DatabaseModel.Model
             if (person.FirstName == "" && person.SecondName == "" && person.MotherSecondName == "")
                 return "Поля Фамилия(Девичья фамилия), Имя не могут быть пустыми одновременно";
 
+            if (person.Mother > 0 && person.Father == 0)
+                if (treeFormer.FindLevel(person.Code, person.Mother) > 0)
+                    return "Пытаетесь задать матерью своего ребёнка";
+
+            if (person.Mother == 0 && person.Father > 0)
+                if (treeFormer.FindLevel(person.Code, person.Father) > 0)
+                    return "Пытаетесь задать отцом своего ребёнка";
+
             if (person.Mother > 0 && person.Father > 0)
             {
                 IDictionary<Int32, Person> motherTree = this.BuildTree(person.Mother);
@@ -46,8 +54,7 @@ namespace DatabaseModel.Model
 
                 foreach (Int32 keyTofind in fatherTree.Keys)
                     if (motherTree.ContainsKey(keyTofind) &&
-                        this.treeFormer.FindLevel(keyTofind, person.Mother) != this.treeFormer.FindLevel(keyTofind, person.Father) &&
-                        this.treeFormer.FindLevel(person.Father, person.Mother) != 0)
+                        this.treeFormer.FindLevel(keyTofind, person.Mother) != this.treeFormer.FindLevel(keyTofind, person.Father))
                         return "Родители находятся в разных поколениях";
 
                 return "";
@@ -70,6 +77,15 @@ namespace DatabaseModel.Model
         public IList<Person> GetPeopleByParentCode(Int32 parentCode)
         {
             return dataBase.GetPeopleByParentCode(parentCode);
+        }
+
+        public String UpdatePerson(ref Person person)
+        {
+            String ret = CheckCorrectness(ref person);
+            if (ret == "")
+                dataBase.UpdatePerson(ref person);
+
+            return ret;
         }
     }
 }

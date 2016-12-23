@@ -55,6 +55,7 @@ namespace GenTree
             timer.Start();
 
             model = new Model();
+            model.read();
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -231,6 +232,11 @@ namespace GenTree
 
             // Redraw.
             this.Refresh();
+        }
+
+        private void StartWin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            model.write();
         }
     }
 }

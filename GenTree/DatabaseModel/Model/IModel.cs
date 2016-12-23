@@ -14,5 +14,7 @@ namespace DatabaseModel.Model
         void AddPerson(ref Person person);
         String FindRelations(Int32 first_code, Int32 second_code);
         IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode);
+        void write();
+        void read();
     }
 }

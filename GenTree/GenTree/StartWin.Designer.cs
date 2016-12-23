@@ -67,7 +67,7 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.newToolStripMenuItem.Text = "Человека";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.новыйРодственникToolStripMenuItem_Click);
             // 
@@ -82,7 +82,7 @@
             // FindPersonToolStripMenuItem
             // 
             this.FindPersonToolStripMenuItem.Name = "FindPersonToolStripMenuItem";
-            this.FindPersonToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.FindPersonToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.FindPersonToolStripMenuItem.Text = "Человека...";
             this.FindPersonToolStripMenuItem.Click += new System.EventHandler(this.человекаToolStripMenuItem_Click);
             // 
@@ -164,6 +164,7 @@
             this.MinimizeBox = false;
             this.Name = "StartWin";
             this.Text = "Генеалогическое дерево";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartWin_FormClosing);
             this.MenuStrip.ResumeLayout(false);
             this.MenuStrip.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);

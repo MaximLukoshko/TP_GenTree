@@ -46,5 +46,13 @@ namespace DatabaseModel.Model
         {
             return dataBase.GetPeopleByParentCode(parentCode);
         }
+        public void write()
+        {
+            dataBase.write(); 
+        }
+        public void read()
+        {
+            dataBase.read();
+        }
     }
 }

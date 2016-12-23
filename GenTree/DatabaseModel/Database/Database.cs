@@ -122,6 +122,10 @@ namespace DatabaseModel.Database
                         writer.WriteLine("Mother: " + p.Mother);
                     if (p.Father != 0)
                         writer.WriteLine("Father: " + p.Father);
+                    if (p.MotherName != null)
+                        writer.WriteLine("MotherName: " + p.MotherName);
+                    if (p.FatherName != null)
+                        writer.WriteLine("FatherrName: " + p.FatherName);
                     writer.WriteLine("DeathDateCorrectField[0]: " + p.DeathDateCorrectField[0]);
                     writer.WriteLine("DeathDateCorrectField[1]: " + p.DeathDateCorrectField[1]);
                     writer.WriteLine("DeathDateCorrectField[2]: " + p.DeathDateCorrectField[2]);
@@ -195,6 +199,16 @@ namespace DatabaseModel.Database
                             p.Gender = true;
                         else
                             p.Gender = false;
+                        continue;
+                    } 
+                    if (line.Contains("MotherName: "))
+                    {
+                        p.MotherName = line.Replace("MotherName: ", "");
+                        continue;
+                    }
+                    if (line.Contains("FatherName: "))
+                    {
+                        p.FatherName = line.Replace("FatherName: ", "");
                         continue;
                     }
                     if (line.Contains("BirthDateCorrectField[0]: "))

@@ -1,18 +1,27 @@
-FirstName: Maxim
-SecondName: Lukoshko
-MiddleName: Alexander
+FirstName: Me
+SecondName: Me
+MotherSecondNameA: 
+MiddleName: Me
 IsGenderSet: True
-Gender: True
+Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
+BirthPlace: 
 Mother: 2
 Father: 3
+MotherName: Mum Mum
+FatherName: Father Father
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
+DeathPlace: 
+Nationality: 
+SocialStatus: 
+DataSource: 
+Note: 
 
 FirstName: Mum
 SecondName: Mum
@@ -22,10 +31,12 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
 Mother: 5
 Father: 4
+MotherName: Мать не указана
+FatherName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -38,10 +49,12 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
 Mother: 7
 Father: 6
+MotherName: Мать не указана
+FatherName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -54,8 +67,10 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
+MotherName: Мать не указана
+FatherName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -68,8 +83,10 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
+MotherName: Мать не указана
+FatherName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -82,8 +99,10 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
+MotherName: Мать не указана
+FatherName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -96,8 +115,10 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
+MotherName: Мать не указана
+FatherName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -111,14 +132,16 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 2004
+BirthDateDay: 6
+BirthDateYear: 2009
 BirthPlace: test
 Father: 1
+MotherName: Мать не указана
+FatherName: Maxim Lukoshko
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: True
 DeathDateCorrectField[2]: False
-DeathDateMonth: 4
+DeathDateMonth: 9
 DeathPlace: text
 Nationality: test
 SocialStatus: test

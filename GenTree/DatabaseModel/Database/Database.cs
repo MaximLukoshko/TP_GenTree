@@ -125,7 +125,7 @@ namespace DatabaseModel.Database
                     if (p.MotherName != null)
                         writer.WriteLine("MotherName: " + p.MotherName);
                     if (p.FatherName != null)
-                        writer.WriteLine("FatherrName: " + p.FatherName);
+                        writer.WriteLine("FatherName: " + p.FatherName);
                     writer.WriteLine("DeathDateCorrectField[0]: " + p.DeathDateCorrectField[0]);
                     writer.WriteLine("DeathDateCorrectField[1]: " + p.DeathDateCorrectField[1]);
                     writer.WriteLine("DeathDateCorrectField[2]: " + p.DeathDateCorrectField[2]);

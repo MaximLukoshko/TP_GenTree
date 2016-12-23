@@ -6,8 +6,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
 Mother: 2
 Father: 3
 DeathDateCorrectField[0]: False
@@ -22,8 +22,8 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
 Mother: 5
 Father: 4
 DeathDateCorrectField[0]: False
@@ -38,8 +38,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
 Mother: 7
 Father: 6
 DeathDateCorrectField[0]: False
@@ -54,8 +54,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -68,8 +68,8 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -82,40 +82,56 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
 
 FirstName: Babulya2
-SecondName: Babulya2
-MotherSecondName: test
+SecondName: Mothertest
 MiddleName: Alexander
 IsGenderSet: True
 Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
 
 FirstName: Son
 SecondName: Son
+MotherSecondNameA: test
 MiddleName: Alexander
 IsGenderSet: True
-Gender: True
+Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 28
-BirthDateYear: 2000
+BirthDateDay: 1
+BirthDateYear: 2004
+BirthPlace: test
 Father: 1
 DeathDateCorrectField[0]: False
-DeathDateCorrectField[1]: False
+DeathDateCorrectField[1]: True
 DeathDateCorrectField[2]: False
+DeathDateMonth: 4
+DeathPlace: text
+Nationality: test
+SocialStatus: test
+Education: 1) liguli
+Education: 2) luigliu
+Education: 3) liuglui
+Profession: 1) ilugiug
+Profession: 2) liugl
+Profession: 3) iulgiu
+Location: 1) ilugliu
+Location: 2) ugli
+Location: 3) iguliu
+DataSource: igluglu
+Note: lkgkl
 
 end

@@ -6,8 +6,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 Mother: 2
 Father: 3
 DeathDateCorrectField[0]: False
@@ -22,8 +22,8 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 Mother: 5
 Father: 4
 DeathDateCorrectField[0]: False
@@ -38,8 +38,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 Mother: 7
 Father: 6
 DeathDateCorrectField[0]: False
@@ -54,8 +54,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -68,8 +68,8 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -82,8 +82,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -97,8 +97,8 @@ Gender: False
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -111,8 +111,8 @@ Gender: True
 BirthDateCorrectField[0]: True
 BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
-BirthDateDay: 1
-BirthDateYear: 1
+BirthDateDay: 28
+BirthDateYear: 2000
 Father: 1
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False

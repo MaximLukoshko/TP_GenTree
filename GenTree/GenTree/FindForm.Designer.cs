@@ -63,14 +63,14 @@
             this.resultListBox.Name = "resultListBox";
             this.resultListBox.Size = new System.Drawing.Size(299, 186);
             this.resultListBox.Sorted = true;
-            this.resultListBox.TabIndex = 119;
+            this.resultListBox.TabIndex = 11;
             // 
             // acceptButton
             // 
             this.acceptButton.Location = new System.Drawing.Point(504, 256);
             this.acceptButton.Name = "acceptButton";
             this.acceptButton.Size = new System.Drawing.Size(92, 23);
-            this.acceptButton.TabIndex = 118;
+            this.acceptButton.TabIndex = 13;
             this.acceptButton.Text = "Подтвердить";
             this.acceptButton.UseVisualStyleBackColor = true;
             this.acceptButton.Click += new System.EventHandler(this.acceptButton_Click);
@@ -81,7 +81,7 @@
             this.label1.Location = new System.Drawing.Point(117, 185);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 117;
+            this.label1.TabIndex = 24;
             this.label1.Text = "Месяц";
             // 
             // backButton
@@ -89,7 +89,7 @@
             this.backButton.Location = new System.Drawing.Point(12, 258);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(75, 23);
-            this.backButton.TabIndex = 111;
+            this.backButton.TabIndex = 15;
             this.backButton.Text = "Назад";
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
@@ -200,14 +200,14 @@
             this.birthDateYearComboBox.Location = new System.Drawing.Point(216, 201);
             this.birthDateYearComboBox.Name = "birthDateYearComboBox";
             this.birthDateYearComboBox.Size = new System.Drawing.Size(60, 21);
-            this.birthDateYearComboBox.TabIndex = 116;
+            this.birthDateYearComboBox.TabIndex = 9;
             // 
             // buttonFind
             // 
             this.buttonFind.Location = new System.Drawing.Point(125, 228);
             this.buttonFind.Name = "buttonFind";
             this.buttonFind.Size = new System.Drawing.Size(152, 23);
-            this.buttonFind.TabIndex = 110;
+            this.buttonFind.TabIndex = 10;
             this.buttonFind.Text = "Найти";
             this.buttonFind.UseVisualStyleBackColor = true;
             this.buttonFind.Click += new System.EventHandler(this.buttonFind_Click);
@@ -218,7 +218,7 @@
             this.label2.Location = new System.Drawing.Point(72, 185);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 115;
+            this.label2.TabIndex = 23;
             this.label2.Text = "День";
             // 
             // birthDateMonthComboBox
@@ -241,7 +241,7 @@
             this.birthDateMonthComboBox.Location = new System.Drawing.Point(120, 201);
             this.birthDateMonthComboBox.Name = "birthDateMonthComboBox";
             this.birthDateMonthComboBox.Size = new System.Drawing.Size(90, 21);
-            this.birthDateMonthComboBox.TabIndex = 114;
+            this.birthDateMonthComboBox.TabIndex = 8;
             // 
             // FirstNameLabel
             // 
@@ -249,7 +249,7 @@
             this.FirstNameLabel.Location = new System.Drawing.Point(12, 40);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(29, 13);
-            this.FirstNameLabel.TabIndex = 99;
+            this.FirstNameLabel.TabIndex = 17;
             this.FirstNameLabel.Text = "Имя";
             // 
             // label4
@@ -258,7 +258,7 @@
             this.label4.Location = new System.Drawing.Point(213, 185);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 13);
-            this.label4.TabIndex = 113;
+            this.label4.TabIndex = 25;
             this.label4.Text = "Год";
             // 
             // label8
@@ -267,7 +267,7 @@
             this.label8.Location = new System.Drawing.Point(10, 147);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(92, 13);
-            this.label8.TabIndex = 105;
+            this.label8.TabIndex = 21;
             this.label8.Text = "Место рождения";
             // 
             // birthDateDayComboBox
@@ -310,7 +310,7 @@
             this.birthDateDayComboBox.Location = new System.Drawing.Point(75, 201);
             this.birthDateDayComboBox.Name = "birthDateDayComboBox";
             this.birthDateDayComboBox.Size = new System.Drawing.Size(39, 21);
-            this.birthDateDayComboBox.TabIndex = 112;
+            this.birthDateDayComboBox.TabIndex = 7;
             // 
             // label3
             // 
@@ -318,7 +318,7 @@
             this.label3.Location = new System.Drawing.Point(10, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 13);
-            this.label3.TabIndex = 107;
+            this.label3.TabIndex = 22;
             this.label3.Text = "Дата рождения";
             // 
             // label14
@@ -327,7 +327,7 @@
             this.label14.Location = new System.Drawing.Point(10, 98);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(100, 13);
-            this.label14.TabIndex = 108;
+            this.label14.TabIndex = 19;
             this.label14.Text = "Девичья фамилия";
             // 
             // middleNameTextBox
@@ -335,7 +335,7 @@
             this.middleNameTextBox.Location = new System.Drawing.Point(124, 118);
             this.middleNameTextBox.Name = "middleNameTextBox";
             this.middleNameTextBox.Size = new System.Drawing.Size(152, 20);
-            this.middleNameTextBox.TabIndex = 104;
+            this.middleNameTextBox.TabIndex = 5;
             this.middleNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.middleNameTextBox_KeyPress);
             // 
             // MotherSecondNameTextBox
@@ -343,7 +343,7 @@
             this.MotherSecondNameTextBox.Location = new System.Drawing.Point(124, 92);
             this.MotherSecondNameTextBox.Name = "MotherSecondNameTextBox";
             this.MotherSecondNameTextBox.Size = new System.Drawing.Size(152, 20);
-            this.MotherSecondNameTextBox.TabIndex = 109;
+            this.MotherSecondNameTextBox.TabIndex = 4;
             this.MotherSecondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MotherSecondNameTextBox_KeyPress);
             // 
             // MiddleNaneLabel
@@ -352,7 +352,7 @@
             this.MiddleNaneLabel.Location = new System.Drawing.Point(12, 121);
             this.MiddleNaneLabel.Name = "MiddleNaneLabel";
             this.MiddleNaneLabel.Size = new System.Drawing.Size(54, 13);
-            this.MiddleNaneLabel.TabIndex = 103;
+            this.MiddleNaneLabel.TabIndex = 20;
             this.MiddleNaneLabel.Text = "Отчество";
             // 
             // birthPlaceTextBox
@@ -360,14 +360,14 @@
             this.birthPlaceTextBox.Location = new System.Drawing.Point(124, 144);
             this.birthPlaceTextBox.Name = "birthPlaceTextBox";
             this.birthPlaceTextBox.Size = new System.Drawing.Size(152, 20);
-            this.birthPlaceTextBox.TabIndex = 106;
+            this.birthPlaceTextBox.TabIndex = 6;
             // 
             // secondNameTextBox
             // 
             this.secondNameTextBox.Location = new System.Drawing.Point(125, 63);
             this.secondNameTextBox.Name = "secondNameTextBox";
             this.secondNameTextBox.Size = new System.Drawing.Size(152, 20);
-            this.secondNameTextBox.TabIndex = 102;
+            this.secondNameTextBox.TabIndex = 3;
             this.secondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secondNameTextBox_KeyPress);
             // 
             // SecondNameLabel
@@ -376,7 +376,7 @@
             this.SecondNameLabel.Location = new System.Drawing.Point(11, 69);
             this.SecondNameLabel.Name = "SecondNameLabel";
             this.SecondNameLabel.Size = new System.Drawing.Size(56, 13);
-            this.SecondNameLabel.TabIndex = 101;
+            this.SecondNameLabel.TabIndex = 18;
             this.SecondNameLabel.Text = "Фамилия";
             // 
             // firstNameTextBox
@@ -384,7 +384,7 @@
             this.firstNameTextBox.Location = new System.Drawing.Point(124, 37);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(152, 20);
-            this.firstNameTextBox.TabIndex = 100;
+            this.firstNameTextBox.TabIndex = 2;
             this.firstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameTextBox_KeyPress);
             // 
             // buttonPreView
@@ -392,7 +392,7 @@
             this.buttonPreView.Location = new System.Drawing.Point(297, 228);
             this.buttonPreView.Name = "buttonPreView";
             this.buttonPreView.Size = new System.Drawing.Size(299, 23);
-            this.buttonPreView.TabIndex = 120;
+            this.buttonPreView.TabIndex = 12;
             this.buttonPreView.Text = "Предварительный просмотр";
             this.buttonPreView.UseVisualStyleBackColor = true;
             this.buttonPreView.Click += new System.EventHandler(this.buttonPreView_Click);
@@ -402,7 +402,7 @@
             this.buttonClear.Location = new System.Drawing.Point(12, 228);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(98, 23);
-            this.buttonClear.TabIndex = 121;
+            this.buttonClear.TabIndex = 14;
             this.buttonClear.Text = "Очистить";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
@@ -413,7 +413,7 @@
             this.labelGender.Location = new System.Drawing.Point(12, 9);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(27, 13);
-            this.labelGender.TabIndex = 122;
+            this.labelGender.TabIndex = 16;
             this.labelGender.Text = "Пол";
             // 
             // checkBoxGenderMale
@@ -422,7 +422,7 @@
             this.checkBoxGenderMale.Location = new System.Drawing.Point(120, 9);
             this.checkBoxGenderMale.Name = "checkBoxGenderMale";
             this.checkBoxGenderMale.Size = new System.Drawing.Size(72, 17);
-            this.checkBoxGenderMale.TabIndex = 123;
+            this.checkBoxGenderMale.TabIndex = 0;
             this.checkBoxGenderMale.Text = "Мужской";
             this.checkBoxGenderMale.UseVisualStyleBackColor = true;
             this.checkBoxGenderMale.CheckedChanged += new System.EventHandler(this.checkBoxGenderMale_CheckedChanged);
@@ -433,7 +433,7 @@
             this.checkBoxGenderFemale.Location = new System.Drawing.Point(216, 8);
             this.checkBoxGenderFemale.Name = "checkBoxGenderFemale";
             this.checkBoxGenderFemale.Size = new System.Drawing.Size(73, 17);
-            this.checkBoxGenderFemale.TabIndex = 124;
+            this.checkBoxGenderFemale.TabIndex = 1;
             this.checkBoxGenderFemale.Text = "Женский";
             this.checkBoxGenderFemale.UseVisualStyleBackColor = true;
             this.checkBoxGenderFemale.CheckedChanged += new System.EventHandler(this.checkBoxGenderFemale_CheckedChanged);

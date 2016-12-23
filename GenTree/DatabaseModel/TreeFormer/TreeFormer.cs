@@ -34,25 +34,18 @@ namespace DatabaseModel.TreeFormer
             return ret;
         }
 
-        private IDictionary<Int32, Person> GetChildren(Int32 code)
+        private IList<Person> GetChildren(Int32 code)
         {
             return database.GetPeopleByParentCode(code);
         }
 
         private void GetChildrenAll(Int32 code, ref IDictionary<Int32, Person> ret)
         {
-            IDictionary<Int32, Person> children = GetChildren(code);
+            IList<Person> children = GetChildren(code);
 
             Boolean flag = false;
-            foreach(Person iter in children.Values)
-            {
-                if(!flag)
-                {
-                    //Получаем второго родителя     
-                    AddCollection(ref ret, GetParents(iter.Code).Values);
-                    flag = true;
-                }
-   
+            foreach(Person iter in children)
+            {   
                 if (!ret.ContainsKey(iter.Code))
                     ret.Add(iter.Code, iter);
                 
@@ -92,12 +85,6 @@ namespace DatabaseModel.TreeFormer
             Boolean flag = false;
             foreach (Person iter in parents.Values)
             {
-                if (!flag)
-                {
-                    //Получаем братьев и сестёр
-                    AddCollection(ref ret, GetChildren(iter.Code).Values);
-                    flag = true;
-                }
                 if (!ret.ContainsKey(iter.Code))
                     ret.Add(iter.Code, iter);
                 
@@ -110,6 +97,60 @@ namespace DatabaseModel.TreeFormer
             foreach (Person it in collection)
                 if (!ret.ContainsKey(it.Code))
                     ret.Add(it.Code, it);
+        }
+
+        public Boolean FindLevel(Int32 code_from, Int32 code_to, ref Int32 level, Boolean direction)
+        {
+            if (code_to == 0 || code_from == 0)
+                return false;
+
+            if (code_from == code_to)
+                return true;
+
+            Boolean ret = false;
+            Person person = database.GetPersonByCode(code_from);
+            if (null == person)
+                return false;
+            if (direction)
+            {
+                level--;
+                ret = FindLevel(person.Mother, code_to, ref level, true);
+                if (!ret)
+                    level++;
+                else
+                    return ret;
+
+                level--;
+                ret = FindLevel(person.Father, code_to, ref level, true);
+                if (!ret)
+                    level++;
+                else
+                    return ret;
+            }
+            else
+            {
+                IList<Person> children = database.GetPeopleByParentCode(person.Code);
+                foreach (Person child in children)
+                {
+                    level++;
+                    ret = FindLevel(child.Code, code_to, ref level, false);
+                    if (!ret)
+                        level--;
+                    else
+                        return ret;
+                }
+            }
+
+
+            return ret;
+        }
+
+        public Int32 FindLevel(Int32 code_from, Int32 code_to)
+        {
+            Int32 ret = 0;
+            FindLevel(code_from, code_to, ref ret, true);
+            FindLevel(code_from, code_to, ref ret, false);
+            return ret;
         }
     }
 }

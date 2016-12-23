@@ -17,6 +17,7 @@ namespace GenTree
         Int32 mother;
         Int32 father;
         IModel locmodel;
+        Int32 Code = 0;
 
         public AddForm(IModel model)
         {
@@ -30,6 +31,7 @@ namespace GenTree
         {
             Person person = infoPerson;
 
+            Code = infoPerson.Code;
             birthDateYearComboBox.SelectedIndex = person.BirthDateCorrectField[0] == true ? person.BirthDate.Year - 1919 : -1;
             birthDateMonthComboBox.SelectedIndex = person.BirthDateCorrectField[1] == true ? person.BirthDate.Month - 1 : -1;
             birthDateDayComboBox.SelectedIndex = person.BirthDateCorrectField[2] == true ? person.BirthDate.Day - 1 : -1;
@@ -46,19 +48,29 @@ namespace GenTree
             deathDateDayComboBox.SelectedIndex = person.DeathDateCorrectField[2] == true ? person.DeathDate.Day - 1 : -1;
 
             deathDayTextBox.Text = person.DeathPlace;
+
+            educationTextBox.Text = "";
+            educationStack.Text = "";
             foreach (String educLine in person.Education)
                 educationStack.Text += educLine + Environment.NewLine;
+            
             father = person.Father;
-
+            fatherTextBox.Text = person.FatherName;
+            
             genderMaleRadioButton.Checked = person.Gender;
             genderFemaleRadioButton.Checked = !person.Gender;
 
+            locationTextBox.Text = "";
+            locationStack.Text = "";
             foreach (String locLine in person.Location)
                 locationStack.Text += locLine + Environment.NewLine;
 
             mother = person.Mother;
+            motherTextBox.Text = person.MotherName;
             nationalityTextBox.Text = person.Nationality;
 
+            professionTextBox.Text = "";
+            professionStack.Text = "";
             foreach (String profLine in person.Profession)
                 professionStack.Text += profLine + Environment.NewLine;
 
@@ -66,9 +78,10 @@ namespace GenTree
             Note.Text = person.Note;
             dataSourceTextBox.Text = person.DataSource;
         }
-        public AddForm(Person infoPerson)
+        public AddForm(Person infoPerson, IModel model=null)
         {
             InitializeComponent();
+            locmodel = model;
             SetData(infoPerson);
 
             this.Text = GetData().ToString();
@@ -80,6 +93,7 @@ namespace GenTree
         private Person GetData()
         {
             Person person = new Person();
+            person.Code = Code;
             person.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
                 birthDateMonthComboBox.SelectedIndex == -1 ? 1 : birthDateMonthComboBox.SelectedIndex + 1,
                 birthDateDayComboBox.SelectedIndex == -1 ? 1 : birthDateDayComboBox.SelectedIndex + 1);
@@ -102,6 +116,7 @@ namespace GenTree
             for (int i = 0; i < educationStack.Lines.Length - 1; i++)
                 person.Education.Add(educationStack.Lines[i]);
             person.Father = father;
+            person.FatherName = fatherTextBox.Text;
             person.FirstName = firstNameTextBox.Text;
             person.SecondName = secondNameTextBox.Text;
             person.MotherSecondName = MotherSecondNameTextBox.Text;
@@ -111,6 +126,7 @@ namespace GenTree
             for (int i = 0; i < locationStack.Lines.Length - 1; i++)
                 person.Location.Add(locationStack.Lines[i]);
             person.Mother = mother;
+            person.MotherName = motherTextBox.Text;
             person.Nationality = nationalityTextBox.Text;
             for (int i = 0; i < professionStack.Lines.Length - 1; i++)
                 person.Profession.Add(professionStack.Lines[i]);
@@ -119,19 +135,43 @@ namespace GenTree
             person.DataSource = dataSourceTextBox.Text;
             return person;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void acceptButton_Click(object sender, EventArgs e)
         {
             Person person = GetData();
-            locmodel.AddPerson(ref person);
-            MessageBox.Show("Анкета успешно добавлена.", "",
+
+            String addInfo = "";
+            String inf = "";
+            if (person.Code > 0)
+            {
+                addInfo = locmodel.UpdatePerson(ref person);
+                inf = "обновл";
+            }
+            else
+            {
+                addInfo = locmodel.AddPerson(ref person);
+                inf = "добавл";
+            }
+
+            if (addInfo != "")
+            {
+                MessageBox.Show(addInfo, "Ошибка " + inf + "ения",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show("Анкета успешно " + inf + "ена.", "",
             MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
         static int firstbox = 1;
         static int secbox = 1;
         static int thirdbox = 1;
-        private void button2_Click(object sender, EventArgs e)
+        private void locationButton_Click(object sender, EventArgs e)
         {
+            if (locationTextBox.Text == "")
+                return;
+
             String LineToAdd = firstbox.ToString() + ") " + locationTextBox.Text + Environment.NewLine;
             locationStack.Text += LineToAdd;
             locationTextBox.Clear();
@@ -140,8 +180,11 @@ namespace GenTree
             firstbox++;
         }
       
-        private void button4_Click(object sender, EventArgs e)
+        private void professionAddButton_Click(object sender, EventArgs e)
         {
+            if (professionTextBox.Text == "")
+                return;
+
             professionStack.Text += secbox.ToString();
             professionStack.Text +=") "+ professionTextBox.Text + Environment.NewLine;
             professionTextBox.Clear();
@@ -149,8 +192,11 @@ namespace GenTree
             professionStack.ScrollToCaret();
             secbox++;
         }
-        private void button5_Click(object sender, EventArgs e)
+        private void educationAddButton_Click(object sender, EventArgs e)
         {
+            if (educationTextBox.Text == "")
+                return;
+
             educationStack.Text += thirdbox.ToString();
             educationStack.Text += ") "+educationTextBox.Text + Environment.NewLine;
             educationTextBox.Clear();
@@ -187,8 +233,11 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                mother = form.ReturnValue.Code;
-                motherTextBox.Text = form.ReturnValue.ToString();
+                if (null != form.ReturnValue)
+                {
+                    mother = form.ReturnValue.Code;
+                    motherTextBox.Text = form.ReturnValue.ToString();
+                }
                 form.Close();
             }
 
@@ -205,10 +254,50 @@ namespace GenTree
             }
             if (form.DialogResult == DialogResult.OK)
             {
-                father = form.ReturnValue.Code;
-                fatherTextBox.Text = form.ReturnValue.ToString();
+                if (null != form.ReturnValue)
+                {
+                    father = form.ReturnValue.Code;
+                    fatherTextBox.Text = form.ReturnValue.ToString();
+                }
                 form.Close();
             }
+        }
+
+        private Boolean checkLetter(char l)
+        {
+            return !(l >= 'А' && l <= 'Я' || l >= 'а' && l <= 'я' || l >= 'A' && l <= 'Z' || l >= 'a' && l <= 'z' || l == 8);
+        }
+
+        private void secondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void firstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void MotherSecondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void middleNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void resetMumButton_Click(object sender, EventArgs e)
+        {
+            mother = 0;
+            motherTextBox.Text = "Мать не задана";
+        }
+
+        private void resetDadButton_Click(object sender, EventArgs e)
+        {
+            father = 0;
+            fatherTextBox.Text = "Отец не задан";
         }
     }
 }

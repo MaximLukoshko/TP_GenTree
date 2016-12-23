@@ -56,6 +56,8 @@ namespace GenTree
 
             model = new Model();
             model.read();
+
+            FindPersonAndDrawTree();
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -64,16 +66,16 @@ namespace GenTree
             timeLabel.Text = DateTime.Now.ToLongTimeString();
         }
 
-        private void новыйРодственникToolStripMenuItem_Click(object sender, EventArgs e)
+        private void newRelativeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddForm form = new AddForm(model);
             form.ShowDialog();
             if (form.DialogResult == DialogResult.Cancel)
                 form.Close();
+            DrawTree();
             this.Refresh();
         }
-
-        private void человекаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FindPersonAndDrawTree()
         {
             FindForm form = new FindForm(model);
             form.ShowDialog();
@@ -81,7 +83,7 @@ namespace GenTree
             {
                 form.Close();
             }
-            if (form.DialogResult == DialogResult.OK)
+            if (form.DialogResult == DialogResult.OK && null != form.ReturnValue)
             {
                 DrawingPersonCode = form.ReturnValue.Code;
                 findRelationsToolStripMenuItem.Enabled = true;
@@ -91,11 +93,18 @@ namespace GenTree
             }
             this.Refresh();
         }
+        private void AddPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindPersonAndDrawTree();
+        }
 
-        private void определитьРодствоToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FindRelationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindForm relatFindForm = new FindForm(model);
             relatFindForm.ShowDialog();
+            if (null == relatFindForm.ReturnValue)
+                return;
+
             Int32 codeToFind = relatFindForm.ReturnValue.Code;
 
             MessageBox.Show( model.FindRelations(DrawingPersonCode, codeToFind), "Определение родства", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -116,6 +125,11 @@ namespace GenTree
         }
         private void DrawTree()
         {
+            if (null == root)
+                return;
+
+            root.Children.Clear();
+
             IDictionary<Int32, Person> temp = model.BuildTree(DrawingPersonCode);//здесь и далее 1 - код челвека для которого рисуем, потом изменить
 
             maxlvl = 0;
@@ -184,8 +198,8 @@ namespace GenTree
         }
         private void AddChildrenToTree(TreeNode<CircleNode> root, Person me, IDictionary<Int32, Person> temp)
         {
-            IDictionary<Int32, Person> childs = model.GetPeopleByParentCode(me.Code);
-            foreach (Person p in childs.Values)
+            IList<Person> childs = model.GetPeopleByParentCode(me.Code);
+            foreach (Person p in childs)
             {
                 TreeNode<CircleNode> t = new TreeNode<CircleNode>(new CircleNode(temp[p.Code].ToString(), true));
                 root.AddChild(t);
@@ -205,8 +219,11 @@ namespace GenTree
         {
             if (null != genTreelistBox.SelectedItem)
             {
-                AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData);
-                preViewForm.Show();
+                AddForm preViewForm = new AddForm(((TreeNodeLine)genTreelistBox.SelectedItem).PersonData, model);
+                preViewForm.Enabled = true;
+                preViewForm.ShowDialog();
+                if (preViewForm.DialogResult == DialogResult.OK)
+                    DrawTree();
             }
         }
 
@@ -232,6 +249,17 @@ namespace GenTree
 
             // Redraw.
             this.Refresh();
+        }
+
+        private void goToButton_Click(object sender, EventArgs e)
+        {
+            if (null != genTreelistBox.SelectedItem)
+            {
+                Person drawingPerson=((TreeNodeLine)genTreelistBox.SelectedItem).PersonData;
+                DrawingPersonCode = drawingPerson.Code;
+                root = new TreeNode<CircleNode>(new CircleNode(drawingPerson.ToString(), false));
+                DrawTree();
+            }
         }
 
         private void StartWin_FormClosing(object sender, FormClosingEventArgs e)

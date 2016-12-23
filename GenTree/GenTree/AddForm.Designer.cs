@@ -86,6 +86,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.selectMotherButton = new System.Windows.Forms.Button();
             this.selectFatherButton = new System.Windows.Forms.Button();
+            this.resetMumButton = new System.Windows.Forms.Button();
+            this.resetDadButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FirstNameLabel
@@ -103,6 +105,7 @@
             this.secondNameTextBox.Name = "secondNameTextBox";
             this.secondNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.secondNameTextBox.TabIndex = 1;
+            this.secondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secondNameTextBox_KeyPress);
             // 
             // firstNameTextBox
             // 
@@ -110,6 +113,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.firstNameTextBox.TabIndex = 3;
+            this.firstNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.firstNameTextBox_KeyPress);
             // 
             // SecondNameLabel
             // 
@@ -126,6 +130,7 @@
             this.middleNameTextBox.Name = "middleNameTextBox";
             this.middleNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.middleNameTextBox.TabIndex = 5;
+            this.middleNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.middleNameTextBox_KeyPress);
             // 
             // MiddleNaneLabel
             // 
@@ -207,9 +212,9 @@
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 16;
-            this.addButton.Text = "Добавить";
+            this.addButton.Text = "Ок";
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.button1_Click);
+            this.addButton.Click += new System.EventHandler(this.acceptButton_Click);
             // 
             // addLocationButton
             // 
@@ -219,7 +224,7 @@
             this.addLocationButton.TabIndex = 30;
             this.addLocationButton.Text = "+";
             this.addLocationButton.UseVisualStyleBackColor = true;
-            this.addLocationButton.Click += new System.EventHandler(this.button2_Click);
+            this.addLocationButton.Click += new System.EventHandler(this.locationButton_Click);
             // 
             // resetButton
             // 
@@ -290,7 +295,7 @@
             this.addProfessionButton.TabIndex = 48;
             this.addProfessionButton.Text = "+";
             this.addProfessionButton.UseVisualStyleBackColor = true;
-            this.addProfessionButton.Click += new System.EventHandler(this.button4_Click);
+            this.addProfessionButton.Click += new System.EventHandler(this.professionAddButton_Click);
             // 
             // professionTextBox
             // 
@@ -308,7 +313,7 @@
             this.addEducationButton.TabIndex = 51;
             this.addEducationButton.Text = "+";
             this.addEducationButton.UseVisualStyleBackColor = true;
-            this.addEducationButton.Click += new System.EventHandler(this.button5_Click);
+            this.addEducationButton.Click += new System.EventHandler(this.educationAddButton_Click);
             // 
             // educationTextBox
             // 
@@ -352,6 +357,7 @@
             this.MotherSecondNameTextBox.Name = "MotherSecondNameTextBox";
             this.MotherSecondNameTextBox.Size = new System.Drawing.Size(201, 20);
             this.MotherSecondNameTextBox.TabIndex = 57;
+            this.MotherSecondNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MotherSecondNameTextBox_KeyPress);
             // 
             // label13
             // 
@@ -881,9 +887,9 @@
             // 
             // selectMotherButton
             // 
-            this.selectMotherButton.Location = new System.Drawing.Point(727, 329);
+            this.selectMotherButton.Location = new System.Drawing.Point(721, 317);
             this.selectMotherButton.Name = "selectMotherButton";
-            this.selectMotherButton.Size = new System.Drawing.Size(75, 23);
+            this.selectMotherButton.Size = new System.Drawing.Size(75, 21);
             this.selectMotherButton.TabIndex = 83;
             this.selectMotherButton.Text = "Указать";
             this.selectMotherButton.UseVisualStyleBackColor = true;
@@ -891,7 +897,7 @@
             // 
             // selectFatherButton
             // 
-            this.selectFatherButton.Location = new System.Drawing.Point(727, 380);
+            this.selectFatherButton.Location = new System.Drawing.Point(721, 375);
             this.selectFatherButton.Name = "selectFatherButton";
             this.selectFatherButton.Size = new System.Drawing.Size(75, 23);
             this.selectFatherButton.TabIndex = 84;
@@ -899,11 +905,33 @@
             this.selectFatherButton.UseVisualStyleBackColor = true;
             this.selectFatherButton.Click += new System.EventHandler(this.addFatherButton_Click);
             // 
+            // resetMumButton
+            // 
+            this.resetMumButton.Location = new System.Drawing.Point(721, 336);
+            this.resetMumButton.Name = "resetMumButton";
+            this.resetMumButton.Size = new System.Drawing.Size(75, 23);
+            this.resetMumButton.TabIndex = 85;
+            this.resetMumButton.Text = "Сбросить";
+            this.resetMumButton.UseVisualStyleBackColor = true;
+            this.resetMumButton.Click += new System.EventHandler(this.resetMumButton_Click);
+            // 
+            // resetDadButton
+            // 
+            this.resetDadButton.Location = new System.Drawing.Point(721, 395);
+            this.resetDadButton.Name = "resetDadButton";
+            this.resetDadButton.Size = new System.Drawing.Size(75, 23);
+            this.resetDadButton.TabIndex = 86;
+            this.resetDadButton.Text = "Сбросить";
+            this.resetDadButton.UseVisualStyleBackColor = true;
+            this.resetDadButton.Click += new System.EventHandler(this.resetDadButton_Click);
+            // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 601);
+            this.Controls.Add(this.resetDadButton);
+            this.Controls.Add(this.resetMumButton);
             this.Controls.Add(this.selectFatherButton);
             this.Controls.Add(this.selectMotherButton);
             this.Controls.Add(this.label22);
@@ -1031,5 +1059,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button selectMotherButton;
         private System.Windows.Forms.Button selectFatherButton;
+        private System.Windows.Forms.Button resetMumButton;
+        private System.Windows.Forms.Button resetDadButton;
     }
 }

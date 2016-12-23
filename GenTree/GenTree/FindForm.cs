@@ -65,7 +65,7 @@ namespace GenTree
         }
 
         //Кнопка "Найти"
-        private void button1_Click_1(object sender, EventArgs e)
+        private void buttonFind_Click(object sender, EventArgs e)
         {
            FillResultBoxByMask();
         }
@@ -77,6 +77,8 @@ namespace GenTree
             mask.MiddleName = middleNameTextBox.Text;
             mask.SecondName = secondNameTextBox.Text;
             mask.MotherSecondName = MotherSecondNameTextBox.Text;
+
+
             mask.BirthPlace = birthPlaceTextBox.Text;
 
             mask.BirthDate = new DateTime(birthDateYearComboBox.SelectedIndex == -1 ? 1 : birthDateYearComboBox.SelectedIndex + 1919,
@@ -92,11 +94,7 @@ namespace GenTree
             if (mask.IsGenderSet)
                 mask.Gender = checkBoxGenderMale.Checked;
 
-            IDictionary<Int32, Person> _items = locmodel.FindPeople(mask);
-            IList<Person> tableSource = new List<Person>();
-
-            foreach (Person person in _items.Values)
-                tableSource.Add(person);
+            IList<Person> tableSource = locmodel.FindPeople(mask);
 
             resultListBox.DataSource = tableSource;
         }
@@ -109,9 +107,10 @@ namespace GenTree
                 personInfo.Show();
             }
         }
-
-        private void buttonClear_Click(object sender, EventArgs e)
+        private void ClearFields()
         {
+            checkBoxGenderFemale.Checked = false;
+            checkBoxGenderMale.Checked = false;
             firstNameTextBox.Text = "";
             secondNameTextBox.Text = "";
             middleNameTextBox.Text = "";
@@ -120,6 +119,11 @@ namespace GenTree
             birthDateYearComboBox.SelectedIndex = -1;
             birthDateMonthComboBox.SelectedIndex = -1;
             birthDateDayComboBox.SelectedIndex = -1;
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
 
         private void checkBoxGenderFemale_CheckedChanged(object sender, EventArgs e)
@@ -143,6 +147,30 @@ namespace GenTree
         {
             MotherSecondNameTextBox.Enabled = checkBoxGenderFemale.Checked ||
                 (!checkBoxGenderFemale.Checked && !checkBoxGenderMale.Checked);
+        }
+
+        private Boolean checkLetter(char l)
+        {
+            return !(l >= 'А' && l <= 'Я' || l >= 'а' && l <= 'я' || l >= 'A' && l <= 'Z' || l >= 'a' && l <= 'z' || l == 8);
+        }
+        private void firstNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void secondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void MotherSecondNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
+        }
+
+        private void middleNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = checkLetter(e.KeyChar);
         }
     }
 }

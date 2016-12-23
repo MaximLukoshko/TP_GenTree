@@ -15,118 +15,12 @@ namespace DatabaseModel.Database
         public Database()
         {
             data = new Dictionary<Int32, Person>();
-
-            /*Person person = new Person();
-
-            person = new Person();
-            person.FirstName = "Maxim";
-            person.SecondName = "Lukoshko";
-            person.MiddleName = "Alexander";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
-            person.IsGenderSet = true;
-            person.Father = 3;
-            person.Mother = 2;
-            AddPerson(ref person);
-
-            person = new Person();
-            person.FirstName = "Mum";
-            person.SecondName = "Mum";
-            person.MiddleName = "Alexander";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = false;
-            person.IsGenderSet = true;
-            person.Father = 4;
-            person.Mother = 5;
-            AddPerson(ref person);
-
-            person = new Person();
-            person.FirstName = "Father";
-            person.SecondName = "Father";
-            person.MiddleName = "Alexander";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
-            person.IsGenderSet = true;
-            person.Father = 6;
-            person.Mother = 7;
-            AddPerson(ref person);
-
-            person = new Person();
-            person.FirstName = "Ded1";
-            person.SecondName = "Ded1";
-            person.MiddleName = "Alexander";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
-            person.IsGenderSet = true;
-            AddPerson(ref person);
-
-            person = new Person();
-            person.FirstName = "Babulya1";
-            person.SecondName = "Babulya1";
-            person.MiddleName = "Alexander";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = false;
-            person.IsGenderSet = true;
-            AddPerson(ref person);
-
-            person = new Person();
-            person.FirstName = "Ded2";
-            person.SecondName = "Ded2";
-            person.MiddleName = "Alexander";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
-            person.IsGenderSet = true;
-            AddPerson(ref person);
-
-            person = new Person();
-            person.FirstName = "Babulya2";
-            person.SecondName = "Babulya2";
-            person.MiddleName = "Alexander";
-            person.MotherSecondName = "test";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = false;
-            person.IsGenderSet = true;
-            AddPerson(ref person);
-
-            person = new Person();
-            person.FirstName = "Son";
-            person.SecondName = "Son";
-            person.MiddleName = "Alexander";
-            person.BirthDate = (new DateTime()).AddDays(25).AddYears(1997);
-            person.BirthDateCorrectField[0] = true;
-            person.BirthDateCorrectField[1] = false;
-            person.BirthDateCorrectField[2] = true;
-            person.Gender = true;
-            person.IsGenderSet = true;
-            person.Father = 1;
-            AddPerson(ref person);*/
         }
-
         public void AddPerson(ref Person person)
         {
             person.Code = data.Count + 1;
-            data.Add(person.Code, person);
+            if (!data.ContainsKey(person.Code))
+                data.Add(person.Code, person);
         }
 
         public Person GetPersonByCode(Int32 code)
@@ -137,9 +31,9 @@ namespace DatabaseModel.Database
                 return null;
         }
 
-        public IDictionary<Int32, Person> GetPeople(Person mask)
+        public IList<Person> GetPeople(Person mask)
         {
-            IDictionary<Int32, Person> ret = new Dictionary<Int32, Person>();
+            IList<Person> ret = new List<Person>();
 
             foreach (Person person in data.Values)
             {
@@ -172,21 +66,27 @@ namespace DatabaseModel.Database
                     continue;
 
                 //Если всё совпало с маской, то добавляем человека
-                ret.Add(person.Code, person);
+                ret.Add(person);
             }
 
             return ret;
         }
 
-        public IDictionary<Int32, Person> GetPeopleByParentCode(Int32 parentCode)
+        public IList<Person> GetPeopleByParentCode(Int32 parentCode)
         {
-            IDictionary<Int32, Person> ret = new Dictionary<Int32, Person>();
+            IList<Person> ret = new List<Person>();
 
             foreach (Person it in data.Values)
                 if (it.Mother == parentCode || it.Father == parentCode)
-                    ret.Add(it.Code, it);
+                    ret.Add(it);
 
             return ret;
+        }
+
+        public void UpdatePerson(ref Person person)
+        {
+            if (data.ContainsKey(person.Code))
+                data[person.Code] = person;
         }
 
         public void write()
@@ -265,14 +165,14 @@ namespace DatabaseModel.Database
                         p.FirstName = line.Replace("FirstName: ", "");
                         continue;
                     }
-                    if (line.Contains("SecondName: "))
-                    {
-                        p.SecondName = line.Replace("SecondName: ", "");
-                        continue;
-                    }
                     if (line.Contains("MotherSecondName: "))
                     {
                         p.MotherSecondName = line.Replace("MotherSecondName: ", "");
+                        continue;
+                    }
+                    if (line.Contains("SecondName: "))
+                    {
+                        p.SecondName = line.Replace("SecondName: ", "");
                         continue;
                     }
                     if (line.Contains("MiddleName: "))

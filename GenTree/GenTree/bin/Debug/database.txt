@@ -10,6 +10,8 @@ BirthDateDay: 1
 BirthDateYear: 2004
 Mother: 2
 Father: 3
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -26,6 +28,8 @@ BirthDateDay: 1
 BirthDateYear: 2004
 Mother: 5
 Father: 4
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -42,6 +46,8 @@ BirthDateDay: 1
 BirthDateYear: 2004
 Mother: 7
 Father: 6
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -56,6 +62,8 @@ BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
 BirthDateYear: 2004
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -70,6 +78,8 @@ BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
 BirthDateYear: 2004
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -84,6 +94,8 @@ BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
 BirthDateYear: 2004
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -98,6 +110,8 @@ BirthDateCorrectField[1]: False
 BirthDateCorrectField[2]: True
 BirthDateDay: 1
 BirthDateYear: 2004
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: False
 DeathDateCorrectField[2]: False
@@ -115,6 +129,8 @@ BirthDateDay: 1
 BirthDateYear: 2004
 BirthPlace: test
 Father: 1
+MotherName: Мать не указана
+FatherrName: Отец не указан
 DeathDateCorrectField[0]: False
 DeathDateCorrectField[1]: True
 DeathDateCorrectField[2]: False

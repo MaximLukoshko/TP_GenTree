@@ -39,6 +39,9 @@ namespace DatabaseModel.Model
             if (person.FirstName == "" && person.SecondName == "" && person.MotherSecondName == "")
                 return "Поля Фамилия(Девичья фамилия), Имя не могут быть пустыми одновременно";
 
+            if (person.Mother ==person.Code || person.Father == person.Code)
+                return "Человек не может быть своим родителем";
+
             if (person.Mother > 0 && person.Father == 0)
                 if (treeFormer.FindLevel(person.Code, person.Mother) > 0)
                     return "Пытаетесь задать матерью своего ребёнка";

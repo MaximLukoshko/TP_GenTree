@@ -237,17 +237,17 @@ namespace DatabaseModel.Database
                     }
                     if (line.Contains("BirthDateDay: "))
                     {
-                        p.BirthDate = p.BirthDate.AddDays(int.Parse(line.Replace("BirthDateDay: ", "")));
+                        p.BirthDate = p.BirthDate.AddDays(int.Parse(line.Replace("BirthDateDay: ", "")) - 1);
                         continue;
                     }
                     if (line.Contains("BirthDateMonth: "))
                     {
-                        p.BirthDate=p.BirthDate.AddMonths(int.Parse(line.Replace("BirthDateMonth: ", "")));
+                        p.BirthDate = p.BirthDate.AddMonths(int.Parse(line.Replace("BirthDateMonth: ", "")) - 1);
                         continue;
                     }
                     if (line.Contains("BirthDateYear: "))
                     {
-                        p.BirthDate=p.BirthDate.AddYears(int.Parse(line.Replace("BirthDateYear: ", "")));
+                        p.BirthDate = p.BirthDate.AddYears(int.Parse(line.Replace("BirthDateYear: ", "")) - 1);
                         continue;
                     }
                     if (line.Contains("BirthPlace: "))
@@ -291,17 +291,17 @@ namespace DatabaseModel.Database
                     }
                     if (line.Contains("DeathDateDay: "))
                     {
-                        p.DeathDate=p.DeathDate.AddDays(int.Parse(line.Replace("DeathDateDay: ", "")));
+                        p.DeathDate = p.DeathDate.AddDays(int.Parse(line.Replace("DeathDateDay: ", "")) - 1);
                         continue;
                     }
                     if (line.Contains("DeathDateMonth: "))
                     {
-                        p.DeathDate= p.DeathDate.AddMonths(int.Parse(line.Replace("DeathDateMonth: ", "")));
+                        p.DeathDate = p.DeathDate.AddMonths(int.Parse(line.Replace("DeathDateMonth: ", "")) - 1);
                         continue;
                     }
                     if (line.Contains("DeathDateYear: "))
                     {
-                        p.DeathDate=p.DeathDate.AddYears(int.Parse(line.Replace("DeathDateYear: ", "")));
+                        p.DeathDate = p.DeathDate.AddYears(int.Parse(line.Replace("DeathDateYear: ", "")) - 1);
                         continue;
                     }
                     if (line.Contains("DeathPlace: "))
